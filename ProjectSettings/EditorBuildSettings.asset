@@ -4,5 +4,29 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Inicio.unity
+    guid: 0f8a346ea1b9b03419ad6590c3213264
+  - enabled: 1
+    path: Assets/Scenes/MenuPrinicipal_elbueno.unity
+    guid: 8673a426ff846594da43846bccfbcf54
+  - enabled: 1
+    path: Assets/Scenes/MapaJuego.unity
+    guid: 5f1eb672cb0f77d4f8d92f8e95cc83a2
+  - enabled: 1
+    path: Assets/Scenes/Nivel_tuto1.unity
+    guid: 8dd446bd056cfbb4fb1876175e663779
+  - enabled: 1
+    path: Assets/Scenes/Nivel_tuto2.unity
+    guid: 2b63c85e77dd9e64f929546dda38d239
+  - enabled: 1
+    path: Assets/Scenes/Nivel_1.unity
+    guid: c8241f42a21ffa145a843040350db752
+  - enabled: 1
+    path: Assets/Scenes/Nivel_2.unity
+    guid: ec2230a17afcdfd42869abd22f2ef90f
+  - enabled: 1
+    path: Assets/Scenes/Nivel_3.unity
+    guid: c16529a1767493c4ea7a5de129878395
   m_configObjects: {}
