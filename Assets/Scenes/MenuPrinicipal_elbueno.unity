@@ -554,8 +554,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 81.44126, y: -142.8194}
-  m_SizeDelta: {x: 162.88252, y: 95.21293}
+  m_AnchoredPosition: {x: 122.671844, y: -183.92226}
+  m_SizeDelta: {x: 245.34369, y: 122.61484}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &111599012
 MonoBehaviour:
@@ -3583,8 +3583,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50.981956, y: -28.332367}
-  m_SizeDelta: {x: 101.96391, y: 56.664734}
+  m_AnchoredPosition: {x: 77.322754, y: -36.79133}
+  m_SizeDelta: {x: 154.64551, y: 73.58266}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &844763439
 MonoBehaviour:
@@ -5044,8 +5044,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 81.44126, y: -47.606464}
-  m_SizeDelta: {x: 162.88252, y: 95.21293}
+  m_AnchoredPosition: {x: 122.671844, y: -61.30742}
+  m_SizeDelta: {x: 245.34369, y: 122.61484}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1121185894
 MonoBehaviour:
@@ -7694,8 +7694,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 81.44126, y: -131.26917}
-  m_SizeDelta: {x: 162.88252, y: 262.53833}
+  m_AnchoredPosition: {x: 122.671844, y: -169.14139}
+  m_SizeDelta: {x: 245.34369, y: 338.28278}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1789553872
 MonoBehaviour:
@@ -7771,8 +7771,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 244.63379, y: -131.26917}
-  m_SizeDelta: {x: 162.88252, y: 262.53833}
+  m_AnchoredPosition: {x: 368.32553, y: -169.14139}
+  m_SizeDelta: {x: 245.34369, y: 338.28278}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1795162602
 MonoBehaviour:
@@ -8705,8 +8705,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2032780900}
-  - component: {fileID: 2032780902}
   - component: {fileID: 2032780905}
+  - component: {fileID: 2032780899}
   m_Layer: 0
   m_Name: SettingsController
   m_TagString: Untagged
@@ -8714,6 +8714,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2032780899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032780898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a7fb8965f5773a44a453cff65716edd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _brightness: {fileID: 58895659}
+  _sliderBrightness: {fileID: 5089250}
+  _optionToggle: {fileID: 1981532514}
+  _sliderMusic: {fileID: 888385486}
 --- !u!4 &2032780900
 Transform:
   m_ObjectHideFlags: 0
@@ -8728,23 +8744,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2032780902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032780898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70fe1cda81787b54898524504acdcd80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SC_D: {fileID: 0}
-  m_Brillo: {fileID: 58895659}
-  m_musica: {fileID: 0}
-  m_zurdo: {fileID: 1981532514}
-  m_numero: 0
 --- !u!114 &2032780905
 MonoBehaviour:
   m_ObjectHideFlags: 0

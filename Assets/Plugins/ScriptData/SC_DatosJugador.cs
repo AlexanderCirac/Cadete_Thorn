@@ -6,11 +6,11 @@ public class SC_DatosJugador : MonoBehaviour
   [HideInInspector]
   public static SC_DatosJugador m_DO;
 
-  [HideInInspector]
+  //[HideInInspector]
   public int m_nivel;
-  [HideInInspector]
+  //[HideInInspector]
   public float m_Numero_Brillo;
-  [HideInInspector]
+  //[HideInInspector]
   public float m_volumenMusica;
   [HideInInspector]
   public int m_ID_Grafico;
