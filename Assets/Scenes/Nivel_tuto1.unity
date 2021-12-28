@@ -1863,19 +1863,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 340731173}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2041780126}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Reinciar
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &340731173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3250,18 +3238,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2032780909}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: DesbloquearNivel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2032780905}
         m_TargetAssemblyTypeName: 
         m_MethodName: GuardarOpciones
@@ -3270,18 +3246,6 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2041780126}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Reinciar
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4202,18 +4166,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2032780909}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: DesbloquearNivel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2032780905}
         m_TargetAssemblyTypeName: 
         m_MethodName: GuardarOpciones
@@ -4222,18 +4174,6 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2041780126}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Salir
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4667,6 +4607,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 611062242}
   m_CullTransparentMesh: 0
+--- !u!1 &611626795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 611626797}
+  - component: {fileID: 611626796}
+  m_Layer: 0
+  m_Name: InGameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &611626796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611626795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 945074e54769c034b9709fa6b6cb274e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startToGame: 0
+  _winGame: 0
+  _endGame: 0
+  _countPoints: 0
+  _countTime: 150
+  _countPointsMax: 130
+--- !u!4 &611626797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611626795}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 581.5157, y: 221.2503, z: 64.146576}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &675727942
 GameObject:
   m_ObjectHideFlags: 0
@@ -4983,19 +4972,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 744766348}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2041780126}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Salir
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &744766348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5193,7 +5170,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2032780906}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
         m_Mode: 1
@@ -6043,7 +6020,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2032780906}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: CerrarMenuOpciones
         m_Mode: 1
@@ -6062,6 +6039,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6795,7 +6784,7 @@ GameObject:
   - component: {fileID: 912560449}
   - component: {fileID: 912560448}
   m_Layer: 5
-  m_Name: menuPrincipal
+  m_Name: menuPrincipalVictoria
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6865,18 +6854,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2032780909}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: DesbloquearNivel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2032780905}
         m_TargetAssemblyTypeName: 
         m_MethodName: GuardarOpciones
@@ -6885,18 +6862,6 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2041780126}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Reinciar
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -10007,7 +9972,7 @@ GameObject:
   - component: {fileID: 1371465385}
   - component: {fileID: 1371465384}
   m_Layer: 5
-  m_Name: Menu principal
+  m_Name: Menu principalDerrota
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10076,19 +10041,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1371465385}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2041780126}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: MenuPrincipal
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1371465385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10994,11 +10947,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d22c8f618833f0343b0a538169bedfc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _quitGame: {fileID: 0}
-  _buttonMapaJuego: {fileID: 0}
+  _buttonsQuit:
+  - _nameButtonQuiGamet: Salir normal
+    _buttonQuit: {fileID: 543181113}
+  - _nameButtonQuiGamet: Salir Derrota
+    _buttonQuit: {fileID: 744766347}
+  - _nameButtonQuiGamet: Salir Victoria
+    _buttonQuit: {fileID: 568855903}
+  _buttonLoadLevel:
+  - _nameLoadLevel: MenuPrinicpal Normal
+    _buttonLoad: {fileID: 340731172}
+    _intLevelToLoad: 2
+  - _nameLoadLevel: Menu_prinicipal_derrota
+    _buttonLoad: {fileID: 1371465384}
+    _intLevelToLoad: 2
+  - _nameLoadLevel: RepetirDerrota
+    _buttonLoad: {fileID: 1968973997}
+    _intLevelToLoad: 3
+  - _nameLoadLevel: RepetirVictoria
+    _buttonLoad: {fileID: 486113537}
+    _intLevelToLoad: 2
   _buttonEnterPause: {fileID: 766504529}
   _buttonExitPause: {fileID: 2135228203}
-  _SettingsUIController: {fileID: 0}
+  _buttonVictory: {fileID: 912560448}
+  _currentLevel: 0
+  _textPoints: {fileID: 2064187758}
+  _textTaimer: {fileID: 706898209}
+  _panelVictory: {fileID: 2119603635}
+  _panelDefeat: {fileID: 2121352893}
+  _variableTuto:
+    _buttonTuto: {fileID: 291876088}
+    _panelTuto: {fileID: 1251732440}
+    _panelCountDown: {fileID: 547216676}
+  _variableCount:
+    _panelNumer:
+    - {fileID: 1717342447}
+    - {fileID: 787332438}
+    - {fileID: 1067874703}
+    _panelCount: {fileID: 547216676}
+    _endCorrutineCount: 0
+    _Count: 1
+  _settingsUIController: {fileID: 1931653510}
+  _inGameManager: {fileID: 611626796}
 --- !u!4 &1485221619
 Transform:
   m_ObjectHideFlags: 0
@@ -11472,6 +11462,50 @@ MonoBehaviour:
   m_izquierda: {fileID: 2026255866}
   m_derecha: {fileID: 1373862041}
   m_cambio: 0
+--- !u!1 &1564514694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1564514696}
+  - component: {fileID: 1564514695}
+  m_Layer: 0
+  m_Name: InGameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1564514695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564514694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8283baf43e5bde4489665fa286560531, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inGameManager: {fileID: 611626796}
+--- !u!4 &1564514696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564514694}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 581.5157, y: 221.2503, z: 64.146576}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1565167361
 GameObject:
   m_ObjectHideFlags: 0
@@ -13871,7 +13905,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2032780906}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: AbrirMenuOpciones
         m_Mode: 1
@@ -14535,19 +14569,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1968973998}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2041780126}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Reinciar
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1968973998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14717,13 +14739,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2032780900}
   - component: {fileID: 2032780899}
-  - component: {fileID: 2032780906}
   - component: {fileID: 2032780905}
   - component: {fileID: 2032780907}
   - component: {fileID: 2032780908}
   - component: {fileID: 2032780909}
   - component: {fileID: 2032780910}
-  - component: {fileID: 2032780911}
   - component: {fileID: 2032780912}
   - component: {fileID: 2032780913}
   - component: {fileID: 2032780914}
@@ -14742,7 +14762,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2032780898}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed72ed0373f936741a1281499744c1c8, type: 3}
   m_Name: 
@@ -14780,21 +14800,6 @@ MonoBehaviour:
   m_objetoPersistente: {fileID: 11400000, guid: 461b2ce8015de224f8de73545a5df1f5, type: 2}
   m_Datos: {fileID: 0}
   m_1: 0
---- !u!114 &2032780906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032780898}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acba7af7ebd2a4e468acfca052f48bf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_interfazJuego: {fileID: 359445272}
-  m_menuPausa: {fileID: 1916017724}
-  m_menuOpciones: {fileID: 1089629829}
 --- !u!114 &2032780907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14802,7 +14807,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2032780898}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dda4c9c6fd200a041883e0d1c5bd99c5, type: 3}
   m_Name: 
@@ -14838,7 +14843,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2032780898}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2a564e82cd83574bbb1266efbb40709, type: 3}
   m_Name: 
@@ -14853,7 +14858,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2032780898}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57fbfc2cd888c8340ace2af1b9856111, type: 3}
   m_Name: 
@@ -14861,25 +14866,6 @@ MonoBehaviour:
   m_panelTexto: {fileID: 1251732440}
   m_panelCuentaAtras: {fileID: 547216676}
   m_empezar: 0
---- !u!114 &2032780911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032780898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9750932c827bd64184b83229799693c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SC_VG: {fileID: 2032780913}
-  m_3: {fileID: 1717342447}
-  m_2: {fileID: 787332438}
-  m_1: {fileID: 1067874703}
-  m_panelTiempo: {fileID: 547216676}
-  m_jugar: 0
-  m_cambio: 0
 --- !u!114 &2032780912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14887,7 +14873,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2032780898}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fba8c9a10a840174c8b11f8b709be015, type: 3}
   m_Name: 
@@ -14896,7 +14882,7 @@ MonoBehaviour:
   SC_CJ: {fileID: 2032780908}
   m_canvas: {fileID: 1838865509}
   m_obstaculos: {fileID: 1392584019}
-  m_pasarPrimeraFase: 0
+  m_pasarPrimeraFase: 1
 --- !u!114 &2032780913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15961,7 +15947,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2032780906}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: CerrarMenuPausa
         m_Mode: 1

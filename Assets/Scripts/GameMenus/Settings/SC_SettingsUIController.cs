@@ -1,13 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
 
 namespace C_Thorn.UI.Settings
-  {
-      public class SC_SettingsUIController : MonoBehaviour
-      {
+{
+    public class SC_SettingsUIController : MonoBehaviour
+    {
           #region Attributes
           [Header("UI Settings")]
           [SerializeField] private Image _brightness;
@@ -20,7 +19,7 @@ namespace C_Thorn.UI.Settings
           private int _valuebrightness = 0;
           private int _valueMusic = 0;
           //Main Tools
-          [HideInInspector]public SC_DatosJugador _dataPlayer;
+          [HideInInspector] public SC_DatosJugador _dataPlayer;
           //events
           public event Action OnSettings;
           #endregion
@@ -52,14 +51,14 @@ namespace C_Thorn.UI.Settings
                   yield return null;
               }
           }
-           IEnumerator CorrutineSettings()
+            IEnumerator CorrutineSettings()
           {
-               while(!_endCorrutineSetting)
-               {
-                   if(OnSettings != null)
-                     OnSettings();
+                while(!_endCorrutineSetting)
+                {
+                    if(OnSettings != null)
+                      OnSettings();
                   yield return null;
-               }
+                }
           }
           void ApplicateUISettings()
           {
@@ -98,6 +97,6 @@ namespace C_Thorn.UI.Settings
 
           }
           #endregion
-      }
+    }
 }
 

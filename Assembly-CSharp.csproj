@@ -81,10 +81,12 @@
     <Compile Include="Assets\Scripts\InGame\Mecanicas\SC_ControlarVelocidadSegunResolucion.cs" />
     <Compile Include="Assets\Scripts\GameMenus\Settings\SC_SonidoGeneral.cs" />
     <Compile Include="Assets\Scripts\InGame\Mecanicas\SC_LadoALado.cs" />
+    <Compile Include="Assets\Scripts\GameMenus\SC_MapaJuegoUiController.cs" />
     <Compile Include="Assets\Scripts\GameMenus\BannerAD\SC_UIMantener.cs" />
     <Compile Include="Assets\Scripts\InGame\Juego\SC_TiempoAtras.cs" />
     <Compile Include="Assets\Scripts\InGame\Juego\SC_Texto_Tutorial.cs" />
     <Compile Include="Assets\Scripts\GameMenus\Settings\SC_Lector_Datos_BrilloYsonido.cs" />
+    <Compile Include="Assets\Scripts\GameMenus\SC_InGameUiController.cs" />
     <Compile Include="Assets\Scripts\GameMenus\SC_InicioUIController.cs" />
     <Compile Include="Assets\Scripts\InGame\Mecanicas\SC_Respawneador.cs" />
     <Compile Include="Assets\Scripts\InGame\Juador\SC_PermisoMover.cs" />
@@ -106,14 +108,14 @@
     <Compile Include="Assets\Scripts\InGame\Juador\SC_MovimientoJugador.cs" />
     <Compile Include="Assets\Scripts\GameMenus\Settings\SC_ActivarBorrarDatos.cs" />
     <Compile Include="Assets\Scripts\InGame\Mecanicas\SC_MoverBloque.cs" />
+    <Compile Include="Assets\Scripts\InGame\SC_InGameController.cs" />
     <Compile Include="Assets\Scripts\InGame\Mecanicas\SC_DarPuntos.cs" />
     <Compile Include="Assets\Scripts\InGame\Mecanicas\SC_Contador.cs" />
     <Compile Include="Assets\Scripts\InGame\Juador\SC_JugadorAnimacion.cs" />
     <Compile Include="Assets\Scripts\InGame\vida\SC_Vida.cs" />
     <Compile Include="Assets\Scripts\GameMenus\Settings\SC_SettingsUIController.cs" />
     <Compile Include="Assets\Scripts\GameMenus\SC_MainMenuUiController.cs" />
-    <Compile Include="Assets\Scripts\GameMenus\SC_MapaJuegoUiController.cs" />
-    <Compile Include="Assets\Scripts\GameMenus\SC_InGameUiController.cs" />
+    <Compile Include="Assets\Scripts\InGame\SC_InGameManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Shaders\LowPolyUnlitShader.shader" />

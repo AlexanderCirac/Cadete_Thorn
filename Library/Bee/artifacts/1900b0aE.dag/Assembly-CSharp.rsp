@@ -380,6 +380,8 @@
 "Assets/Scripts/InGame/Mecanicas/SC_Respawneador.cs"
 "Assets/Scripts/InGame/Mecanicas/SC_Temporizador.cs"
 "Assets/Scripts/InGame/Mecanicas/SC_VelocidadGeneral.cs"
+"Assets/Scripts/InGame/SC_InGameController.cs"
+"Assets/Scripts/InGame/SC_InGameManager.cs"
 "Assets/Scripts/InGame/vida/SC_QuitarVida.cs"
 "Assets/Scripts/InGame/vida/SC_Vida.cs"
 -langversion:8.0

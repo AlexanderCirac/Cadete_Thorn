@@ -9,10 +9,10 @@ public class SC_TiempoAtras : MonoBehaviour
   public GameObject m_2;
   public GameObject m_1;
   public GameObject m_panelTiempo;
-  private float m_velocidad;
+  public float m_velocidad;
   [HideInInspector]
   public bool m_jugar;
-  [HideInInspector]
+  //[HideInInspector]
   public int m_cambio;
 
   private void Start()

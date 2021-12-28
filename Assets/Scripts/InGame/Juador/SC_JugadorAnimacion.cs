@@ -52,9 +52,6 @@ public class SC_JugadorAnimacion : MonoBehaviour
       {
         m_nave.transform.RotateAround(m_nave.gameObject.transform.position, Vector3.forward, -500 * Time.deltaTime);
       }
-      //currentRotation += m_nave.transform.rotation.eulerAngles.z - 5 * Time.deltaTime; 
-      //currentRotation = Mathf.Clamp(m_nave.transform.rotation.eulerAngles.z, baseRotacion, maxzRotation1);
-      //m_nave.transform.rotation = Quaternion.identity * Quaternion.AngleAxis(currentRotation + 5 *Time.deltaTime, Vector3.forward);
     }
     if (this.transform.position.x < m_movimientosGuardado)
     {

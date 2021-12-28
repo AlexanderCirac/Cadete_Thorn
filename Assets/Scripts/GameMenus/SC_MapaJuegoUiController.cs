@@ -5,8 +5,8 @@ using C_Thorn.UI.Settings;
 
 namespace C_Thorn.UI
 {
-      public class SC_MapaJuegoUiController : MonoBehaviour
-      {
+    public class SC_MapaJuegoUiController : MonoBehaviour
+    {
           #region Attributes
           [Header("Button")]
           [SerializeField] private Button _quitGame;
@@ -23,7 +23,7 @@ namespace C_Thorn.UI
           }
           [Header("Show buttons")]
           [SerializeField] private ShowButtons[] _showButtons;
-           private int _levelDataPlayer;
+            private int _levelDataPlayer;
           
           //Main Tools
           public SC_SettingsUIController _SettingsUIController;
@@ -33,8 +33,10 @@ namespace C_Thorn.UI
           #region UnityCalls
           void Start()
           {
+              //Start game
               Time.timeScale = 1;
-               //Applying button onClick 
+
+                //Applying button onClick 
               int _raidLevel = 1, a = 0, b = 0, c= 0;
               for (; _raidLevel <= _buttonLevel.Length; _raidLevel++)
               {
@@ -42,6 +44,7 @@ namespace C_Thorn.UI
                   _buttonLevel[_raidLevel-1]._buttonToLevel.onClick.AddListener(() => SceneManager.LoadScene(_buttonLevel[_count - 1]._intLevel));
               }
               _quitGame.onClick.AddListener(() => Application.Quit());
+
               //Invoke 
               Invoke(nameof(ShowButtonsDataPlayer),.2f);
           }
@@ -58,7 +61,7 @@ namespace C_Thorn.UI
                   _showButtons[i-1]._buttonToShow.interactable = true;
               }
           }
-          #endregion
-      }
+        #endregion
+    }
 
 }

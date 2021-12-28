@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using C_Thorn.UI;
 
 public class SC_Texto_Tutorial : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class SC_Texto_Tutorial : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     
+
     }
   // Update is called once per frame
     void Update()
@@ -37,7 +38,7 @@ public class SC_Texto_Tutorial : MonoBehaviour
       {
       m_panelTexto.SetActive(false);
       m_panelCuentaAtras.SetActive(true);
-        m_soloUnavez = true;
+      m_soloUnavez = true;
       }
     }
   }
