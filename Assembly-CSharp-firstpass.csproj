@@ -62,7 +62,9 @@
     <Compile Include="Assets\Plugins\ScriptData\SC_BotonCargar.cs" />
   </ItemGroup>
   <ItemGroup>
+     <None Include="Assets\Plugins\Notes\Notas_SC_Player.txt" />
      <None Include="Assets\Plugins\Android\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Notes\Nota_VidaSprite.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.1.4f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

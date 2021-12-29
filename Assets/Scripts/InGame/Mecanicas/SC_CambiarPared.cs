@@ -6,12 +6,7 @@ public class SC_CambiarPared : MonoBehaviour
 {
   //esto script es para que desaparezcan los objetos la primera es para que sea random y la segunda es para que se vaya intercalando cuando una se apaga
   //la otra se enciena
-  
-  
-  
-  
-  
-  
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,46 +27,7 @@ public class SC_CambiarPared : MonoBehaviour
     Animacion();
     }
 
-  ///Parte 1//////////////////////////////////////////////
-  //private float m_tiempo;
-  //private float m_tiemporandom;
-  //public float m_numeroMax;
-  //public GameObject m_pared;
-  //private bool m_primerTiempo;
-  //private bool m_segundoTiempo;
-  //void TiempoRandom()
-  //{//Elejimos un numero random para el tiempo que estara activada las cosas
-  //  if (!m_primerTiempo)
-  //  {
-  //    m_tiemporandom = Random.Range(3, m_numeroMax); // el maximo que ha de superar el contador del tiempo
-  //    m_tiempo = 0; // se inicializa el contador a 0
-  //    m_primerTiempo = true; // activamos el contador de tiempo que estara abrir la puerta
-  //    m_segundoTiempo = false; // activamos el contado del tiempo que estara cerrada
-  //  }
-  //}
-
-  //void Activar_Desactivar()
-  //{
-  //  if (m_tiempo < m_tiemporandom && m_primerTiempo == true && !m_segundoTiempo)
-  //  {
-  //    m_tiempo += 1 *Time.deltaTime;
-  //    m_pared.SetActive(false); // abrir  puerta
-  //  }
-  //  else
-  //  {
-  //    m_segundoTiempo = true;
-  //    if ( 0.5f < (m_tiempo /3))
-  //    {
-  //      m_tiempo -=  1 *Time.deltaTime;
-  //      m_pared.SetActive(true); // cerrar puerta
-  //    }
-  //    else
-  //    {
-  //      m_primerTiempo = false;
-  //    }
-  //  }
-
-
+  
   ///Parte 2///////////////////////////////////
   ///
   //aqui creamos un numero random que difiniara el tiempo que tardara de cambiar de un lado a otro

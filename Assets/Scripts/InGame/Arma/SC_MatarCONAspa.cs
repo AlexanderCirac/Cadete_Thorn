@@ -20,7 +20,7 @@ public class SC_MatarCONAspa : MonoBehaviour
   {
     if (coll.CompareTag("Player"))
     {
-      coll.GetComponent<SC_MuerteJugador>().m_muerto = true;
+      //coll.GetComponent<SC_MuerteJugador>().m_muerto = true;
     }
   }
 }

@@ -56,8 +56,8 @@ namespace C_Thorn.UI.Settings
                 while(!_endCorrutineSetting)
                 {
                     if(OnSettings != null)
-                      OnSettings();
-                  yield return null;
+                        OnSettings();
+                    yield return null;
                 }
           }
           void ApplicateUISettings()

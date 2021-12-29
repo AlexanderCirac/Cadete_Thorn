@@ -1,0 +1,103 @@
+Diferentes formas de moverlo con Inputs de pantalla
+NO ESTA FACTORIZADO!!!!!!
+
+//[HideInInspector]
+  //public Vector3 m_PosicionActual;
+  //[HideInInspector]
+  //public Vector3 m_NuevaPosicion;
+  //private Vector3 m_distancia;
+  //private float m_calculoDistancia;
+  //[HideInInspector]
+  //public bool m_seguirMoviendo;
+  //public float m_distanciaMax;
+
+
+  //void ControlPosicion()
+  //{
+
+  //  // funciona; pero esto es para eviatar que la nave aga traslaciones raras cuando hay dos inputs en la pantalla, porque la nave se queda en medio
+  //  // de los dos dedos. Si utilizas los controles del input.mouse encuenta de Input.GetTouch(0);, si utilizas el touch no necesitas esto.
+  //  m_NuevaPosicion = m_jugador.transform.position;
+
+  //  m_distancia = new Vector3(m_PosicionActual.x - m_NuevaPosicion.x, m_jugador.transform.position.y, m_PosicionActual.z - m_NuevaPosicion.z);
+  //  m_calculoDistancia = Mathf.Abs(m_distancia.sqrMagnitude);
+
+  //  Debug.Log(m_NuevaPosicion);
+  //  if (m_calculoDistancia < m_distanciaMax) {
+
+  //    m_seguirMoviendo = true;
+  //    m_PosicionActual = m_jugador.transform.position;
+      
+  //  }
+  //  else
+  //  {
+  //    m_seguirMoviendo = false;
+  //    m_jugador.transform.position = new Vector3( m_PosicionActual.x, m_jugador.transform.position.y, m_PosicionActual.z);
+  //  }
+  //}
+
+
+Para clampear la rotacion de los objetos 
+
+ public GameObject m_nave;
+  //esta funcion es la que ara que se reproduzca la animacion
+  private float m_z;
+  private bool m_parar;
+
+  //opcion 3 
+
+  private float baseRotacion = 0f;
+  private float maxzRotation1 = -60; // este sera el valor para clampear un lado derech
+  private float maxzRotation2 = 60; // este sera el valor para clampear un lado izquierdo
+  float currentRotation = 0.0f;
+  Quaternion zRotation;
+
+  private float m_numero;
+  void Animacion()
+  {
+    // GIRAR DERECHA
+    if (this.transform.position.x > m_movimientosGuardado)
+    {
+      //para que rote libremente ( opcion 1)
+      //  m_nave.transform.RotateAround(m_nave.gameObject.transform.position, Vector3.forward, -50 * Time.deltaTime);
+      //esto es para que se ponga en una rotacion fija ( opcione 2)
+      //if (!m_parar)
+      //{
+      //  m_nave.transform.rotation = Quaternion.Euler(new Vector3(m_nave.transform.rotation.x, m_nave.transform.rotation.y, -15));
+      //  m_parar = true;
+      //}
+
+      //esto es para que rote asta un cierto punto ( opcion 3)
+
+      if (m_nave.transform.rotation.z > -0.3)
+      {
+        m_nave.transform.RotateAround(m_nave.gameObject.transform.position, Vector3.forward, -500 * Time.deltaTime);
+      }
+    }	
+    //GIRAR IZQUIERDA
+    if (this.transform.position.x < m_movimientosGuardado)
+    {
+      //opcion 2
+      //if (m_parar)
+      //{
+      //  m_nave.transform.rotation = Quaternion.Euler(new Vector3(m_nave.transform.rotation.x, m_nave.transform.rotation.y, 5));
+      //  m_parar = false;
+      //}
+      //opcion 3
+      if (m_nave.transform.rotation.z < 0.3)
+      {
+        m_nave.transform.RotateAround(m_nave.gameObject.transform.position, Vector3.forward, 500 * Time.deltaTime);
+      }
+    }
+  }
+
+
+  private float m_movimientosGuardado;
+ 
+  void comprobanteValorMovimientos()
+  {
+    if (this.transform.position.x != m_movimientosGuardado)
+    {
+      m_movimientosGuardado = this.transform.position.x;
+    }
+  }

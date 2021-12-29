@@ -22,7 +22,7 @@ public class SC_MatarJugador : MonoBehaviour
   private void OnTriggerEnter(Collider col)
   {
     if(col.CompareTag("Player")){
-      col.GetComponent<SC_MuerteJugador>().m_muerto = true;
+    //  col.GetComponent<SC_MuerteJugador>().m_muerto = true;
     }
   }
 }

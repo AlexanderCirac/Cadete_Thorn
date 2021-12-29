@@ -11,7 +11,7 @@ public class SC_ControlVictoria : MonoBehaviour
     //variables para coger informacion de otras script que me dara los datos necesiarios para pasar
   public SC_Contador SC_C;
   public SC_Temporizador SC_T;
-  public SC_MuerteJugador SC_M;
+  //public SC_MuerteJugador SC_M;
   public GameObject m_canvasVictoria;
 
   public GameObject m_B;
@@ -35,8 +35,8 @@ public class SC_ControlVictoria : MonoBehaviour
 
   void Victoria()
   {
-      if (SC_T.m_contador == 0 || SC_C.m_contandoPuntos == SC_C.m_maximo || SC_M.m_muerto == true)
-      {
+      //if (SC_T.m_contador == 0 || SC_C.m_contandoPuntos == SC_C.m_maximo || SC_M.m_muerto == true)
+      //{
         if (SC_C.m_contandoPuntos >= (SC_C.m_maximo * 70)/100)
         {
           Debug.Log("A");
@@ -56,15 +56,15 @@ public class SC_ControlVictoria : MonoBehaviour
           m_tiempo.text = Mathf.FloorToInt(SC_T.m_contador).ToString();
           m_puntos.text = SC_C.m_contandoPuntos.ToString();
           m_victoria = true;
-          SC_M.m_MuerteDerrota = false;
+         // SC_M.m_MuerteDerrota = false;
         }
         else
         {
-          SC_M.m_muerto = true;
-          SC_M.m_MuerteDerrota = true;
+        //  SC_M.m_muerto = true;
+        //  SC_M.m_MuerteDerrota = true;
       }
         SC_T.m_parar = true;
-      }
+    //  }
     }
   }
 

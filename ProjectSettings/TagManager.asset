@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CosoMedio
+  - Bala_Jugador
+  - Projectile
+  - Aspa
+  - PowerUPPoints
+  - PowerUPTime
+  - Killer
+  - Enemigo
+  - BulletPlayer
   layers:
   - Default
   - TransparentFX
@@ -11,9 +20,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - PowerUPTime
+  - PowerUPPoints
+  - Quiller
   - 
   - 
   - 

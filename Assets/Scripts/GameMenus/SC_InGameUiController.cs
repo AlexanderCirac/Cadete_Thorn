@@ -31,14 +31,11 @@ namespace C_Thorn.UI
           [SerializeField] private Button _buttonEnterPause;
           [SerializeField] private Button _buttonExitPause;
           [SerializeField] private Button _buttonVictory;
-
           [Header("Int")]
           [SerializeField] private int _currentLevel;
-
           [Header("Text")]
           [SerializeField] private Text _textPoints;
           [SerializeField] private Text _textTaimer;    
-    
           [Header("Panels")]
           [SerializeField] private GameObject _panelVictory;
           [SerializeField] private GameObject _panelDefeat;
@@ -65,9 +62,10 @@ namespace C_Thorn.UI
           [Header("Main Tools")]
           public SC_SettingsUIController _settingsUIController;
           public SC_InGameManager _inGameManager;
+
           //Events
           public event Action<bool> OnPausaGame;
-          public event Action OnReloadPoints;
+          public static event Action OnReloadPoints;
           #endregion
 
           #region UnityCalls
@@ -92,7 +90,7 @@ namespace C_Thorn.UI
               for (; _raidButtonLoadLevel <= _buttonLoadLevel.Length; _raidButtonLoadLevel++)
               {
                   int _count = _raidButtonLoadLevel;
-                  _buttonLoadLevel[_raidButtonLoadLevel - 1]._buttonLoad.onClick.AddListener(() => SceneManager.LoadScene(_buttonLoadLevel[_count]._intLevelToLoad) );
+                  _buttonLoadLevel[_raidButtonLoadLevel - 1]._buttonLoad.onClick.AddListener(() => SceneManager.LoadScene(_buttonLoadLevel[_count-1]._intLevelToLoad) );
               }
               _buttonEnterPause.onClick.AddListener(() => 
               {
@@ -117,9 +115,10 @@ namespace C_Thorn.UI
                   Time.timeScale = 0;
                   _variableTuto._buttonTuto.onClick.AddListener(StartTutoLevel);
               }
-              else{
+              else
+              {
                   Time.timeScale = 1;
-                    _variableCount._panelCount.SetActive(true);
+                   _variableCount._panelCount.SetActive(true);
                   StartCoroutine(CorrutineCountDown());
               }
               _textTaimer.text =_inGameManager._countTime.ToString();
@@ -130,6 +129,11 @@ namespace C_Thorn.UI
           {
               OnPausaGame -=  PausaGame;
               OnReloadPoints -= ReloadPointsCount;
+          }
+
+          private void Update()
+          {
+              ActivatePanelVictoris();
           }
           #endregion
 
@@ -162,7 +166,6 @@ namespace C_Thorn.UI
                 yield return null;
             }
           } 
-    
           public  void StartCountDown()
           {
               int i = _variableCount._Count;
@@ -190,19 +193,20 @@ namespace C_Thorn.UI
                   }
               }
           }
-
           private void ReloadPointsCount()
           {
               _textPoints.text = _inGameManager._countPoints + " /" + _inGameManager._countPointsMax;
           }
-
           IEnumerator CorrutineTimeInGame()
           {
-              while(_inGameManager._countTime >= 1)
+              while(Time.timeScale == 1 && _inGameManager._countTime >= 0 )
               {   
+                  if(OnReloadPoints != null)
+                        OnReloadPoints();
                   yield return new WaitForSeconds(1);
                   _inGameManager._countTime--;
                   _textTaimer.text =_inGameManager._countTime.ToString();
+
               }
           }
 
@@ -218,8 +222,17 @@ namespace C_Thorn.UI
                   SceneManager.LoadScene(2);
               }
           }
+          private void  ActivatePanelVictoris()
+          {
+              
+              if(_inGameManager._winGame)
+                    _panelVictory.SetActive(true);  
+                  
+              if(_inGameManager._endGame)
+                    _panelDefeat.SetActive(true);
+             
+          }
           #endregion
-
   }
 
 }

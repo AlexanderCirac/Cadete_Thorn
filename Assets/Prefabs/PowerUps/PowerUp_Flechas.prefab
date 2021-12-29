@@ -13,11 +13,10 @@ GameObject:
   - component: {fileID: 1005044049406606294}
   - component: {fileID: 8765661720895168355}
   - component: {fileID: 7186309881840497049}
-  - component: {fileID: 3743125587369593792}
-  - component: {fileID: 605284860793438516}
-  m_Layer: 0
+  - component: {fileID: 4169914449019675070}
+  m_Layer: 7
   m_Name: PowerUp_Flechas
-  m_TagString: Untagged
+  m_TagString: PowerUPPoints
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,9 +54,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -82,6 +84,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!54 &8765661720895168355
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -109,9 +112,9 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1105.6436, y: 268.94385, z: 1105.6438}
-  m_Center: {x: 0, y: 23.807026, z: -0.000047683716}
---- !u!114 &3743125587369593792
+  m_Size: {x: 1940.0499, y: 3555.0564, z: 1105.6438}
+  m_Center: {x: -38.456757, y: -162.68587, z: -0.000041194722}
+--- !u!114 &4169914449019675070
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,21 +123,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1005044049408861462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79bfcf660a0039f45a3407cb12cf37ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 57faafddd2f7ca94eb926ccb156a648a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SC_C: {fileID: 0}
-  m_puntos: 10
---- !u!114 &605284860793438516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1005044049408861462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f74d3383cfb8b124bacfac5a3c552e48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Perecederos: 1
