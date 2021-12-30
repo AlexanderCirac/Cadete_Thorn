@@ -16,8 +16,8 @@ namespace C_Thorn.InGame.IA
               if(_coll.CompareTag("BulletPlayer"))
               {
                   SC_InGameController.instance.IncresPoints();
+                  Destroy(this.gameObject);
               }
-              Destroy(this.gameObject);
           }
           #endregion
   }

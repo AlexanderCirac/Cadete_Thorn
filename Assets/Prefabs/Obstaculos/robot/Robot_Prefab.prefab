@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1793405002294064799}
-  - component: {fileID: 1793405002294064784}
   m_Layer: 9
   m_Name: Cuerpo
   m_TagString: Untagged
@@ -33,19 +32,6 @@ Transform:
   m_Father: {fileID: 1793405002844761603}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1793405002294064784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793405002294064798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 076a3cd1cf00ea24399a774941bc79ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_jugador: {fileID: 0}
 --- !u!1 &1793405002800928009
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,10 +123,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1793405002844761603}
-  - component: {fileID: 1793405002844761602}
   - component: {fileID: 3985035272505269502}
   - component: {fileID: 3349045512098579936}
-  - component: {fileID: 5178359486930921369}
+  - component: {fileID: 1856780456970816944}
   m_Layer: 0
   m_Name: Robot_Prefab
   m_TagString: Enemigo
@@ -166,24 +151,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1793405002844761602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793405002844761601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caab6222277c3164b890f3182d07aaed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SC_MR: {fileID: 5178359486930921369}
-  m_aspa: {fileID: 1793405003193881234}
-  m_velocidadAspa: 40
-  m_robot: 1
-  m_robot1: 0
-  m_detector: {fileID: 5061889780873801424, guid: c908d778d7bd04a4485d9068a3977ac0, type: 3}
 --- !u!54 &3985035272505269502
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -213,7 +180,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 638.8497, y: 2154.0552, z: 630.4127}
   m_Center: {x: -5.9634995, y: -18.369978, z: 42.731396}
---- !u!114 &5178359486930921369
+--- !u!114 &1856780456970816944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -222,15 +189,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1793405002844761601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2fcc2868c466054094631f56a5f0bab, type: 3}
+  m_Script: {fileID: 11500000, guid: 48bb6de06cffefc4f93b1d0b20e56861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_robotMuerto: 0
-  SC_A: {fileID: 1793405002844761602}
-  SC_DR: {fileID: 0}
-  m_robot: {fileID: 1793405002294064798}
-  m_asprobot: {fileID: 1793405003193881234}
-  m_efecto: {fileID: 8067857101107979320}
+  _velocityToRotate: 10
+  _blades: {fileID: 1793405003193881234}
+  _canon: {fileID: 2903978145764234672}
+  _bulletEnemy: {fileID: 5775896456346422427, guid: 44bccc7acbd713c4f865a6d6a69140bd, type: 3}
 --- !u!1 &1793405003193881234
 GameObject:
   m_ObjectHideFlags: 0

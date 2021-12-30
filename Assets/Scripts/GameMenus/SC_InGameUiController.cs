@@ -122,7 +122,7 @@ namespace C_Thorn.UI
                   StartCoroutine(CorrutineCountDown());
               }
               _textTaimer.text =_inGameManager._countTime.ToString();
-
+              
           }
 
           private void OnDestroy()
@@ -224,13 +224,11 @@ namespace C_Thorn.UI
           }
           private void  ActivatePanelVictoris()
           {
-              
               if(_inGameManager._winGame)
                     _panelVictory.SetActive(true);  
                   
               if(_inGameManager._endGame)
                     _panelDefeat.SetActive(true);
-             
           }
           #endregion
   }

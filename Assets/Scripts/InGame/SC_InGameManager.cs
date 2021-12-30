@@ -14,7 +14,18 @@ namespace C_Thorn.InGame
         public int _countTime = 1;
         public int _countPointsMax = 0;
         public static float _velocityToMove = 15;
+
+        public static SC_InGameManager _instance;
+        #endregion
+        #region UnityCalls
+        private void Start()
+        {
+            _instance = this;
+        }
         #endregion
 
-    }
+
+
+
+  }
 }

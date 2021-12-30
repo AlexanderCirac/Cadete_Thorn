@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1005044049406606294}
   - component: {fileID: 8765661720895168355}
   - component: {fileID: 7186309881840497049}
-  - component: {fileID: 4169914449019675070}
+  - component: {fileID: 3954389152768545648}
   m_Layer: 7
   m_Name: PowerUp_Flechas
   m_TagString: PowerUPPoints
@@ -114,7 +114,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1940.0499, y: 3555.0564, z: 1105.6438}
   m_Center: {x: -38.456757, y: -162.68587, z: -0.000041194722}
---- !u!114 &4169914449019675070
+--- !u!114 &3954389152768545648
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,6 +123,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1005044049408861462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57faafddd2f7ca94eb926ccb156a648a, type: 3}
+  m_Script: {fileID: 11500000, guid: c28f7b3e2a737ed49aaa3f16f07ba173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

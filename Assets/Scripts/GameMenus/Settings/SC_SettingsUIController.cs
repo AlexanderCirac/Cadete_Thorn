@@ -14,6 +14,9 @@ namespace C_Thorn.UI.Settings
           [SerializeField] private Toggle _optionToggle;
           private AudioSource _music;
           [SerializeField] private Slider _sliderMusic;
+          [Header("Activate Panel left Hand")]
+          [SerializeField] private GameObject _panelLeftHand;
+          [SerializeField] private GameObject _panelRightHand;
           private bool _endCorrutineSetting = false;
           private int _idLeft_Hand = 0;
           private int _valuebrightness = 0;
@@ -28,6 +31,7 @@ namespace C_Thorn.UI.Settings
           private void Awake()
           {
               StartCoroutine(nameof(GetDateJugadorCorrutine));
+              StartCoroutine(nameof(CorrutineChangePanelLeftHand));
           }
           private void Start()
           {
@@ -94,8 +98,25 @@ namespace C_Thorn.UI.Settings
               {
                   _dataPlayer.m_volumenMusica = _sliderMusic.value;
               }
-
           }
+
+          IEnumerator CorrutineChangePanelLeftHand()
+          {
+              while (!_endCorrutineSetting && _panelLeftHand != null)
+              {
+                  if (_optionToggle.isOn)
+                  {
+                      _panelLeftHand.SetActive(true);
+                      _panelRightHand.SetActive(false);                      
+                  }
+                  else
+                  {
+                      _panelLeftHand.SetActive(false);
+                      _panelRightHand.SetActive(true);
+                  }
+                  yield return null;
+              }
+          }  
           #endregion
     }
 }

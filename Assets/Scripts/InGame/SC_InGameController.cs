@@ -17,6 +17,10 @@ namespace C_Thorn.InGame
           public SC_InGameManager _inGameManager;
           public static SC_InGameController instance;
 
+          [Header("Control position Respawn")]
+          public GameObject _posrespawnLeft;
+          public GameObject _posrespawnRight;
+
           
 
           #endregion
@@ -25,6 +29,7 @@ namespace C_Thorn.InGame
           void Start()
           {     
                 StartCoroutine(nameof(ConditionVictoryCorrutine));
+                StartCoroutine(nameof(CorrutineRecalculatePosRespawn));
                 SC_PlayerController.OnReloadPoints += IncresPoints;
                 SC_PlayerController.OnIncresTime += IncresTime;
                 instance = this;
@@ -57,6 +62,20 @@ namespace C_Thorn.InGame
                   }
                   yield return null;
               }
+          }          
+          IEnumerator CorrutineRecalculatePosRespawn() 
+          {
+                  //Recalculate position with type screen
+                  Vector2 m_posCamaraP = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+                  Vector2 m_posCamaraN = Camera.main.ScreenToWorldPoint(new Vector3(-Screen.width, -Screen.height, Camera.main.transform.position.z));
+                  
+                  //recalculate position left
+                  _posrespawnLeft.transform.position = new Vector3((m_posCamaraN.x +(m_posCamaraP.x +(m_posCamaraP.x/6) )), _posrespawnLeft.transform.position.y, _posrespawnLeft.transform.position.z);
+
+                  // Recalculate position Right
+                   _posrespawnRight.transform.position = new Vector3((m_posCamaraP.x -(m_posCamaraP.x/5)),_posrespawnRight.transform.position.y, _posrespawnRight.transform.position.z);
+                  yield return null;
+              
           }
 
           public void IncresPoints()

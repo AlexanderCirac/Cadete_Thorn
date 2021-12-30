@@ -19,6 +19,10 @@ namespace C_Thorn.InGame.IA
               StartCoroutine(CorrutineToDieInTime(38));
               StartCoroutine(CorrutineRotate());
           }
+          private void OnDestroy()
+          {
+              _endCorrutineRotate = true;
+          }
           #endregion    
     
           #region Methods
