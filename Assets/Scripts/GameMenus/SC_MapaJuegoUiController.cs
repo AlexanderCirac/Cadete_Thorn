@@ -37,11 +37,10 @@ namespace C_Thorn.UI
               Time.timeScale = 1;
 
                 //Applying button onClick 
-              int _raidLevel = 1, a = 0, b = 0, c= 0;
-              for (; _raidLevel <= _buttonLevel.Length; _raidLevel++)
+              for (int i = 1; i <= _buttonLevel.Length; i++)
               {
-                  int _count = _raidLevel;
-                  _buttonLevel[_raidLevel-1]._buttonToLevel.onClick.AddListener(() => SceneManager.LoadScene(_buttonLevel[_count - 1]._intLevel));
+                  int _count = i;
+                  _buttonLevel[i-1]._buttonToLevel.onClick.AddListener(() => SceneManager.LoadScene(_buttonLevel[_count - 1]._intLevel));
               }
               _quitGame.onClick.AddListener(() => Application.Quit());
 
@@ -55,8 +54,7 @@ namespace C_Thorn.UI
           {
               //Activate Buttons Level
               _levelDataPlayer = _SettingsUIController._dataPlayer.m_nivel;
-              int i = 1, a = 0, b = 0, c= 0;
-              for ( ; i<= _levelDataPlayer; i++ )
+              for (int i = 1 ; i<= _levelDataPlayer; i++ )
               {
                   _showButtons[i-1]._buttonToShow.interactable = true;
               }

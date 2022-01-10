@@ -81,16 +81,16 @@ namespace C_Thorn.UI
               }
 
               //button onClick 
-              int _raidButtonQuit = 1, a = 0, b = 0, c= 0;
-              for (; _raidButtonQuit <= _buttonsQuit.Length; _raidButtonQuit++)
+             
+              for (int i = 1; i <= _buttonsQuit.Length; i++)
               {
-                  _buttonsQuit[_raidButtonQuit - 1]._buttonQuit.onClick.AddListener(() => Application.Quit() );
+                  _buttonsQuit[i - 1]._buttonQuit.onClick.AddListener(() => Application.Quit() );
               }              
-              int _raidButtonLoadLevel= 1, e = 0, h = 0, i= 0;
-              for (; _raidButtonLoadLevel <= _buttonLoadLevel.Length; _raidButtonLoadLevel++)
+              
+              for (int i = 1; i <= _buttonLoadLevel.Length; i++)
               {
-                  int _count = _raidButtonLoadLevel;
-                  _buttonLoadLevel[_raidButtonLoadLevel - 1]._buttonLoad.onClick.AddListener(() => SceneManager.LoadScene(_buttonLoadLevel[_count-1]._intLevelToLoad) );
+                  int _count = i;
+                  _buttonLoadLevel[i - 1]._buttonLoad.onClick.AddListener(() => SceneManager.LoadScene(_buttonLoadLevel[_count-1]._intLevelToLoad) );
               }
               _buttonEnterPause.onClick.AddListener(() => 
               {
