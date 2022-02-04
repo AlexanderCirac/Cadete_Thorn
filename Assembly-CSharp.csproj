@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\InGame\SC_InGameController.cs" />
     <Compile Include="Assets\Scripts\GameMenus\Settings\SC_SettingsUIController.cs" />
     <Compile Include="Assets\Scripts\GameMenus\SC_MainMenuUiController.cs" />
+    <Compile Include="Assets\Scripts\Enums.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Shaders\LowPolyUnlitShader.shader" />
