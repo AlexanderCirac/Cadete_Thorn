@@ -15,44 +15,46 @@ namespace C_Thorn.UI
           [System.Serializable]
           public class ButtonQuitsGame
           { 
-              public string _nameButtonQuiGamet;
-              public Button _buttonQuit;
+              [SerializeField] private string _quitName;
+              public Button _quitButton;
           }
           [Header("Button")]
-          [SerializeField] private ButtonQuitsGame[] _buttonsQuit;              
+          [SerializeField] private ButtonQuitsGame[] _arrayQuitButton;              
           [System.Serializable]
           public class ButtonLoadLevel
           { 
-              public string _nameLoadLevel;
-              public Button _buttonLoad;
-              public int _intLevelToLoad;
+              [SerializeField] private string _loadName;
+              public Button _loadButton;
+              public int _iDLevel;
           }
-          [SerializeField] private ButtonLoadLevel[] _buttonLoadLevel;         
-          [SerializeField] private Button _buttonEnterPause;
-          [SerializeField] private Button _buttonExitPause;
-          [SerializeField] private Button _buttonVictory;
+          [SerializeField] private ButtonLoadLevel[] _arrayLoadButton;         
+          [SerializeField] private Button _enterPauseButton;
+          [SerializeField] private Button _exitPauseButton;
+          [SerializeField] private Button _victoryButton;
           [Header("Int")]
           [SerializeField] private int _currentLevel;
           [Header("Text")]
-          [SerializeField] private Text _textPoints;
-          [SerializeField] private Text _textTaimer;    
+          [SerializeField] private Text _pointsText;
+          [SerializeField] private Text _taimerText;    
           [Header("Panels")]
-          [SerializeField] private GameObject _panelVictory;
-          [SerializeField] private GameObject _panelDefeat;
+          [SerializeField] private GameObject _victoryPanel;
+          [SerializeField] private GameObject _defeatPanel;
           private bool _flipFlopPauseGame = true;
           [System.Serializable] public class VariableTutoLevel 
-          {
-              public Button _buttonTuto;
-              public GameObject _panelTuto;
-              public GameObject _panelCountDown;
+          {   
+              [Header("Button")]
+              public Button _tutoButton;
+              [Header("Panel")]
+              public GameObject _tutoPanel;
+              public GameObject _countDownPanel;
           }
           [Header("Variable Tuto Level")]
           [SerializeField] private VariableTutoLevel _variableTuto;
           [System.Serializable] public class VariableCountDown 
           {
-              public GameObject[] _panelNumer;
-              public GameObject _panelCount;
-              [HideInInspector]public bool _endCorrutineCount = false;
+              public GameObject[] _arrayNumerPanel;
+              public GameObject _countPanel;
+              [HideInInspector]public bool _endCount = false;
               [HideInInspector]public int _Count = 1;
           }
           [Header("Variable Count Down")]
@@ -82,24 +84,24 @@ namespace C_Thorn.UI
 
               //button onClick 
              
-              for (int i = 1; i <= _buttonsQuit.Length; i++)
+              for (int i = 1; i <= _arrayQuitButton.Length; i++)
               {
-                  _buttonsQuit[i - 1]._buttonQuit.onClick.AddListener(() => Application.Quit() );
+                  _arrayQuitButton[i - 1]._quitButton.onClick.AddListener(() => Application.Quit() );
               }              
               
-              for (int i = 1; i <= _buttonLoadLevel.Length; i++)
+              for (int i = 1; i <= _arrayLoadButton.Length; i++)
               {
                   int _count = i;
-                  _buttonLoadLevel[i - 1]._buttonLoad.onClick.AddListener(() => SceneManager.LoadScene(_buttonLoadLevel[_count-1]._intLevelToLoad) );
+                  _arrayLoadButton[i - 1]._loadButton.onClick.AddListener(() => SceneManager.LoadScene(_arrayLoadButton[_count-1]._iDLevel) );
               }
-              _buttonEnterPause.onClick.AddListener(() => 
+              _enterPauseButton.onClick.AddListener(() => 
               {
                   if (OnPausaGame != null)
                   {
                       OnPausaGame(_flipFlopPauseGame = !_flipFlopPauseGame);
                   }
               });             
-              _buttonExitPause.onClick.AddListener(() => 
+              _exitPauseButton.onClick.AddListener(() => 
               {
              
                   if (OnPausaGame != null)
@@ -107,21 +109,23 @@ namespace C_Thorn.UI
                       OnPausaGame(_flipFlopPauseGame = !_flipFlopPauseGame);
                   }
               });
-              _buttonVictory.onClick.AddListener (() => Win());
+              _victoryButton.onClick.AddListener (() => Win());
 
               //start to game
-              if(_variableTuto._buttonTuto != null)
+                //If has tuto
+              if(_variableTuto._tutoButton != null)
               { 
                   Time.timeScale = 0;
-                  _variableTuto._buttonTuto.onClick.AddListener(StartTutoLevel);
+                  _variableTuto._tutoButton.onClick.AddListener(StartTutoLevel);
               }
+                //if has not tuto
               else
               {
                   Time.timeScale = 1;
-                   _variableCount._panelCount.SetActive(true);
-                  StartCoroutine(CorrutineCountDown());
+                   _variableCount._countPanel.SetActive(true);
+                  StartTutoLevel();
               }
-              _textTaimer.text =_inGameManager._countTime.ToString();
+              _taimerText.text =_inGameManager._countTime.ToString();
               
           }
 
@@ -149,29 +153,24 @@ namespace C_Thorn.UI
           }          
           private void StartTutoLevel()
           {
-              if(_variableTuto._panelTuto != null)
-                  _variableTuto._panelTuto.SetActive(false);
+              while (!_variableCount._endCount)
+              {
+                  if(_variableTuto._tutoPanel != null)
+                      _variableTuto._tutoPanel.SetActive(false);
 
-              if(_variableTuto._panelCountDown != null)
-                  _variableTuto._panelCountDown.SetActive(true);
+                  if(_variableTuto._countDownPanel != null)
+                      _variableTuto._countDownPanel.SetActive(true);
 
-              Time.timeScale = 1;
-              StartCoroutine(CorrutineCountDown());
+                  Time.timeScale = 1;
+                  StartCountDown();
+              }
           }        
-          IEnumerator CorrutineCountDown()
-          {
-            while (!_variableCount._endCorrutineCount)
-            {   
-                StartCountDown();
-                yield return null;
-            }
-          } 
-          public  void StartCountDown()
+          private  void StartCountDown()
           {
               int i = _variableCount._Count;
-              if(i <= _variableCount._panelNumer.Length)
+              if(i <= _variableCount._arrayNumerPanel.Length)
               {   
-                    GameObject _objetoToScale = _variableCount._panelNumer[i - 1];
+                    GameObject _objetoToScale = _variableCount._arrayNumerPanel[i - 1];
                   _objetoToScale.SetActive(true);
                   if (_objetoToScale.transform.localScale.x > 0.2)
                   {
@@ -182,12 +181,12 @@ namespace C_Thorn.UI
                   else
                   {
                       _objetoToScale.SetActive(false);
-                      if (i == _variableCount._panelNumer.Length)
+                      if (i == _variableCount._arrayNumerPanel.Length)
                       {
-                          _variableCount._panelCount.SetActive(false);
+                          _variableCount._countPanel.SetActive(false);
                           _inGameManager._startToGame = true;
                           StartCoroutine(CorrutineTimeInGame());
-                          _variableCount._endCorrutineCount = true;
+                          _variableCount._endCount = true;
                       }
                       _variableCount._Count++;
                   }
@@ -195,7 +194,7 @@ namespace C_Thorn.UI
           }
           private void ReloadPointsCount()
           {
-              _textPoints.text = _inGameManager._countPoints + " /" + _inGameManager._countPointsMax;
+              _pointsText.text = _inGameManager._countPoints + " /" + _inGameManager._countPointsMax;
           }
           IEnumerator CorrutineTimeInGame()
           {
@@ -205,7 +204,7 @@ namespace C_Thorn.UI
                         OnReloadPoints();
                   yield return new WaitForSeconds(1);
                   _inGameManager._countTime--;
-                  _textTaimer.text =_inGameManager._countTime.ToString();
+                  _taimerText.text =_inGameManager._countTime.ToString();
 
               }
           }
@@ -225,10 +224,10 @@ namespace C_Thorn.UI
           private void  ActivatePanelVictoris()
           {
               if(_inGameManager._winGame)
-                    _panelVictory.SetActive(true);  
+                    _victoryPanel.SetActive(true);  
                   
               if(_inGameManager._endGame)
-                    _panelDefeat.SetActive(true);
+                    _defeatPanel.SetActive(true);
           }
           #endregion
   }
