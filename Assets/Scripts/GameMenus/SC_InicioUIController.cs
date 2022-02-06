@@ -10,12 +10,11 @@ namespace C_Thorn.UI
     {
           #region Attributes
           [Header("Beggining UI")]
-          [SerializeField] private GameObject _objectTextUI;
-          [SerializeField] private Button _buttonLoadLevel;
+          [SerializeField] private GameObject _textUIPanel;
+          [SerializeField] private Button _loadingButton;
           [Header("Settings UI")]
-          [SerializeField] private Image _brightness;
-          [SerializeField] private AudioSource _music;
-            private bool _endCorrutine = false;
+          [SerializeField] private Image _brightnessImage;
+          [SerializeField] private AudioSource _musicAudioSource;
           //Main Tools
           [SerializeField] private SC_DatosJugador _dataPlayer;
           //Events
@@ -26,41 +25,37 @@ namespace C_Thorn.UI
           void Start()
           {     
                 //events
-                OnSettings += ControlSettings;
+                OnSettings += ToControlSettings;
 
                 //Initialize
-                StartCoroutine(nameof(CorrutineSettings));
-                Invoke(nameof(ShowTextUI), 0.5f);
+                Invoke(nameof(ToShowTextUI), 0.5f);
 
                 //buttons OnClick
-                _buttonLoadLevel.onClick.AddListener( () => SceneManager.LoadScene(1));
+                _loadingButton.onClick.AddListener( () => SceneManager.LoadScene(1));
                 
+          }
+
+          private void Update()
+          {
+                 if(OnSettings != null)
+                      OnSettings();
           }
           private void OnDestroy()
           {     
-                OnSettings -= ControlSettings;
-                _endCorrutine = true;
+                OnSettings -= ToControlSettings;
           }
           #endregion
 
           #region Methods
-          void ShowTextUI()
+          void ToShowTextUI()
           {
-                _objectTextUI.SetActive(true);
+                _textUIPanel.SetActive(true);
           }
-          IEnumerator CorrutineSettings()
+      
+          void ToControlSettings()
           {
-                while(!_endCorrutine)
-                {
-                    if(OnSettings != null)
-                      OnSettings();
-                  yield return null;
-                }
-          }
-          void ControlSettings()
-          {
-              _brightness.color = new Color(_brightness.color.r, _brightness.color.g, _brightness.color.b, _dataPlayer.m_Numero_Brillo - 0.1f);
-              _music.volume = _dataPlayer.m_volumenMusica;
+              _brightnessImage.color = new Color(_brightnessImage.color.r, _brightnessImage.color.g, _brightnessImage.color.b, _dataPlayer.m_Numero_Brillo - 0.1f);
+              _musicAudioSource.volume = _dataPlayer.m_volumenMusica;
            
           }
           #endregion

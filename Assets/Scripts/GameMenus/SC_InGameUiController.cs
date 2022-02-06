@@ -74,8 +74,8 @@ namespace C_Thorn.UI
           void Start()
           {
               // EVENTS
-              OnPausaGame += PausaGame;
-              OnReloadPoints += ReloadPointsCount;
+              OnPausaGame += ToPausaGame;
+              OnReloadPoints += ToRefreshPoints;
               
               if(OnReloadPoints != null)
               {
@@ -109,21 +109,21 @@ namespace C_Thorn.UI
                       OnPausaGame(_flipFlopPauseGame = !_flipFlopPauseGame);
                   }
               });
-              _victoryButton.onClick.AddListener (() => Win());
+              _victoryButton.onClick.AddListener (() => ToWin());
 
               //start to game
                 //If has tuto
               if(_variableTuto._tutoButton != null)
               { 
                   Time.timeScale = 0;
-                  _variableTuto._tutoButton.onClick.AddListener(StartTutoLevel);
+                  _variableTuto._tutoButton.onClick.AddListener(ToStartTuto);
               }
                 //if has not tuto
               else
               {
                   Time.timeScale = 1;
                    _variableCount._countPanel.SetActive(true);
-                  StartTutoLevel();
+                  ToStartTuto();
               }
               _taimerText.text =_inGameManager._countTime.ToString();
               
@@ -131,18 +131,18 @@ namespace C_Thorn.UI
 
           private void OnDestroy()
           {
-              OnPausaGame -=  PausaGame;
-              OnReloadPoints -= ReloadPointsCount;
+              OnPausaGame -=  ToPausaGame;
+              OnReloadPoints -= ToRefreshPoints;
           }
 
           private void Update()
           {
-              ActivatePanelVictoris();
+              ToPanelVictoris();
           }
           #endregion
 
           #region Methods
-          private void PausaGame(bool coso)
+          private void ToPausaGame(bool coso)
           {
               if(!coso)
               {
@@ -151,7 +151,7 @@ namespace C_Thorn.UI
               else
                   Time.timeScale = 0;
           }          
-          private void StartTutoLevel()
+          private void ToStartTuto()
           {
               while (!_variableCount._endCount)
               {
@@ -162,10 +162,10 @@ namespace C_Thorn.UI
                       _variableTuto._countDownPanel.SetActive(true);
 
                   Time.timeScale = 1;
-                  StartCountDown();
+                  ToCountDown();
               }
           }        
-          private  void StartCountDown()
+          private  void ToCountDown()
           {
               int i = _variableCount._Count;
               if(i <= _variableCount._arrayNumerPanel.Length)
@@ -192,7 +192,7 @@ namespace C_Thorn.UI
                   }
               }
           }
-          private void ReloadPointsCount()
+          private void ToRefreshPoints()
           {
               _pointsText.text = _inGameManager._countPoints + " /" + _inGameManager._countPointsMax;
           }
@@ -209,7 +209,7 @@ namespace C_Thorn.UI
               }
           }
 
-          private void Win()
+          private void ToWin()
           {
               if (_currentLevel > _settingsUIController._dataPlayer.m_nivel)
               {
@@ -221,7 +221,7 @@ namespace C_Thorn.UI
                   SceneManager.LoadScene(2);
               }
           }
-          private void  ActivatePanelVictoris()
+          private void  ToPanelVictoris()
           {
               if(_inGameManager._winGame)
                     _victoryPanel.SetActive(true);  
