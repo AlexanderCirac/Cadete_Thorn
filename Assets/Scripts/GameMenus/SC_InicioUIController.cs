@@ -47,12 +47,12 @@ namespace C_Thorn.UI
           #endregion
 
           #region Methods
-          void ToShowTextUI()
+          private  void ToShowTextUI()
           {
                 _textUIPanel.SetActive(true);
           }
       
-          void ToControlSettings()
+          private void ToControlSettings()
           {
               _brightnessImage.color = new Color(_brightnessImage.color.r, _brightnessImage.color.g, _brightnessImage.color.b, _dataPlayer.m_Numero_Brillo - 0.1f);
               _musicAudioSource.volume = _dataPlayer.m_volumenMusica;

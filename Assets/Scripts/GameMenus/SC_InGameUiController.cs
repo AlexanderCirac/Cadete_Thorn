@@ -230,6 +230,7 @@ namespace C_Thorn.UI
                     _defeatPanel.SetActive(true);
           }
           #endregion
-  }
+
+    }
 
 }

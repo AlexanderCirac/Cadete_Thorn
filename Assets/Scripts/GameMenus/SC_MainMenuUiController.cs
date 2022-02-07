@@ -9,8 +9,8 @@ namespace C_Thorn.UI
     {
           #region Attributes
           [Header("Buttons")]
-          [SerializeField]private Button _buttonQuit;
-          [SerializeField]private Button _buttonPlay;
+          [SerializeField] private Button _quitButton;
+          [SerializeField] private Button _playButton;
           #endregion
 
           #region UnityCalls
@@ -20,8 +20,8 @@ namespace C_Thorn.UI
               Time.timeScale = 1;
 
               // Button OnClick
-              _buttonQuit.onClick.AddListener(() => Application.Quit());
-              _buttonPlay.onClick.AddListener(() => SceneManager.LoadScene(2));
+              _quitButton.onClick.AddListener(() => Application.Quit());
+              _playButton.onClick.AddListener(() => SceneManager.LoadScene(2));
           }
           #endregion
     }

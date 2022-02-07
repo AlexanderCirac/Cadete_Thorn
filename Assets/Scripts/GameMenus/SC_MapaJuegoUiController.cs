@@ -9,57 +9,46 @@ namespace C_Thorn.UI
     {
           #region Attributes
           [Header("Button")]
-          [SerializeField] private Button _quitGame;
+          [SerializeField] private Button _quitButton;
           [System.Serializable] public class ButtonLevel {
-            public string _name;
-            public Button _buttonToLevel;
-            public int _intLevel;
+
+            [SerializeField] private string _name;
+            public Button _levelButton;
+            public int _iDLevel;
           }
           [Header("Button Level")]
-          [SerializeField] private ButtonLevel[] _buttonLevel;
-          [System.Serializable] public class ShowButtons {
-            public string _name;
-            public Button _buttonToShow;
-          }
-          [Header("Show buttons")]
-          [SerializeField] private ShowButtons[] _showButtons;
-            private int _levelDataPlayer;
+          [SerializeField] private ButtonLevel[] _arryLevelButton;
+          private int _levelDataPlayer;
           
           //Main Tools
-          public SC_SettingsUIController _SettingsUIController;
-          private 
+          public SC_SettingsUIController _settingsUIController;
           #endregion
 
           #region UnityCalls
+          private void Awake()
+          {
+              _levelDataPlayer = _settingsUIController._dataPlayer.m_nivel;
+          }
           void Start()
           {
               //Start game
               Time.timeScale = 1;
 
-                //Applying button onClick 
-              for (int i = 1; i <= _buttonLevel.Length; i++)
+              //buttons 
+              for (int i = 1; i <= _arryLevelButton.Length; i++)
               {
                   int _count = i;
-                  _buttonLevel[i-1]._buttonToLevel.onClick.AddListener(() => SceneManager.LoadScene(_buttonLevel[_count - 1]._intLevel));
+                  //Add OnClick
+                  _arryLevelButton[i-1]._levelButton.onClick.AddListener(() => SceneManager.LoadScene(_arryLevelButton[_count - 1]._iDLevel));
+                  //show buttons
+                  if (_count<= _levelDataPlayer)
+                  {
+                       _arryLevelButton[i-1]._levelButton.interactable = true;
+                  }
               }
-              _quitGame.onClick.AddListener(() => Application.Quit());
 
-              //Invoke 
-              Invoke(nameof(ShowButtonsDataPlayer),.2f);
+              _quitButton.onClick.AddListener(() => Application.Quit());
           }
           #endregion
-
-          #region Methods
-          private void ShowButtonsDataPlayer()
-          {
-              //Activate Buttons Level
-              _levelDataPlayer = _SettingsUIController._dataPlayer.m_nivel;
-              for (int i = 1 ; i<= _levelDataPlayer; i++ )
-              {
-                  _showButtons[i-1]._buttonToShow.interactable = true;
-              }
-          }
-        #endregion
     }
-
 }
