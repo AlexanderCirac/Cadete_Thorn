@@ -8,11 +8,10 @@ namespace C_Thorn.UI.Animations
       public class SC_ImageAnimationColor : MonoBehaviour
       {
           #region Attributes
-          private Image _imageAnimation;
+          private Image _image;
           [Header("Float")]
           [SerializeField] private float _speedAnimation = 0.0f;
-          private bool _activateChange = false;
-          private bool _activateCorrutine = false;
+          private bool _flipFlopAnimation = false;
           //events
           public event Action OnAnimationColor;
           #endregion
@@ -22,54 +21,46 @@ namespace C_Thorn.UI.Animations
           void Start()
           {
               //get Image
-              _imageAnimation = this.GetComponent<Image>();
+              _image = this.GetComponent<Image>();
               //events
-              OnAnimationColor += ImageAnimation;
-              //Initialize
-              StartCoroutine(nameof(CorrutineAnimation));
+              OnAnimationColor += ToColorAnimation;
           }
 
+          private void Update()
+          {
+                   if(OnAnimationColor != null)
+                     OnAnimationColor();      
+          }
           private void OnDestroy()
           {
-              OnAnimationColor += ImageAnimation;
-              _activateCorrutine = true;
+              OnAnimationColor -= ToColorAnimation;
           }
           #endregion
 
           #region Methods
-          IEnumerator CorrutineAnimation()
-          {
-               while(!_activateCorrutine)
-               {
-                   if(OnAnimationColor != null)
-                     OnAnimationColor();
-                  yield return null;
-               }   
-                  
-          }
-          void ImageAnimation()
+          private void ToColorAnimation()
           {
   
-              if (_activateChange == false)
+              if (_flipFlopAnimation == false)
               {
-                  if (_imageAnimation.color.a <= 0.85)
+                  if (_image.color.a <= 0.85)
                   {
-                    _imageAnimation.color = new Color(0,176,178, _imageAnimation.color.a + _speedAnimation*Time.deltaTime);
+                    _image.color = new Color(0,176,178, _image.color.a + _speedAnimation*Time.deltaTime);
                   }
                   else
                   {
-                    _activateChange = true;
+                    _flipFlopAnimation = true;
                   }
               }
               else
               {
-                  if (_imageAnimation.color.a >= 0.35)
+                  if (_image.color.a >= 0.35)
                   {
-                    _imageAnimation.color = new Color(0, 176, 178, _imageAnimation.color.a - _speedAnimation * Time.deltaTime);
+                    _image.color = new Color(0, 176, 178, _image.color.a - _speedAnimation * Time.deltaTime);
                   }
                   else
                   {
-                    _activateChange = false;
+                    _flipFlopAnimation = false;
                   }
               }
           }

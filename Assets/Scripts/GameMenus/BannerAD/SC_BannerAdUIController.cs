@@ -13,7 +13,7 @@ namespace C_Thorn
         [SerializeField]private string _iDApp = "ca-app-pub-4149822770479617~8881874217";
         //La id es la de una de pruebas, no es la oficial
         [SerializeField]private string _iDBanner = "ca-app-pub-4149822770479617/7517988940";
-        public BannerView _bannerr;
+        public BannerView _banner;
         #endregion
 
         #region UnityCall
@@ -32,23 +32,23 @@ namespace C_Thorn
         void Start()
         {
             MobileAds.Initialize(initStatus => { });
-            ShowBaners();
+            ToShowBaners();
             DontDestroyOnLoad(this.gameObject);
         }
         #endregion
 
         #region Methods
-       public void ShowBaners()
+       private void ToShowBaners()
        {
-            _bannerr = new BannerView(_iDBanner, AdSize.Banner, AdPosition.Top);
+            _banner = new BannerView(_iDBanner, AdSize.Banner, AdPosition.Top);
             AdRequest request = new AdRequest.Builder().Build();
-            _bannerr.LoadAd(request);
-            _bannerr.Show();
+            _banner.LoadAd(request);
+            _banner.Show();
        }
 
-       public  void HidenBanner()
+       private  void ToHidenBanner()
        {
-          _bannerr.Hide();
+          _banner.Hide();
        }
        #endregion
     }

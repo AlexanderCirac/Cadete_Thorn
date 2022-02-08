@@ -7,34 +7,17 @@ namespace C_Thorn.UI
     public class SC_ConvertSpriteToImage: MonoBehaviour
     {
           #region Attributes
-          [SerializeField] private Image m_imagen;
-          [SerializeField] private SpriteRenderer m_sprite;
-           private bool _endCorrutine;
+          [SerializeField] private Image _imagen;
+          [SerializeField] private SpriteRenderer _sprite;
           #endregion
 
           #region UnityCalls
           // Start is called before the first frame update
-          void Start()
+          void Update()
           {
-             StartCoroutine(CorrutineConvert());
-          }
-          private void OnDestroy()
-          {
-              _endCorrutine = true;
+              _imagen.sprite = _sprite.sprite;
           }
           #endregion    
-    
-          #region Methods
-          IEnumerator CorrutineConvert()
-          {
-              while (!_endCorrutine)
-              {
-                  m_imagen.sprite = m_sprite.sprite;
-                  yield return null;
-              }
-          }          
-       
-          #endregion
     }
 
 }
