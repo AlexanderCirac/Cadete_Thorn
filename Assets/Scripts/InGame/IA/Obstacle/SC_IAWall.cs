@@ -89,10 +89,10 @@ namespace C_Thorn.InGame.IA
                 {
                     case false:
                        _wall1.SetActive(!_blink);
-                       break;
+                       return;
                     case true:
                       _wall2.SetActive(_blink);
-                      break;
+                      return;
                 }
           } 
           #endregion
