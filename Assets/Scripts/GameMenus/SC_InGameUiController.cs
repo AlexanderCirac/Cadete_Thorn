@@ -223,10 +223,10 @@ namespace C_Thorn.UI
           }
           private void  ToPanelVictoris()
           {
-              if(_inGameManager._winGame)
+              if(_inGameManager._winBool)
                     _victoryPanel.SetActive(true);  
                   
-              if(_inGameManager._endGame)
+              if(_inGameManager._loseBool)
                     _defeatPanel.SetActive(true);
           }
           #endregion

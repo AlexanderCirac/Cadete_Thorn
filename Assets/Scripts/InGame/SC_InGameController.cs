@@ -9,7 +9,6 @@ namespace C_Thorn.InGame
       {
 
           #region Attributes
-          private bool _endCorrutineVictory = false;
           [SerializeField] private GameObject _player;
 
           //Main Tools
@@ -18,81 +17,74 @@ namespace C_Thorn.InGame
           public static SC_InGameController instance;
 
           [Header("Control position Respawn")]
-          public GameObject _posrespawnLeft;
-          public GameObject _posrespawnRight;
-
-          
-
+          public GameObject _respawnLeft;
+          public GameObject _respawnRight;
           #endregion
 
           #region UnityCalls
+          private void Awake()
+          {
+              instance = this;
+          }
           void Start()
           {     
-                StartCoroutine(nameof(ConditionVictoryCorrutine));
-                StartCoroutine(nameof(CorrutineRecalculatePosRespawn));
-                SC_PlayerController.OnReloadPoints += IncresPoints;
-                SC_PlayerController.OnIncresTime += IncresTime;
-                instance = this;
+                ToRecalculatePos();
+                SC_PlayerController.OnReloadPoints += ToIncresPoints;
+                SC_PlayerController.OnIncresTime += ToIncresTime;
+          }
+
+          private void Update()
+          {
+              ToConditionVictory();
           }
           private void OnDestroy()
           {
-                SC_PlayerController.OnReloadPoints -= IncresPoints;
-                SC_PlayerController.OnIncresTime -= IncresTime;
+                SC_PlayerController.OnReloadPoints -= ToIncresPoints;
+                SC_PlayerController.OnIncresTime -= ToIncresTime;
           }
           #endregion
 
           #region Methods    
-          IEnumerator ConditionVictoryCorrutine() 
+          private void ToConditionVictory() 
           {
-              while(!_endCorrutineVictory)
-              {
-                  //win
-                  if(_inGameManager._countPoints >= _inGameManager._countPointsMax)
-                  {
-                      _inGameManager._winGame = true;
-                      Time.timeScale = 0;
-                      _endCorrutineVictory = false;
-                  }
-                  //defeat
-                  if(_player == null || _inGameManager._countTime <= 0 )
-                  { 
-                      _inGameManager._endGame = true;
-                      Time.timeScale = 0;
-                      _endCorrutineVictory = false;
-                  }
-                  yield return null;
-              }
+                //win
+                if(_inGameManager._countPoints >= _inGameManager._countPointsMax)
+                {
+                    _inGameManager._winBool = true;
+                    Time.timeScale = 0;
+                }
+                //defeat
+                if(_player == null || _inGameManager._countTime <= 0 )
+                { 
+                    _inGameManager._loseBool = true;
+                    Time.timeScale = 0;
+                }
           }          
-          IEnumerator CorrutineRecalculatePosRespawn() 
+          private void ToRecalculatePos() 
           {
                   //Recalculate position with type screen
                   Vector2 m_posCamaraP = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
                   Vector2 m_posCamaraN = Camera.main.ScreenToWorldPoint(new Vector3(-Screen.width, -Screen.height, Camera.main.transform.position.z));
                   
                   //recalculate position left
-                  _posrespawnLeft.transform.position = new Vector3((m_posCamaraN.x +(m_posCamaraP.x +(m_posCamaraP.x/6) )), _posrespawnLeft.transform.position.y, _posrespawnLeft.transform.position.z);
+                  _respawnLeft.transform.position = new Vector3((m_posCamaraN.x +(m_posCamaraP.x +(m_posCamaraP.x/6) )), _respawnLeft.transform.position.y, _respawnLeft.transform.position.z);
 
                   // Recalculate position Right
-                   _posrespawnRight.transform.position = new Vector3((m_posCamaraP.x -(m_posCamaraP.x/5)),_posrespawnRight.transform.position.y, _posrespawnRight.transform.position.z);
-                  yield return null;
-              
+                   _respawnRight.transform.position = new Vector3((m_posCamaraP.x -(m_posCamaraP.x/5)),_respawnRight.transform.position.y, _respawnRight.transform.position.z);
           }
-
-          public void IncresPoints()
+          public void ToIncresPoints()
           {
               _inGameManager._countPoints += 10;
           }          
-          private void IncresTime()
+          private void ToIncresTime()
           {
               Time.timeScale = 9;
-              Invoke(nameof(NormalizeTime),2f);  
+              Invoke(nameof(ToNormalizeTime),2f);  
           }          
-          private void NormalizeTime()
+          private void ToNormalizeTime()
           {
               Time.timeScale = 1;
           }
-
-          
           #endregion
       }
 }

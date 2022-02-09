@@ -7,15 +7,18 @@ namespace C_Thorn.InGame.IA
           #region UnityCalls
           void Start()
           {
-              StartCoroutine(CorrutineToMove());
-              StartCoroutine(CorrutineToDieInTime(8));
+              StartCoroutine(CorrutineDie(8));
+          }
+          private void Update()
+          {
+              ToForward();
           }
 
           private void OnTriggerEnter(Collider _coll)
           {
               if(_coll.CompareTag("BulletPlayer"))
               {
-                  SC_InGameController.instance.IncresPoints();
+                  SC_InGameController.instance.ToIncresPoints();
                   Destroy(this.gameObject);
               }
           }

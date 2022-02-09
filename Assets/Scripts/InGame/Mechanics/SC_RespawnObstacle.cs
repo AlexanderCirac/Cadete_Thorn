@@ -49,7 +49,7 @@ namespace C_Thorn.InGame
           }          
           IEnumerator CorrutineToInstantianteObstacle()
           {
-              while (!_endCorrutine && !SC_InGameManager._instance._endGame && !SC_InGameManager._instance._winGame)
+              while (!_endCorrutine && !SC_InGameManager._instance._loseBool && !SC_InGameManager._instance._winBool)
               {
                   yield return new WaitForSeconds(2f);
                   _ObjectToRespawnObstacles._intRandomRespawn = Random.Range(1, _ObjectToRespawnObstacles._objectToRespwn.Length);

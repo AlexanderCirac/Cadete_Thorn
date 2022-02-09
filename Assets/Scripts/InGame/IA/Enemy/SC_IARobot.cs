@@ -1,6 +1,4 @@
-using System.Collections;
 using UnityEngine;
-using C_Thorn.InGame;
 
 
 namespace C_Thorn.InGame.IA
@@ -8,7 +6,6 @@ namespace C_Thorn.InGame.IA
     public class SC_IARobot : SC_BasicIA
   {
           #region Attributes
-          private bool _endCorrutineRotate;
           [Header("Control to Rotate blades")]
           [SerializeField]private float _velocityToRotate;
           [SerializeField]private GameObject _blades;
@@ -21,14 +18,15 @@ namespace C_Thorn.InGame.IA
           // Start is called before the first frame update
           void Start()
           {
-              StartCoroutine(CorrutineToMove());
-              StartCoroutine(CorrutineToDieInTime(38));
-              StartCoroutine(CorrutineUpdate());
+              StartCoroutine(CorrutineDie(38));
           }
-          private void OnDestroy()
+          private void Update()
           {
-                _endCorrutineRotate = true;
+              ToForward();
+              ToAnimationRotate();
+              ToLoockAt();
           }
+
           private void OnTriggerEnter(Collider _coll)
           {
               if(_coll.CompareTag("BulletPlayer"))
@@ -39,37 +37,31 @@ namespace C_Thorn.InGame.IA
           #endregion
 
           #region Methods
-          IEnumerator CorrutineUpdate()
-          {
-              while(_endCorrutineRotate)
-              {
-                  AnimationRotate();
-                  LoockAtPlayer();
-                  yield return null;
-              }
-          }
-          private void AnimationRotate()
+
+                 
+
+          private void ToAnimationRotate()
           {   
               _blades.transform.RotateAround(this.transform.position, Vector3.up, _velocityToRotate * Time.deltaTime);
           }          
           
-          private void LoockAtPlayer()
+          private void ToLoockAt()
           {   
-              if(!SC_InGameManager._instance._endGame && SC_InGameManager._instance._winGame)
+              if(!SC_InGameManager._instance._loseBool && SC_InGameManager._instance._winBool)
               {
                   GameObject _player = GameObject.FindGameObjectWithTag("Player");
                   this.transform.LookAt(_player.transform);
-                  DetectetToShootPlayer(_player);
+                  ToDetectedPlayer(_player);
               }
           }          
-          private void DetectetToShootPlayer(GameObject _player)
+          private void ToDetectedPlayer(GameObject _player)
           {   
               if( (_player.transform.position - this.transform.position).sqrMagnitude > 4*4)
               {
-                  Invoke(nameof(ShootToPlayer),.5f);
+                  Invoke(nameof(ToShoot),.5f);
               }
           }
-          private void ShootToPlayer() 
+          private void ToShoot() 
           {
               Instantiate(_bulletEnemy, _canon.transform.position, _canon.transform.rotation);  
           }

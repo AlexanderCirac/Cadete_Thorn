@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using System;
 
 namespace C_Thorn.InGame.IA
 {
@@ -11,98 +10,90 @@ namespace C_Thorn.InGame.IA
           [Header("Change Walls")]
           [SerializeField] private GameObject _wall1;
           [SerializeField] private GameObject _wall2;
-          private bool _changeWalls = false;
+          private  bool   _flipFlopWalls = false;
 
           //Animation Blink Walls
           [Header("Blink Walls")]
-          public float  _timeBlink = 0.5f;
-          private float  _savetimeBlink;
-          private bool _startToBlink = false;
-          private bool _ToBlink = false;
+          [SerializeField] private float  _timeBlink = 0.5f;
+          private  float  _savetimeBlink;
+          private  bool   _blinkWalls = false;
 
           //corrutines
-          private bool _endCorrutinechangeWalls;
+          private  bool   _corrutinEnding;
 
 
-          #endregion     
-    
+          #endregion
+          private void Awake()
+          {
+              _savetimeBlink = _timeBlink;
+          }
           #region UnityCalls
           void Start()
           {
-              _savetimeBlink = _timeBlink;
-              StartCoroutine(CorrutineToMove());
-              StartCoroutine(CorrutineToDieInTime(38));
-              StartCoroutine(CorrutineFlipFlop());
-              StartCoroutine(StartCorrutineBlink());
+              
+              StartCoroutine(CorrutineDie(38));
+              StartCoroutine(CorrutineFlipFlopWalls());
+              StartCoroutine(CorrutineBlink());
           }
 
           private void Update()
           {
-              if (_startToBlink)
-              {
-                  Invoke(nameof(ChangeBlink), _timeBlink);
-                  AnimationBlinkWalls(_changeWalls, _ToBlink);
-              }
+              ToForward();
           }
           private void OnDestroy()
           {
-              _endCorrutinechangeWalls = true;
+              _corrutinEnding = true;
           }
           #endregion
 
           #region Methods
-          IEnumerator CorrutineFlipFlop()
+          IEnumerator CorrutineFlipFlopWalls()
           {
-             while(!_endCorrutinechangeWalls)
+             while(!_corrutinEnding)
              {
-                  yield return new WaitForSeconds(6);
-                  ChangeWalls(_changeWalls);
-                  _changeWalls = !_changeWalls;
+                  yield return new WaitForSeconds(_savetimeBlink);
+                  ToFlipFlopWalls(_flipFlopWalls);
+                  _flipFlopWalls = !_flipFlopWalls;
 
              }
+             
           }   
-          IEnumerator StartCorrutineBlink()
+          IEnumerator CorrutineBlink()
           {
-             while(!_endCorrutinechangeWalls)
+             while(!_corrutinEnding)
              {
-                  yield return new WaitForSeconds(5f);
-                  _startToBlink = true;
+                  yield return new WaitForSeconds(_timeBlink);
+                  ToDecreaseTime();
              }
           }          
          
-          void ChangeWalls(bool _flipFlop)
+          private void ToFlipFlopWalls(bool _flipFlop)
           {
-             if(_flipFlop)
-              { 
-                  _wall1.SetActive(false);
-                  _wall2.SetActive(true);
-              
-              }
-             else
-              {
-                  _wall1.SetActive(true);
-                  _wall2.SetActive(false);
-              }
-
-              _startToBlink = false;
               _timeBlink = _savetimeBlink;
+              _wall1.SetActive(_flipFlop);
+              _wall2.SetActive(!_flipFlop);
           }
-          void ChangeBlink()
+          private void ToDecreaseTime()
           {
-              _ToBlink = !_ToBlink;
-              if(_timeBlink > (_savetimeBlink * 30) / 100)
-              _timeBlink = _timeBlink - ((_savetimeBlink *80)/100);
+              _blinkWalls = !_blinkWalls;
+
+              if(_timeBlink > (_savetimeBlink * 10) / 100)
+              _timeBlink -= ((_timeBlink * 60)/100);
+
+              ToBlinkWalls(_flipFlopWalls, _blinkWalls);
+
           }
-          void AnimationBlinkWalls(bool _flipFlop, bool _blink)
+          private void ToBlinkWalls(bool _flipFlop, bool _blink)
           {
-             if(_flipFlop)
-              { 
-                  _wall1.SetActive(_blink);                 
-              }
-             else
-              {
-                  _wall2.SetActive(_blink);
-              }
+                switch (_flipFlop)
+                {
+                    case false:
+                       _wall1.SetActive(!_blink);
+                       break;
+                    case true:
+                      _wall2.SetActive(_blink);
+                      break;
+                }
           } 
           #endregion
     }

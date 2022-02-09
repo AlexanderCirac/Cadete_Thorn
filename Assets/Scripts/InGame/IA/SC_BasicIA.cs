@@ -5,43 +5,28 @@ namespace C_Thorn.InGame.IA
 {
     public  class SC_BasicIA : MonoBehaviour
     {
-          #region Attributes
-          private bool _endCorrutineToMove;
-          #endregion
 
           #region UnityCalls
-          // Start is called before the first frame update
           void Start()
           {
-                StartCoroutine(CorrutineToMove());
-                StartCoroutine(CorrutineToDieInTime(8));
+              StartCoroutine(CorrutineDie(8));
           }
-
-          // Update is called once per frame
-          void OnDestroy()
+          private void Update()
           {
-              _endCorrutineToMove = true;
+              ToForward();
           }
           #endregion
 
           #region Methods
-          protected IEnumerator CorrutineToMove()
+          protected IEnumerator CorrutineDie(int _time)
           {
-              while (!_endCorrutineToMove)
-              {
-                  MoveToForward();
-                  yield return null;
-              }
-          }          
-          protected IEnumerator CorrutineToDieInTime(int _time)
-          {
-                  yield return new WaitForSeconds(_time);
-                  Destroy(this.gameObject);
+              yield return new WaitForSeconds(_time);
+              Destroy(this.gameObject);
 
           }
-         public void MoveToForward()
+         public void ToForward()
           {
-              this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z - (SC_InGameManager._velocityToMove + 0.5f) * Time.deltaTime);
+              this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y,           this.gameObject.transform.position.z - (SC_InGameManager._velocityToMove + 0.5f) * Time.deltaTime);
           }
           #endregion
 
