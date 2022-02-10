@@ -10,14 +10,13 @@ namespace C_Thorn.InGame.Player
 
           #region Attributes
           [Header("Button to move player")]
-          [SerializeField] private Button _toMovePlayer;
-          [SerializeField] private Camera _camaraPlayer;
+          [SerializeField] private Button _playerButton;
+          [SerializeField] private Camera _playerCamera;
 
           //to the animation ship or player
-          private Vector3 _saveInitialPos;
-          private bool _endCorrutineAnimation = false;
+          private Vector3 _initialVec3;
           [Header("SpaceShip to animate")]
-          [SerializeField] private GameObject _ship;
+          [SerializeField] private GameObject _shipObject;
           
           //EVENT
           public static event Action OnReloadPoints;
@@ -25,18 +24,19 @@ namespace C_Thorn.InGame.Player
           #endregion
 
           #region UnityCall
-          // Start is called before the first frame update
+          private void Awake()
+          {
+              _initialVec3 = this.transform.position;
+          }
           void Start()
           {   
-              _saveInitialPos = this.transform.position;
-              _toMovePlayer.GetComponent<SC_UISpecialButtonToHandler>().OnHold.AddListener(PlayerToMove);
-              StartCoroutine(StartCorrutineAnimation());
-          }
-          private void OnDestroy()
-          {
-              _endCorrutineAnimation = true;
+              _playerButton.GetComponent<SC_UISpecialButtonToHandler>().OnHold.AddListener(ToMove);
           }
 
+          private void Update()
+          {
+              ToAnimationShip();
+          }
 
           private void OnTriggerEnter(Collider _col)
           {
@@ -67,11 +67,11 @@ namespace C_Thorn.InGame.Player
           #endregion
 
           #region Methods
-          private void PlayerToMove()
+          private void ToMove()
           {
               Touch touch = Input.GetTouch(0);
               Vector3 mousePosition = new Vector3(touch.position.x, touch.position.y, 65);
-              Vector3 objPosition = _camaraPlayer.ScreenToWorldPoint(mousePosition);
+              Vector3 objPosition = _playerCamera.ScreenToWorldPoint(mousePosition);
 
               if (Input.mousePosition.x < (Screen.width - (Screen.width / 10)) && (Input.mousePosition.x > ((Screen.width - System.Math.Abs(Input.mousePosition.x)) - ((Screen.width) - (Screen.width / 6)))))
               {
@@ -91,30 +91,22 @@ namespace C_Thorn.InGame.Player
               {
                   transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
               }
-              _saveInitialPos = this.transform.position;
+              _initialVec3 = this.transform.position;
           }
-          IEnumerator StartCorrutineAnimation() 
+          private void ToAnimationShip()
           {
-              while(!_endCorrutineAnimation)
+              if (this.transform.position.x > _initialVec3.x)
               {
-                  AnimationShip();
-                  yield return null; 
-              }
-          }
-          public void AnimationShip()
-          {
-              if (this.transform.position.x > _saveInitialPos.x)
-              {
-                  if (_ship.transform.rotation.z > -0.3)
+                  if (_shipObject.transform.rotation.z > -0.3)
                   {
-                      _ship.transform.RotateAround(_ship.gameObject.transform.position, Vector3.forward, -500 * Time.deltaTime);
+                      _shipObject.transform.RotateAround(_shipObject.gameObject.transform.position, Vector3.forward, -500 * Time.deltaTime);
                   }
               }
-              if (_ship.transform.position.x < _saveInitialPos.x)
+              if (_shipObject.transform.position.x < _initialVec3.x)
               {
-                  if (_ship.transform.rotation.z < 0.3)
+                  if (_shipObject.transform.rotation.z < 0.3)
                   {
-                      _ship.transform.RotateAround(_ship.gameObject.transform.position, Vector3.forward, 500 * Time.deltaTime);
+                      _shipObject.transform.RotateAround(_shipObject.gameObject.transform.position, Vector3.forward, 500 * Time.deltaTime);
                   }
               }
           }
