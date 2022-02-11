@@ -13,53 +13,49 @@ namespace C_Thorn.InGame
           [SerializeField] private GameObject _objectLeft;
           [SerializeField] private GameObject _objectRight;
           public float _velocity = 5;
-          private bool _changePosition = false;
+          private bool _isFlipFlop = false;
           [System.Serializable] public class ObjectToRespawnObstacles {
-              public GameObject[] _objectToRespwn;
-              [HideInInspector] public int _intRandomRespawn;
+              public GameObject[] _arryObjects;
+              [HideInInspector] public int _intRandom;
           }
 
           [Header("Object To Respawn")]
-          [SerializeField] private ObjectToRespawnObstacles _ObjectToRespawnObstacles;
+          [SerializeField] private ObjectToRespawnObstacles _variableRespawn;
           //Corrutines
-          private bool _endCorrutine;
+          private bool _isEndCorrutine;
           #endregion  
     
           #region UnityCalls
           // Start is called before the first frame update
           void Start()
           {
-              StartCoroutine(CorrutineUpdate());
               StartCoroutine(CorrutineToInstantianteObstacle());
+          }
+          private void Update()
+          {
+              ToMoveFlipFlop(this.transform, _objectLeft.transform, _objectRight.transform, _velocity);
           }
           private void OnDestroy()
           {
-              _endCorrutine = true;
+              _isEndCorrutine = true;
           }
           #endregion    
     
           #region Methods
-          IEnumerator CorrutineUpdate()
-          {
-              while (!_endCorrutine)
-              {
-                  ToMoveFlipFlop(this.transform, _objectLeft.transform, _objectRight.transform, _velocity);
-                  yield return null;
-              }
-          }          
+   
           IEnumerator CorrutineToInstantianteObstacle()
           {
-              while (!_endCorrutine && !SC_InGameManager._instance._loseBool && !SC_InGameManager._instance._winBool)
+              while (!_isEndCorrutine && !SC_InGameManager._instance._isLoset && !SC_InGameManager._instance._isWin)
               {
                   yield return new WaitForSeconds(2f);
-                  _ObjectToRespawnObstacles._intRandomRespawn = Random.Range(1, _ObjectToRespawnObstacles._objectToRespwn.Length);
-                  GameObject _objectToRespawn = _ObjectToRespawnObstacles._objectToRespwn[_ObjectToRespawnObstacles._intRandomRespawn -1];
+                  _variableRespawn._intRandom = Random.Range(1, _variableRespawn._arryObjects.Length);
+                  GameObject _objectToRespawn = _variableRespawn._arryObjects[_variableRespawn._intRandom -1];
                   Instantiate(_objectToRespawn, this.transform.position, _objectToRespawn.transform.rotation);
               }
           }
           public void ToMoveFlipFlop(Transform _originObject, Transform _posObject1, Transform _postObject2, float _velocity )
           {
-              if (_changePosition)
+              if (_isFlipFlop)
               {
                   if (_originObject.position.x > _posObject1.position.x )
                   {
@@ -68,7 +64,7 @@ namespace C_Thorn.InGame
                         _originObject.position.z);
                   }
                   else
-                        _changePosition = false;
+                        _isFlipFlop = false;
               }
               else
               {
@@ -79,7 +75,7 @@ namespace C_Thorn.InGame
                         _originObject.position.z);
                   }
                   else
-                        _changePosition = true;
+                        _isFlipFlop = true;
               }
           }
           #endregion

@@ -11,7 +11,7 @@ namespace C_Thorn.UI.Animations
           private Image _image;
           [Header("Float")]
           [SerializeField] private float _speedAnimation = 0.0f;
-          private bool _flipFlopAnimation = false;
+          private bool _isflipFlopAnimation = false;
           //events
           public event Action OnAnimationColor;
           #endregion
@@ -41,7 +41,7 @@ namespace C_Thorn.UI.Animations
           private void ToColorAnimation()
           {
   
-              if (_flipFlopAnimation == false)
+              if (!_isflipFlopAnimation)
               {
                   if (_image.color.a <= 0.85)
                   {
@@ -49,7 +49,7 @@ namespace C_Thorn.UI.Animations
                   }
                   else
                   {
-                    _flipFlopAnimation = true;
+                    _isflipFlopAnimation = true;
                   }
               }
               else
@@ -60,7 +60,7 @@ namespace C_Thorn.UI.Animations
                   }
                   else
                   {
-                    _flipFlopAnimation = false;
+                    _isflipFlopAnimation = false;
                   }
               }
           }

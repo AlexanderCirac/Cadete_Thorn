@@ -39,7 +39,7 @@ namespace C_Thorn.UI
           [Header("Panels")]
           [SerializeField] private GameObject _victoryPanel;
           [SerializeField] private GameObject _defeatPanel;
-          private bool _flipFlopPauseGame = true;
+          private bool _isflipFlopPause = true;
           [System.Serializable] public class VariableTutoLevel 
           {   
               [Header("Button")]
@@ -98,7 +98,7 @@ namespace C_Thorn.UI
               {
                   if (OnPausaGame != null)
                   {
-                      OnPausaGame(_flipFlopPauseGame = !_flipFlopPauseGame);
+                      OnPausaGame(_isflipFlopPause = !_isflipFlopPause);
                   }
               });             
               _exitPauseButton.onClick.AddListener(() => 
@@ -106,7 +106,7 @@ namespace C_Thorn.UI
              
                   if (OnPausaGame != null)
                   {
-                      OnPausaGame(_flipFlopPauseGame = !_flipFlopPauseGame);
+                      OnPausaGame(_isflipFlopPause = !_isflipFlopPause);
                   }
               });
               _victoryButton.onClick.AddListener (() => ToWin());
@@ -125,7 +125,7 @@ namespace C_Thorn.UI
                    _variableCount._countPanel.SetActive(true);
                   ToStartTuto();
               }
-              _taimerText.text =_inGameManager._countTime.ToString();
+              _taimerText.text =_inGameManager._time.ToString();
               
           }
 
@@ -184,7 +184,7 @@ namespace C_Thorn.UI
                       if (i == _variableCount._arrayNumerPanel.Length)
                       {
                           _variableCount._countPanel.SetActive(false);
-                          _inGameManager._startToGame = true;
+                          _inGameManager._isStartGame = true;
                           StartCoroutine(CorrutineTimeInGame());
                           _variableCount._endCount = true;
                       }
@@ -194,17 +194,17 @@ namespace C_Thorn.UI
           }
           private void ToRefreshPoints()
           {
-              _pointsText.text = _inGameManager._countPoints + " /" + _inGameManager._countPointsMax;
+              _pointsText.text = _inGameManager._totalPoints + " /" + _inGameManager._pointsMax;
           }
           IEnumerator CorrutineTimeInGame()
           {
-              while(Time.timeScale == 1 && _inGameManager._countTime >= 0 )
+              while(Time.timeScale == 1 && _inGameManager._time >= 0 )
               {   
                   if(OnReloadPoints != null)
                         OnReloadPoints();
                   yield return new WaitForSeconds(1);
-                  _inGameManager._countTime--;
-                  _taimerText.text =_inGameManager._countTime.ToString();
+                  _inGameManager._time--;
+                  _taimerText.text =_inGameManager._time.ToString();
 
               }
           }
@@ -223,10 +223,10 @@ namespace C_Thorn.UI
           }
           private void  ToPanelVictoris()
           {
-              if(_inGameManager._winBool)
+              if(_inGameManager._isWin)
                     _victoryPanel.SetActive(true);  
                   
-              if(_inGameManager._loseBool)
+              if(_inGameManager._isLoset)
                     _defeatPanel.SetActive(true);
           }
           #endregion

@@ -26,7 +26,7 @@ namespace C_Thorn.InGame.IA
           }
          public void ToForward()
           {
-              this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y,           this.gameObject.transform.position.z - (SC_InGameManager._velocityToMove + 0.5f) * Time.deltaTime);
+              this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y,           this.gameObject.transform.position.z - (SC_InGameManager._velocityMove + 0.5f) * Time.deltaTime);
           }
           #endregion
 

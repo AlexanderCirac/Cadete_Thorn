@@ -48,15 +48,15 @@ namespace C_Thorn.InGame
           private void ToConditionVictory() 
           {
                 //win
-                if(_inGameManager._countPoints >= _inGameManager._countPointsMax)
+                if(_inGameManager._totalPoints >= _inGameManager._pointsMax)
                 {
-                    _inGameManager._winBool = true;
+                    _inGameManager._isWin = true;
                     Time.timeScale = 0;
                 }
                 //defeat
-                if(_player == null || _inGameManager._countTime <= 0 )
+                if(_player == null || _inGameManager._time <= 0 )
                 { 
-                    _inGameManager._loseBool = true;
+                    _inGameManager._isLoset = true;
                     Time.timeScale = 0;
                 }
           }          
@@ -74,7 +74,7 @@ namespace C_Thorn.InGame
           }
           public void ToIncresPoints()
           {
-              _inGameManager._countPoints += 10;
+              _inGameManager._totalPoints += 10;
           }          
           private void ToIncresTime()
           {
