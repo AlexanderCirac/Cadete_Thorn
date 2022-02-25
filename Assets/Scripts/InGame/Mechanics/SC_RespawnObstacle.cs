@@ -10,10 +10,10 @@ namespace C_Thorn.InGame
           #region Attributes
           private bool _endCorrutineRotate;
           [Header("Move Flip flop")]
-          [SerializeField] private GameObject _objectLeft;
-          [SerializeField] private GameObject _objectRight;
-          public float _velocity = 5;
-          private bool _isFlipFlop = false;
+          [HideInInspector] public  float _lenghtPingPong;
+          [SerializeField]  private float _initialPosX;
+          public  float _velocity = 5;
+          private bool  _isFlipFlop = false;
           [System.Serializable] public class ObjectToRespawnObstacles {
               public GameObject[] _arryObjects;
               [HideInInspector] public int _intRandom;
@@ -29,11 +29,12 @@ namespace C_Thorn.InGame
           // Start is called before the first frame update
           void Start()
           {
+              _initialPosX = this.transform.position.x;
               StartCoroutine(CorrutineToInstantianteObstacle());
           }
           private void Update()
           {
-              ToMoveFlipFlop(this.transform, _objectLeft.transform, _objectRight.transform, _velocity);
+              ToMoveFlipFlop(this.transform, _lenghtPingPong, _velocity);
           }
           private void OnDestroy()
           {
@@ -53,30 +54,9 @@ namespace C_Thorn.InGame
                   Instantiate(_objectToRespawn, this.transform.position, _objectToRespawn.transform.rotation);
               }
           }
-          public void ToMoveFlipFlop(Transform _originObject, Transform _posObject1, Transform _postObject2, float _velocity )
+          public void ToMoveFlipFlop(Transform _originObject,float _lenght, float _velocity )
           {
-              if (_isFlipFlop)
-              {
-                  if (_originObject.position.x > _posObject1.position.x )
-                  {
-                        _originObject.position = new Vector3(_originObject.position.x - _velocity * Time.deltaTime,
-                        _originObject.position.y, 
-                        _originObject.position.z);
-                  }
-                  else
-                        _isFlipFlop = false;
-              }
-              else
-              {
-                  if (_originObject.position.x < _postObject2.position.x)
-                  {
-                        _originObject.position = new Vector3(_originObject.position.x + _velocity * Time.deltaTime,
-                        _originObject.position.y, 
-                        _originObject.position.z);
-                  }
-                  else
-                        _isFlipFlop = true;
-              }
+              _originObject.position = new Vector3(_initialPosX - (Mathf.PingPong(Time.time * _velocity, _lenght) - 0.5f * _lenght), _originObject.position.y, _originObject.position.z); ;
           }
           #endregion
     }
