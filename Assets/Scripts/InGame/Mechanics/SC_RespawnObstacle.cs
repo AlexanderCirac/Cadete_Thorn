@@ -56,7 +56,7 @@ namespace C_Thorn.InGame
           }
           public void ToMoveFlipFlop(Transform _originObject,float _lenght, float _velocity )
           {
-              _originObject.position = new Vector3(_initialPosX - (Mathf.PingPong(Time.time * _velocity, _lenght) - 0.5f * _lenght), _originObject.position.y, _originObject.position.z); ;
+                _originObject.position = new Vector3(_initialPosX - (Mathf.PingPong(Time.time * _velocity, _lenght) - 0.5f * _lenght), _originObject.position.y, _originObject.position.z); ;
           }
           #endregion
     }

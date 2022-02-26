@@ -1,7 +1,5 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
-using System;
-using System.Collections;
 
 namespace C_Thorn.UI.Animations
 {
@@ -9,60 +7,36 @@ namespace C_Thorn.UI.Animations
       {
           #region Attributes
           private Image _image;
+          [SerializeField] private float _colorBase = 0;
+          [SerializeField] private float _randomLength = 0;
+          private float _length = 0;
           [Header("Float")]
           [SerializeField] private float _speedAnimation = 0.0f;
-          private bool _isflipFlopAnimation = false;
-          //events
-          public event Action OnAnimationColor;
           #endregion
 
           #region UnityCalls
-          // Start is called before the first frame update
-          void Start()
+          private void Awake()
           {
-              //get Image
-              _image = this.GetComponent<Image>();
-              //events
-              OnAnimationColor += ToColorAnimation;
+                //get Image
+                _image = this.GetComponent<Image>();
+                //get color
+                _colorBase = _image.color.a;
+          }
+          private void Start()
+          {
+                _length = UnityEngine.Random.Range(0.5f, _randomLength);
           }
 
           private void Update()
           {
-                   if(OnAnimationColor != null)
-                     OnAnimationColor();      
-          }
-          private void OnDestroy()
-          {
-              OnAnimationColor -= ToColorAnimation;
+              ToColorAnimation();
           }
           #endregion
 
           #region Methods
           private void ToColorAnimation()
           {
-  
-              if (!_isflipFlopAnimation)
-              {
-                  if (_image.color.a <= 0.85)
-                  {
-                    _image.color = new Color(0,176,178, _image.color.a + _speedAnimation*Time.deltaTime);
-                  }
-                  else
-                  {
-                    _isflipFlopAnimation = true;
-                  }
-              }
-              else
-              {
-                  if (_image.color.a >= 0.35)
-                  {
-                    _image.color = new Color(0, 176, 178, _image.color.a - _speedAnimation * Time.deltaTime);
-                  }
-                  else
-                  {
-                    _isflipFlopAnimation = false;
-                  }
-              }
+                _image.color = new Color(0,176,178, (_colorBase - (Mathf.PingPong(Time.time * _speedAnimation, _length) - 0.5f * _length)));
           }
           #endregion
       }
