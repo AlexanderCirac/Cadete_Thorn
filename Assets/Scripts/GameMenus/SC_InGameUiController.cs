@@ -66,8 +66,8 @@ namespace C_Thorn.UI
           public SC_InGameManager _inGameManager;
 
           //Events
-          public event Action<bool> OnPausaGame;
-          public static event Action OnReloadPoints;
+          private static event Action<bool> OnPausaGame;
+          private static event Action OnReloadPoints;
           #endregion
 
           #region UnityCalls
@@ -97,17 +97,14 @@ namespace C_Thorn.UI
               _enterPauseButton.onClick.AddListener(() => 
               {
                   if (OnPausaGame != null)
-                  {
                       OnPausaGame(_isflipFlopPause = !_isflipFlopPause);
-                  }
               });             
               _exitPauseButton.onClick.AddListener(() => 
               {
              
                   if (OnPausaGame != null)
-                  {
                       OnPausaGame(_isflipFlopPause = !_isflipFlopPause);
-                  }
+
               });
               _victoryButton.onClick.AddListener (() => ToWin());
 
@@ -144,12 +141,8 @@ namespace C_Thorn.UI
           #region Methods
           private void ToPausaGame(bool coso)
           {
-              if(!coso)
-              {
-                  Time.timeScale = 1;
-              }
-              else
-                  Time.timeScale = 0;
+              Time.timeScale = coso ? 1 : 0;
+
           }          
           private void ToStartTuto()
           {
@@ -217,9 +210,7 @@ namespace C_Thorn.UI
                  SceneManager.LoadScene(2);
               }
               else 
-              { 
                   SceneManager.LoadScene(2);
-              }
           }
           private void  ToPanelVictoris()
           {

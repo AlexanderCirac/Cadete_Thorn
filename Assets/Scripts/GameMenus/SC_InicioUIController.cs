@@ -18,7 +18,7 @@ namespace C_Thorn.UI
           //Main Tools
           [SerializeField] private SC_DatosJugador _dataPlayer;
           //Events
-          public event Action OnSettings;
+          private static event Action OnSettings;
           #endregion
 
           #region UnityCalls

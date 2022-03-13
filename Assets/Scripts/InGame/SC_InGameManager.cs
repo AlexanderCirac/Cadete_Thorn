@@ -14,9 +14,10 @@ namespace C_Thorn.InGame
         public int _time = 1;
         public int _pointsMax = 0;
         public static float _velocityMove = 15;
-
+        //singlento
         public static SC_InGameManager _instance;
         #endregion
+
         #region UnityCalls
         private void Awake()
         {
