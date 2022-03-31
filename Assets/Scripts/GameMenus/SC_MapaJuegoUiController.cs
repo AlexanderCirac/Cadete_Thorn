@@ -1,34 +1,25 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using C_Thorn.UI.Settings;
 
 namespace C_Thorn.UI
 {
-    public class SC_MapaJuegoUiController : MonoBehaviour
+    public class SC_MapaJuegoUiController : MyUIMonoBehaviour
     {
           #region Attributes
           [Header("Button")]
-          [SerializeField] private Button _quitButton;
+          [SerializeField] Button _quitButton;
           [System.Serializable] public class ButtonLevel {
 
-            [SerializeField] private string _name;
+            [SerializeField] string _name;
             public Button _levelButton;
             public int _iDLevel;
           }
           [Header("Button Level")]
-          [SerializeField] private ButtonLevel[] _arryLevelButton;
-          private int _levelDataPlayer;
-          
-          //Main Tools
-          public SC_SettingsUIController _settingsUIController;
+          [SerializeField] ButtonLevel[] _arryLevelButton;
           #endregion
 
           #region UnityCalls
-          private void Awake()
-          {
-              _levelDataPlayer = _settingsUIController._dataPlayer.m_nivel;
-          }
           void Start()
           {
               //Start game
@@ -41,7 +32,7 @@ namespace C_Thorn.UI
                   //Add OnClick
                   _arryLevelButton[i-1]._levelButton.onClick.AddListener(() => SceneManager.LoadScene(_arryLevelButton[_count - 1]._iDLevel));
                   //show buttons
-                  if (_count<= _levelDataPlayer)
+                  if (_count<= GetLevelDataPlayer)
                   {
                        _arryLevelButton[i-1]._levelButton.interactable = true;
                   }
@@ -50,5 +41,12 @@ namespace C_Thorn.UI
               _quitButton.onClick.AddListener(() => Application.Quit());
           }
           #endregion
-    }
+
+          #region Methods
+          private int GetLevelDataPlayer
+          {
+              get => _settings._dataPlayer.m_nivel;
+          }
+          #endregion
+  }
 }
