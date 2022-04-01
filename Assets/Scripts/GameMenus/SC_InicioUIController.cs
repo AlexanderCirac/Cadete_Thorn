@@ -1,31 +1,26 @@
 using UnityEngine;
-using System.Collections;
-using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 namespace C_Thorn.UI
 {
-    public class SC_InicioUIController : MonoBehaviour
+    public class SC_InicioUIController : MyUIMonoBehaviour
     {
           #region Attributes
           [Header("Beggining UI")]
-          [SerializeField] private GameObject _textUIPanel;
-          [SerializeField] private Button _loadingButton;
+          [SerializeField] GameObject _textUIPanel;
+          [SerializeField] Button _loadingButton ;
           [Header("Settings UI")]
-          [SerializeField] private Image _brightnessImage;
-          [SerializeField] private AudioSource _musicAudioSource;
-          //Main Tools
-          [SerializeField] private SC_DatosJugador _dataPlayer;
+          [SerializeField] Image _brightnessImage;
+          [SerializeField] AudioSource _musicAudioSource;
           //Events
-          private static event Action OnSettings;
           #endregion
 
           #region UnityCalls
           void Start()
           {     
                 //events
-                OnSettings += ToControlSettings;
+                _gameMenus.OnSettings += ToControlSettings;
 
                 //Initialize
                 Invoke(nameof(ToShowTextUI), 0.5f);
@@ -35,14 +30,9 @@ namespace C_Thorn.UI
                 
           }
 
-          private void Update()
-          {
-                 if(OnSettings != null)
-                      OnSettings();
-          }
           private void OnDestroy()
-          {     
-                OnSettings -= ToControlSettings;
+          {
+                _gameMenus.OnSettings -= ToControlSettings;
           }
           #endregion
 
@@ -54,9 +44,8 @@ namespace C_Thorn.UI
       
           private void ToControlSettings()
           {
-              _brightnessImage.color = new Color(_brightnessImage.color.r, _brightnessImage.color.g, _brightnessImage.color.b, _dataPlayer.m_Numero_Brillo - 0.1f);
-              _musicAudioSource.volume = _dataPlayer.m_volumenMusica;
-           
+              _brightnessImage.color = new Color(_brightnessImage.color.r, _brightnessImage.color.g, _brightnessImage.color.b, _datos.m_Numero_Brillo - 0.1f);
+              _musicAudioSource.volume = _datos.m_volumenMusica;
           }
           #endregion
     }

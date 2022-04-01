@@ -48,5 +48,7 @@ namespace C_Thorn.UI
               get => _settings._dataPlayer.m_nivel;
           }
           #endregion
-  }
+    }
 }
+
+

@@ -58,6 +58,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\GameMenus\Interface\SC_ConvertirSpriteEnImegen.cs" />
     <Compile Include="Assets\Scripts\InGame\IA\SC_BasicIA.cs" />
+    <Compile Include="Assets\Scripts\GameMenus\SC_GameController.cs" />
+    <Compile Include="Assets\Scripts\MyUIMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\InGame\IA\Enemy\SC_IARobot.cs" />
     <Compile Include="Assets\Scripts\GameMenus\BannerAD\SC_BannerAdUIController.cs" />
     <Compile Include="Assets\Scripts\InGame\Mechanics\SC_RespawnObstacle.cs" />
@@ -74,8 +76,6 @@
     <Compile Include="Assets\Scripts\InGame\SC_InGameController.cs" />
     <Compile Include="Assets\Scripts\GameMenus\Settings\SC_SettingsUIController.cs" />
     <Compile Include="Assets\Scripts\GameMenus\SC_MainMenuUiController.cs" />
-    <Compile Include="Assets\Scripts\MyUIMonoBehaviour.cs" />
-    <Compile Include="Assets\Scripts\GameMenus\SC_GameMenusController.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Shaders\LowPolyUnlitShader.shader" />

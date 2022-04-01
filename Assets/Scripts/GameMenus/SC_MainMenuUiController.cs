@@ -9,8 +9,8 @@ namespace C_Thorn.UI
     {
           #region Attributes
           [Header("Buttons")]
-          [SerializeField] private Button _quitButton;
-          [SerializeField] private Button _playButton;
+          [SerializeField] Button _quitButton;
+          [SerializeField] Button _playButton;
           #endregion
 
           #region UnityCalls
