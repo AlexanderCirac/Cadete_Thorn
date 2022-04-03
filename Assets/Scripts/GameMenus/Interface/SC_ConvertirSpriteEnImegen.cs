@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace C_Thorn.UI
@@ -7,8 +6,8 @@ namespace C_Thorn.UI
     public class SC_ConvertSpriteToImage: MonoBehaviour
     {
           #region Attributes
-          [SerializeField] private Image _imagen;
-          [SerializeField] private SpriteRenderer _sprite;
+          [SerializeField] Image _imagen;
+          [SerializeField] SpriteRenderer _sprite;
           #endregion
 
           #region UnityCalls

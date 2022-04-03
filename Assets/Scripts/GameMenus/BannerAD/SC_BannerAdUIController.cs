@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using GoogleMobileAds.Api;
 
@@ -10,9 +8,9 @@ namespace C_Thorn
         #region Attributes 
         [Header("BannerAD")]
         public static SC_BannerAdUIController _instance;
-        [SerializeField]private string _iDApp = "ca-app-pub-4149822770479617~8881874217";
+        [SerializeField] string _iDApp = "ca-app-pub-4149822770479617~8881874217";
         //La id es la de una de pruebas, no es la oficial
-        [SerializeField]private string _iDBanner = "ca-app-pub-4149822770479617/7517988940";
+        [SerializeField] string _iDBanner = "ca-app-pub-4149822770479617/7517988940";
         public BannerView _banner;
         #endregion
 

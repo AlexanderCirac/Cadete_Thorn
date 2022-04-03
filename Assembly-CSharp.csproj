@@ -63,9 +63,11 @@
     <Compile Include="Assets\Scripts\InGame\IA\Enemy\SC_IARobot.cs" />
     <Compile Include="Assets\Scripts\GameMenus\BannerAD\SC_BannerAdUIController.cs" />
     <Compile Include="Assets\Scripts\InGame\Mechanics\SC_RespawnObstacle.cs" />
+    <Compile Include="Assets\Scripts\GameMenus\SC_MapaJuegoUiController.cs" />
     <Compile Include="Assets\Scripts\GameMenus\BannerAD\SC_UISpecialButtonToHandler.cs" />
     <Compile Include="Assets\Scripts\InGame\SC_InGameManager.cs" />
     <Compile Include="Assets\Scripts\GameMenus\SC_InGameUiController.cs" />
+    <Compile Include="Assets\Scripts\GameMenus\SC_InicioUIController.cs" />
     <Compile Include="Assets\Scripts\InGame\IA\Obstacle\SC_IAWall.cs" />
     <Compile Include="Assets\Scripts\InGame\Player\SC_PlayerController.cs" />
     <Compile Include="Assets\Scripts\GameMenus\Interface\SC_ImageAnimationColor.cs" />
@@ -73,6 +75,7 @@
     <Compile Include="Assets\Scripts\InGame\IA\Obstacle\SC_IABlades.cs" />
     <Compile Include="Assets\Scripts\InGame\SC_InGameController.cs" />
     <Compile Include="Assets\Scripts\GameMenus\Settings\SC_SettingsUIController.cs" />
+    <Compile Include="Assets\Scripts\GameMenus\SC_MainMenuUiController.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Shaders\LowPolyUnlitShader.shader" />
