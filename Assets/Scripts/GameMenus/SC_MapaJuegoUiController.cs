@@ -45,7 +45,7 @@ namespace C_Thorn.UI
           #region Methods
           private int GetLevelDataPlayer
           {
-              get => _settings._dataPlayer.m_nivel;
+              get => _datos.m_nivel;
           }
           #endregion
     }

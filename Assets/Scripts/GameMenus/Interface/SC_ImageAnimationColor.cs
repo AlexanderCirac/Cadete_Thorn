@@ -32,6 +32,11 @@ namespace C_Thorn.UI.Animations
           private Image GetImage
           {
               get => this.GetComponent<Image>();
+          }           
+          private float GetColorBase
+          {   
+              get => _colorBase;
+              set => _colorBase = GetImage.color.a;
           }          
           private float GetRandomLength
           {

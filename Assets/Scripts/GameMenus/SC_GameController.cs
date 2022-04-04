@@ -22,11 +22,11 @@ namespace C_Thorn.UI
           private void Awake()
           {
               _instance = this;
+             _datosJugador = !_datosJugador ? FindObjectOfType<SC_DatosJugador>() : _datosJugador;
           }
           private void Update()
           {
-                if(OnSettings != null)
-                  OnSettings();
+                  OnSettings?.Invoke();
           }
           #endregion
     }
