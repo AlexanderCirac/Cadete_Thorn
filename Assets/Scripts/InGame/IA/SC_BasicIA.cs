@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace C_Thorn.InGame.IA
 {
-    public  class SC_BasicIA : MonoBehaviour
+    public  class SC_BasicIA : MyMonoBehaviour
     {
 
           #region UnityCalls

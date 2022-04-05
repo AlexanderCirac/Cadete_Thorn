@@ -1,20 +1,14 @@
-using System.Collections;
 using UnityEngine;
 using C_Thorn.InGame.Player;
 
 
 namespace C_Thorn.InGame
 {
-      public class SC_InGameController : MonoBehaviour
+      public class SC_InGameController : MyMonoBehaviour
       {
 
           #region Attributes
-          [SerializeField] private GameObject _player;
-
-          //Main Tools
-          [Header("Main Tools")]
-          public SC_InGameManager _inGameManager;
-          public static SC_InGameController instance;
+          [SerializeField] GameObject _player;
 
           [Header("Control position Respawn")]
           public GameObject _respawnLeft;
@@ -22,10 +16,6 @@ namespace C_Thorn.InGame
           #endregion
 
           #region UnityCalls
-          private void Awake()
-          {
-              instance = this;
-          }
           void Start()
           {     
                 ToRecalculatePos();

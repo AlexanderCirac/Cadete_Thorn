@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace C_Thorn.UI.Settings
 {   
-    public class SC_SettingsUIController : MyUIMonoBehaviour
+    public class SC_SettingsUIController : MyMonoBehaviour
     {
         #region Attributes
         [Header("UI Settings")]

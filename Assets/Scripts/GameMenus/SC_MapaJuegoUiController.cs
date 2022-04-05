@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace C_Thorn.UI
 {
-    public class SC_MapaJuegoUiController : MyUIMonoBehaviour
+    public class SC_MapaJuegoUiController : MyMonoBehaviour
     {
           #region Attributes
           [Header("Button")]

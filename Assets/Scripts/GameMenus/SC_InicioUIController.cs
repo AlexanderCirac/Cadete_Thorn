@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 namespace C_Thorn.UI
 {
-    public class SC_InicioUIController : MyUIMonoBehaviour
+    public class SC_InicioUIController : MyMonoBehaviour
     {
           #region Attributes
           [Header("Beggining UI")]

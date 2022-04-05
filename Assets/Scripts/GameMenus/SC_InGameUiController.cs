@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace C_Thorn.UI
 {
-    public class SC_InGameUiController : MyUIMonoBehaviour
+    public class SC_InGameUiController : MyMonoBehaviour
     {
 
         #region Attributes
@@ -154,7 +154,7 @@ namespace C_Thorn.UI
                 ToRefreshPoints();
                 yield return new WaitForSeconds(1);
                 _inGameManager._time--;
-                _taimerText.text =_inGameManager._time.ToString();
+                _taimerText.text = _inGameManager._time.ToString();
 
             }
         }
