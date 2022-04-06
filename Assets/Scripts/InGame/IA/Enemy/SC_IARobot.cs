@@ -47,7 +47,7 @@ namespace C_Thorn.InGame.IA
           
           private void ToLoockAt()
           {   
-              if(!SC_InGameManager._instance._isLoset && SC_InGameManager._instance._isWin)
+              if(_inGameManager._conditionVictoryEnum == ConditionVictoryEnum.win)
               {
                   GameObject _player = GameObject.FindGameObjectWithTag("Player");
                   this.transform.LookAt(_player.transform);

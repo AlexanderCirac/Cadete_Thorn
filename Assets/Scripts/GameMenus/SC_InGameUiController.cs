@@ -171,10 +171,10 @@ namespace C_Thorn.UI
         }
         private void  ToPanelVictoris()
         {
-            if(_inGameManager._isWin)
+            if (_inGameManager._conditionVictoryEnum == ConditionVictoryEnum.win)
                   _victoryPanel.SetActive(true);  
                   
-            if(_inGameManager._isLoset)
+            if(_inGameManager._conditionVictoryEnum == ConditionVictoryEnum.lose)
                   _defeatPanel.SetActive(true);
         }
         #endregion

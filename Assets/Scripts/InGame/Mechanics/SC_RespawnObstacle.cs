@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace C_Thorn.InGame 
 {
-    public class SC_RespawnObstacle : MonoBehaviour
+    public class SC_RespawnObstacle : MyMonoBehaviour
     {
           #region Attributes
           private bool _endCorrutineRotate;
@@ -46,8 +46,8 @@ namespace C_Thorn.InGame
    
           IEnumerator CorrutineToInstantianteObstacle()
           {
-              while (!_isEndCorrutine && !SC_InGameManager._instance._isLoset && !SC_InGameManager._instance._isWin)
-              {
+              while (!_isEndCorrutine && _inGameManager._conditionVictoryEnum == ConditionVictoryEnum.none)
+      {
                   yield return new WaitForSeconds(2f);
                   _variableRespawn._intRandom = Random.Range(1, _variableRespawn._arryObjects.Length);
                   GameObject _objectToRespawn = _variableRespawn._arryObjects[_variableRespawn._intRandom -1];

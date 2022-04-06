@@ -11,8 +11,8 @@ namespace C_Thorn.InGame
           [SerializeField] GameObject _player;
 
           [Header("Control position Respawn")]
-          public GameObject _respawnLeft;
-          public GameObject _respawnRight;
+          [SerializeField] GameObject _respawnLeft;
+          [SerializeField] GameObject _respawnRight;
           #endregion
 
           #region UnityCalls
@@ -40,13 +40,13 @@ namespace C_Thorn.InGame
                 //win
                 if(_inGameManager._totalPoints >= _inGameManager._pointsMax)
                 {
-                    _inGameManager._isWin = true;
+                    _inGameManager._conditionVictoryEnum = ConditionVictoryEnum.win;
                     Time.timeScale = 0;
                 }
                 //defeat
                 if(_player == null || _inGameManager._time <= 0 )
                 { 
-                    _inGameManager._isLoset = true;
+                    _inGameManager._conditionVictoryEnum = ConditionVictoryEnum.lose;
                     Time.timeScale = 0;
                 }
           }          

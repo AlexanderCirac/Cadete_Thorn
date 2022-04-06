@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\MyMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\InGame\IA\Enemy\SC_IARobot.cs" />
     <Compile Include="Assets\Scripts\GameMenus\BannerAD\SC_BannerAdUIController.cs" />
+    <Compile Include="Assets\Scripts\Enums.cs" />
     <Compile Include="Assets\Scripts\InGame\Mechanics\SC_RespawnObstacle.cs" />
     <Compile Include="Assets\Scripts\GameMenus\SC_MapaJuegoUiController.cs" />
     <Compile Include="Assets\Scripts\GameMenus\BannerAD\SC_UISpecialButtonToHandler.cs" />
