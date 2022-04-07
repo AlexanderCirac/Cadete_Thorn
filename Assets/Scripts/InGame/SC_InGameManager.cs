@@ -10,7 +10,7 @@ namespace C_Thorn.InGame
         [HideInInspector] public int _totalPoints = 0;
         public int _time = 1;
         public int _pointsMax = 0;
-        public static float _velocityMove = 15;
+        public float _velocityMove = 15;
         #endregion
   }
 }
