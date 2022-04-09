@@ -41,13 +41,13 @@ namespace C_Thorn.InGame
                 if(_inGameManager._totalPoints >= _inGameManager._pointsMax)
                 {
                     _inGameManager._conditionVictoryEnum = ConditionVictoryEnum.win;
-                    Time.timeScale = 0;
+                    ToNormalizeTime(false);
                 }
                 //defeat
                 if(_player == null || _inGameManager._time <= 0 )
                 { 
                     _inGameManager._conditionVictoryEnum = ConditionVictoryEnum.lose;
-                    Time.timeScale = 0;
+                    ToNormalizeTime(false);
                 }
           }          
           private void ToRecalculatePos() 
@@ -69,11 +69,11 @@ namespace C_Thorn.InGame
           private void ToIncresTime()
           {
               Time.timeScale = 9;
-              Invoke(nameof(ToNormalizeTime),2f);  
+              Invoke("ToNormalizeTime(true)",2f);  
           }          
-          private void ToNormalizeTime()
-          {
-              Time.timeScale = 1;
+          private void ToNormalizeTime(bool _value)
+          {   
+              Time.timeScale = _value ? 1: 0;
           }
           #endregion
       }

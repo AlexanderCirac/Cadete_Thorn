@@ -8,7 +8,6 @@ namespace C_Thorn
     public class MyMonoBehaviour : MonoBehaviour
     {
         protected SC_GameController _gameMenus => SC_GameController._instance;
-
         protected SC_SettingsUIController _settings => _gameMenus._settingsUI;
         protected SC_DatosJugador _datos => _gameMenus._datosJugador;
         protected SC_InGameUiController _inGameUI => _gameMenus._inGameUIController;

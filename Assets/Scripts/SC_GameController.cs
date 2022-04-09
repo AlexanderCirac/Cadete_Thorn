@@ -20,14 +20,15 @@ namespace C_Thorn.UI
           #endregion
 
           #region Unity Call
-          private void Awake()
+          void Awake() => Init();
+          void Update () => OnSettings?.Invoke();
+          #endregion
+
+          #region Custom Private Methods
+          void Init()
           {
-              _instance = this;
-             _datosJugador = !_datosJugador ? FindObjectOfType<SC_DatosJugador>() : _datosJugador;
-          }
-          private void Update()
-          {
-                  OnSettings?.Invoke();
+             _instance = this;
+             _datosJugador = !_datosJugador ? FindObjectOfType<SC_DatosJugador>() : null;
           }
           #endregion
     }

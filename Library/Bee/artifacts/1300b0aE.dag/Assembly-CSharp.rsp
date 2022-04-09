@@ -322,11 +322,11 @@
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/VSSettingsProvider.ref.dll"
+"Assets/Scripts/Enums.cs"
 "Assets/Scripts/GameMenus/BannerAD/SC_BannerAdUIController.cs"
 "Assets/Scripts/GameMenus/BannerAD/SC_UISpecialButtonToHandler.cs"
 "Assets/Scripts/GameMenus/Interface/SC_ConvertirSpriteEnImegen.cs"
 "Assets/Scripts/GameMenus/Interface/SC_ImageAnimationColor.cs"
-"Assets/Scripts/GameMenus/SC_GameController.cs"
 "Assets/Scripts/GameMenus/SC_InGameUiController.cs"
 "Assets/Scripts/GameMenus/SC_InicioUIController.cs"
 "Assets/Scripts/GameMenus/SC_MainMenuUiController.cs"
@@ -341,7 +341,8 @@
 "Assets/Scripts/InGame/Player/SC_PlayerController.cs"
 "Assets/Scripts/InGame/SC_InGameController.cs"
 "Assets/Scripts/InGame/SC_InGameManager.cs"
-"Assets/Scripts/MyUIMonoBehaviour.cs"
+"Assets/Scripts/MyMonoBehaviour.cs"
+"Assets/Scripts/SC_GameController.cs"
 -langversion:8.0
 
 /deterministic
