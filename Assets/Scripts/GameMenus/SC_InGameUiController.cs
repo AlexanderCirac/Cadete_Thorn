@@ -53,13 +53,18 @@ namespace C_Thorn.UI
         }
         [Header("Variable Count Down")]
         [SerializeField] VariableCountDown _variableCount;
-
+        int GetCurrentLevel{ get => SceneManager.sceneCount; }
         #endregion
 
         #region UnityCalls
-        void Start()
+        void Start() => OnStart();
+        void Update () => ToPanelVictoris();
+        #endregion
+
+        #region Custom Private Methods
+        void OnStart()
         {
-            ToRefreshPoints();
+              ToRefreshPoints();
             //button onClick 
             for (int i = 1; i <= _arrayQuitButton.Length; i++)
             {
@@ -90,33 +95,19 @@ namespace C_Thorn.UI
                 ToStartTuto();
             }
             _taimerText.text =_inGameManager._time.ToString();
-              
         }
-
-        private void Update()
-        {
-            ToPanelVictoris();
-        }
-        #endregion
-
-        #region Methods
-        private int GetCurrentLevel{ get => SceneManager.sceneCount; }
-        private bool ToPausa{ set => Time.timeScale = value ? 1 : 0; }          
-        private void ToStartTuto()
+        bool ToPausa{ set => Time.timeScale = value ? 1 : 0; }          
+        void ToStartTuto()
         {
             while (!_variableCount._endCount)
             {
-                if(_variableTuto._tutoPanel != null)
-                    _variableTuto._tutoPanel.SetActive(false);
-
-                if(_variableTuto._countDownPanel != null)
-                    _variableTuto._countDownPanel.SetActive(true);
-
+                _variableTuto._tutoPanel?.SetActive(false);
+                _variableTuto._countDownPanel?.SetActive(true);
                 ToPausa = false;
                 ToCountDown();
             }
         }        
-        private  void ToCountDown()
+        void ToCountDown()
         {
             int i = _variableCount._Count;
             if(i <= _variableCount._arrayNumerPanel.Length)
@@ -143,7 +134,7 @@ namespace C_Thorn.UI
                 }
             }
         }
-        private void ToRefreshPoints()
+        void ToRefreshPoints()
         {
             _pointsText.text = _inGameManager._totalPoints + " /" + _inGameManager._pointsMax;
         }
@@ -159,7 +150,7 @@ namespace C_Thorn.UI
             }
         }
 
-        private void ToWin()
+        void ToWin()
         {
             if (GetCurrentLevel > _datos.m_nivel)
             {
@@ -169,13 +160,17 @@ namespace C_Thorn.UI
             else 
                 SceneManager.LoadScene(2);
         }
-        private void  ToPanelVictoris()
+        void  ToPanelVictoris()
         {
-            if (_inGameManager._conditionVictoryEnum == ConditionVictoryEnum.win)
-                  _victoryPanel.SetActive(true);  
-                  
-            if(_inGameManager._conditionVictoryEnum == ConditionVictoryEnum.lose)
+            switch (_inGameManager._conditionVictoryEnum)
+            {
+                case  ConditionVictoryEnum.win:
+                  _victoryPanel.SetActive(true);
+                  break;                
+                case  ConditionVictoryEnum.lose:
                   _defeatPanel.SetActive(true);
+                  break;
+            }
         }
         #endregion
 
