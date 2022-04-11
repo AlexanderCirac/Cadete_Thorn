@@ -20,7 +20,11 @@ namespace C_Thorn.UI
           #endregion
 
           #region UnityCalls
-          void Start()
+          void Start() => OnStart();
+          #endregion
+
+          #region Custom Private Methods
+          void OnStart()
           {
               //Start game
               Time.timeScale = 1;
@@ -39,11 +43,8 @@ namespace C_Thorn.UI
               }
 
               _quitButton.onClick.AddListener(() => Application.Quit());
-          }
-          #endregion
-
-          #region Methods
-          private int GetLevelDataPlayer
+          }          
+          int GetLevelDataPlayer
           {
               get => _datos.m_nivel;
           }

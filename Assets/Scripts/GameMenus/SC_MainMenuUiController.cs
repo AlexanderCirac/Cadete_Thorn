@@ -14,8 +14,12 @@ namespace C_Thorn.UI
           #endregion
 
           #region UnityCalls
-          private void Start()
-          {   
+          void Start() =>OnStart();
+          #endregion
+
+          #region Custom Private Methods
+          void OnStart()
+          {
               //Start game
               Time.timeScale = 1;
 
