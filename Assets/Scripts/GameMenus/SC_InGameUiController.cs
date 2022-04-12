@@ -57,12 +57,12 @@ namespace C_Thorn.UI
         #endregion
 
         #region UnityCalls
-        void Start() => OnStart();
+        void Start() => Setup();
         void Update () => ToPanelVictoris();
         #endregion
 
         #region Custom Private Methods
-        void OnStart()
+        void Setup()
         {
               ToRefreshPoints();
             //button onClick 
