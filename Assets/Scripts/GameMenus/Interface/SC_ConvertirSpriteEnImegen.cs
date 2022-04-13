@@ -12,10 +12,7 @@ namespace C_Thorn.UI
 
           #region UnityCalls
           // Start is called before the first frame update
-          void Update()
-          {
-              _imagen.sprite = _sprite.sprite;
-          }
+          void Update() => _imagen.sprite = _sprite.sprite;
           #endregion    
     }
 
