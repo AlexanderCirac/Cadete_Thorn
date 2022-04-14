@@ -1,41 +1,45 @@
 using UnityEngine;
-using C_Thorn.InGame.Player;
 
 
 namespace C_Thorn.InGame
 {
+      using C_Thorn.InGame.Player;
       public class SC_InGameController : MyMonoBehaviour
       {
 
           #region Attributes
           [SerializeField] GameObject _player;
-
           [Header("Control position Respawn")]
           [SerializeField] GameObject _respawnLeft;
           [SerializeField] GameObject _respawnRight;
           #endregion
 
           #region UnityCalls
-          void Start()
-          {     
+          void Awake() => Init();
+          void Update() => ToConditionVictory();
+          void OnDestroy() => OwnDisable();
+          #endregion
+
+          #region Custom public Methods
+          public void ToIncresPoints()
+          {
+              _inGameManager._totalPoints += 10;
+          }
+          #endregion
+
+          #region Custom private Methods
+          void Init()
+          {
                 ToRecalculatePos();
                 SC_PlayerController.OnReloadPoints += ToIncresPoints;
                 SC_PlayerController.OnIncresTime += ToIncresTime;
-          }
-
-          private void Update()
-          {
-              ToConditionVictory();
-          }
-          private void OnDestroy()
+          }          
+          void OwnDisable()
           {
                 SC_PlayerController.OnReloadPoints -= ToIncresPoints;
                 SC_PlayerController.OnIncresTime -= ToIncresTime;
           }
-          #endregion
-
-          #region Methods    
-          private void ToConditionVictory() 
+          void ToConditionVictory() 
           {
                 //win
                 if(_inGameManager._totalPoints >= _inGameManager._pointsMax)
@@ -50,7 +54,7 @@ namespace C_Thorn.InGame
                     ToNormalizeTime(false);
                 }
           }          
-          private void ToRecalculatePos() 
+          void ToRecalculatePos() 
           {
                   //Recalculate position with type screen
                   Vector2 m_posCamaraP = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
@@ -61,17 +65,13 @@ namespace C_Thorn.InGame
 
                   // Recalculate position Right
                    _respawnRight.transform.position = new Vector3((m_posCamaraP.x -(m_posCamaraP.x/5)),_respawnRight.transform.position.y, _respawnRight.transform.position.z);
-          }
-          public void ToIncresPoints()
-          {
-              _inGameManager._totalPoints += 10;
-          }          
-          private void ToIncresTime()
+          }        
+          void ToIncresTime()
           {
               Time.timeScale = 9;
               Invoke("ToNormalizeTime(true)",2f);  
           }          
-          private void ToNormalizeTime(bool _value)
+          void ToNormalizeTime(bool _value)
           {   
               Time.timeScale = _value ? 1: 0;
           }
