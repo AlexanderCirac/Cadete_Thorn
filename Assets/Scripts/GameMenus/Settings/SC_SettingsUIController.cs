@@ -20,17 +20,11 @@ namespace C_Thorn.UI.Settings
         #endregion
 
         #region UnityCall
-        private void Start()
-        {
-            _gameMenus.OnSettings += ApplicateUISettings;
-        }
-        private void OnDestroy()
-        {
-            _gameMenus.OnSettings -= ApplicateUISettings;
-        }
+        private void Start() => _gameMenus.OnSettings += ApplicateUISettings;
+        private void OnDestroy() =>_gameMenus.OnSettings -= ApplicateUISettings;
         #endregion
 
-        #region Methods
+        #region Custom private Methods
         void ApplicateUISettings()
         {
             //brightness intensity controller
@@ -53,18 +47,16 @@ namespace C_Thorn.UI.Settings
                 _valuebrightness = 1;
             }
             else
-            {
                 _datos.m_Numero_Brillo = _sliderBrightness.value;
-            }
+
             if (_datos.m_volumenMusica != 0 && _valueMusic != 1)
             {
                 _sliderMusic.value = _datos.m_volumenMusica;
                 _valueMusic = 1;
             }
             else
-            {
                 _datos.m_volumenMusica = _sliderMusic.value;
-            }
+
             if (!_panelLeftHand)
             {
                 _panelLeftHand.SetActive(_optionToggle.isOn);
