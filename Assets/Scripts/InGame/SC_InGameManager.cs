@@ -12,5 +12,5 @@ namespace C_Thorn.InGame
         public int _pointsMax = 0;
         public float _velocityMove = 15;
         #endregion
-  }
+    }
 }

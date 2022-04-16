@@ -41,7 +41,6 @@ namespace C_Thorn.UI
                        _arryLevelButton[i-1]._levelButton.interactable = true;
                   }
               }
-
               _quitButton.onClick.AddListener(() => Application.Quit());
           }          
           int GetLevelDataPlayer

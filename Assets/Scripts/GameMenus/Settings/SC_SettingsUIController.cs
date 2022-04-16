@@ -60,11 +60,11 @@ namespace C_Thorn.UI.Settings
             if (!_panelLeftHand)
             {
                 _panelLeftHand.SetActive(_optionToggle.isOn);
-                _panelRightHand.SetActive(!_optionToggle.isOn);                      
-
+                _panelRightHand.SetActive(!_optionToggle.isOn);                     
             }
         }
-        AudioSource Music { 
+        AudioSource Music 
+        { 
             get => _datos.GetComponentInChildren<AudioSource>();
         }
         #endregion

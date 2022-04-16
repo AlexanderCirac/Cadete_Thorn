@@ -6,30 +6,21 @@ namespace C_Thorn.InGame.IA
     public  class SC_BasicIA : MyMonoBehaviour
     {
 
-          #region UnityCalls
-          void Start()
-          {
-              StartCoroutine(CorrutineDie(8));
-          }
-          private void Update()
-          {
-              ToForward();
-          }
-          #endregion
+        #region UnityCalls
+        void Start() => StartCoroutine(CorrutineDie(8));
 
-          #region Methods
-          protected IEnumerator CorrutineDie(int _time)
-          {
-              yield return new WaitForSeconds(_time);
-              Destroy(this.gameObject);
+        private void Update() => ToForward();
+        #endregion
 
-          }
-         public void ToForward()
-          {
-              transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - (_inGameManager._velocityMove + 0.5f) * Time.deltaTime);
-          }
-          #endregion
+        #region Custom public Methods
+        protected IEnumerator CorrutineDie(int _time)
+        {
+            yield return new WaitForSeconds(_time);
+            Destroy(this.gameObject);
 
+        }
+        public void ToForward() => 
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - (_inGameManager._velocityMove + 0.5f) * Time.deltaTime);
+        #endregion
     }
-
 }
