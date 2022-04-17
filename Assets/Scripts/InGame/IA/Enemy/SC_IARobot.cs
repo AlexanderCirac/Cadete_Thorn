@@ -1,33 +1,29 @@
 using UnityEngine;
 
-
 namespace C_Thorn.InGame.IA
 {
     public class SC_IARobot : SC_BasicIA
-  {
+    {
           #region Attributes
           [Header("Control to Rotate blades")]
-          [SerializeField]private float _velocityToRotate;
-          [SerializeField]private GameObject _blades;
+          [SerializeField] float _velocityToRotate;
+          [SerializeField] GameObject _blades;
           [Header("Control to shoot")]
-          [SerializeField] private GameObject _canon;
-          [SerializeField] private GameObject _bulletEnemy;
+          [SerializeField] GameObject _canon;
+          [SerializeField] GameObject _bulletEnemy;
           #endregion  
     
           #region UnityCalls
           // Start is called before the first frame update
-          void Start()
-          {
-              StartCoroutine(CorrutineDie(38));
-          }
-          private void Update()
+          void Start() => StartCoroutine(CorrutineDie(38));
+          void Update()
           {
               ToForward();
               ToAnimationRotate();
               ToLoockAt();
           }
 
-          private void OnTriggerEnter(Collider _coll)
+          void OnTriggerEnter(Collider _coll)
           {
               if(_coll.CompareTag("BulletPlayer"))
               {
@@ -36,16 +32,10 @@ namespace C_Thorn.InGame.IA
           }
           #endregion
 
-          #region Methods
-
-                 
-
-          private void ToAnimationRotate()
-          {   
-              _blades.transform.RotateAround(this.transform.position, Vector3.up, _velocityToRotate * Time.deltaTime);
-          }          
+          #region Custom private Methods
+          void ToAnimationRotate() => _blades?.transform.RotateAround(this.transform.position, Vector3.up, _velocityToRotate * Time.deltaTime);         
           
-          private void ToLoockAt()
+          void ToLoockAt()
           {   
               if(_inGameManager._conditionVictoryEnum == ConditionVictoryEnum.win)
               {
@@ -54,17 +44,12 @@ namespace C_Thorn.InGame.IA
                   ToDetectedPlayer(_player);
               }
           }          
-          private void ToDetectedPlayer(GameObject _player)
+          void ToDetectedPlayer(GameObject _player)
           {   
               if( (_player.transform.position - this.transform.position).sqrMagnitude > 4*4)
-              {
                   Invoke(nameof(ToShoot),.5f);
-              }
           }
-          private void ToShoot() 
-          {
-              Instantiate(_bulletEnemy, _canon.transform.position, _canon.transform.rotation);  
-          }
+          void ToShoot() => Instantiate(_bulletEnemy, _canon.transform.position, _canon.transform.rotation);  
           #endregion
     }
 

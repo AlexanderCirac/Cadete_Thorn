@@ -19,7 +19,7 @@ namespace C_Thorn.InGame.IA
             Destroy(this.gameObject);
 
         }
-        public void ToForward() => 
+        protected void ToForward() => 
         transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - (_inGameManager._velocityMove + 0.5f) * Time.deltaTime);
         #endregion
     }

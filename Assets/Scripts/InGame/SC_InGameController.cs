@@ -7,6 +7,7 @@ namespace C_Thorn.InGame
     {
 
         #region Attributes
+        [Header("Player")]
         [SerializeField] GameObject _player;
         [Header("Control position Respawn")]
         [SerializeField] GameObject _respawnLeft;
@@ -52,15 +53,15 @@ namespace C_Thorn.InGame
         }          
         void ToRecalculatePos() 
         {
-                //Recalculate position with type screen
-                Vector2 m_posCamaraP = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-                Vector2 m_posCamaraN = Camera.main.ScreenToWorldPoint(new Vector3(-Screen.width, -Screen.height, Camera.main.transform.position.z));
+            //Recalculate position with type screen
+            Vector2 m_posCamaraP = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+            Vector2 m_posCamaraN = Camera.main.ScreenToWorldPoint(new Vector3(-Screen.width, -Screen.height, Camera.main.transform.position.z));
                   
-                //recalculate position left
-                _respawnLeft.transform.position = new Vector3((m_posCamaraN.x +(m_posCamaraP.x +(m_posCamaraP.x/6) )), _respawnLeft.transform.position.y, _respawnLeft.transform.position.z);
+            //recalculate position left
+            _respawnLeft.transform.position = new Vector3((m_posCamaraN.x +(m_posCamaraP.x +(m_posCamaraP.x/6) )), _respawnLeft.transform.position.y, _respawnLeft.transform.position.z);
 
-                // Recalculate position Right
-                _respawnRight.transform.position = new Vector3((m_posCamaraP.x -(m_posCamaraP.x/5)),_respawnRight.transform.position.y, _respawnRight.transform.position.z);
+            // Recalculate position Right
+            _respawnRight.transform.position = new Vector3((m_posCamaraP.x -(m_posCamaraP.x/5)),_respawnRight.transform.position.y, _respawnRight.transform.position.z);
         }        
         void ToIncresTime()
         {

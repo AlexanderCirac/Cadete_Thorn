@@ -21,17 +21,13 @@ namespace C_Thorn
           void Start() => Setup();
           #endregion
 
-          #region Custom Private Methods
+          #region Custom private Methods
           void Init()
           {
               if (_instance == null)
-              {
                 _instance = this;
-              }
               else
-              {
                 Destroy(this);
-              }
           }   
           void Setup()
           {
