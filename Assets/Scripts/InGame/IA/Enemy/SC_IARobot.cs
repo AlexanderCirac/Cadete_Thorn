@@ -16,12 +16,7 @@ namespace C_Thorn.InGame.IA
           #region UnityCalls
           // Start is called before the first frame update
           void Start() => StartCoroutine(CorrutineDie(38));
-          void Update()
-          {
-              ToForward();
-              ToAnimationRotate();
-              ToLoockAt();
-          }
+          void Update() => UpadteUP();
 
           void OnTriggerEnter(Collider _coll)
           {
@@ -33,6 +28,12 @@ namespace C_Thorn.InGame.IA
           #endregion
 
           #region Custom private Methods
+          void UpadteUP()
+          {
+              ToForward();
+              ToAnimationRotate();
+              ToLoockAt();
+          }
           void ToAnimationRotate() => _blades?.transform.RotateAround(this.transform.position, Vector3.up, _velocityToRotate * Time.deltaTime);         
           
           void ToLoockAt()

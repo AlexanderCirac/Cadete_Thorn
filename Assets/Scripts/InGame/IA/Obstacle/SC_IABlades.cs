@@ -5,30 +5,23 @@ namespace C_Thorn.InGame.IA
     {
           #region Attributes
           [Header("Control to Rotate blades")]
-          [SerializeField] private float _velocityToRotate;
-          [SerializeField] private GameObject _blades;
+          [SerializeField] float _velocityToRotate;
+          [SerializeField] GameObject _blades;
           #endregion  
     
           #region UnityCalls
           // Start is called before the first frame update
-          void Start()
-          {
-              StartCoroutine(CorrutineDie(38));
-          }
-
-          private void Update()
+          void Start() => StartCoroutine(CorrutineDie(38));
+          void Update() => UpdateUp();
+          #endregion    
+    
+          #region Custom private Methods
+          void UpdateUp()
           {
               ToForward();
               ToRotateAnimation();
           }
-          #endregion    
-    
-          #region Methods
-          private void ToRotateAnimation()
-          {
-          
-                  _blades.transform.RotateAround(this.transform.position, Vector3.up, _velocityToRotate * Time.deltaTime);
-          }
+          void ToRotateAnimation() => _blades.transform.RotateAround(this.transform.position, Vector3.up, _velocityToRotate * Time.deltaTime);
           #endregion
     }
 }
