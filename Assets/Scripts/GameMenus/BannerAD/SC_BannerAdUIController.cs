@@ -17,14 +17,13 @@ namespace C_Thorn
           #region UnityCall
           // Start is called before the first frame update
           void Awake() => Init();
-
           void Start() => Setup();
           #endregion
 
           #region Custom private Methods
           void Init()
           {
-              if (_instance == null)
+              if (!_instance)
                 _instance = this;
               else
                 Destroy(this);

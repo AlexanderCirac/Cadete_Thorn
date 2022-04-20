@@ -53,7 +53,6 @@ namespace C_Thorn.UI
         }
         [Header("Variable Count Down")]
         [SerializeField] VariableCountDown _variableCount;
-        int GetCurrentLevel{ get => SceneManager.sceneCount; }
         #endregion
 
         #region UnityCalls
@@ -97,6 +96,7 @@ namespace C_Thorn.UI
             _taimerText.text =_inGameManager._time.ToString();
         }
         bool ToPausa{ set => Time.timeScale = value ? 1 : 0; }          
+        int GetCurrentLevel{ get => SceneManager.sceneCount; }
         void ToStartTuto()
         {
             while (!_variableCount._endCount)

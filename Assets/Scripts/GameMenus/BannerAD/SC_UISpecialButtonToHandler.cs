@@ -8,15 +8,15 @@ namespace C_Thorn.UI
     {
         #region Attribute
         public  UnityEvent OnHold;
-        [SerializeField] bool _isHolding;
         #endregion
 
         #region UnityCalls
-        void Update() => OnHold?.Invoke();
-
-        public void OnPointerDown(PointerEventData eventData) { _isHolding = true; }
-        public void OnPointerUp(PointerEventData eventData) { _isHolding = false; }
+        public void OnPointerDown(PointerEventData eventData) { IsHolding = true; }
+        public void OnPointerUp(PointerEventData eventData) { IsHolding = false; }
+        #endregion  
+    
+        #region custom private methods
+        bool IsHolding{ set { if (value == true){ OnHold?.Invoke();}}}
         #endregion
     }
-
 }

@@ -39,7 +39,7 @@ namespace C_Thorn.UI
           #region Methods
           private  void ToShowTextUI()
           {
-                _textUIPanel.SetActive(true);
+                _textUIPanel?.SetActive(true);
           }
       
           private void ToControlSettings()
