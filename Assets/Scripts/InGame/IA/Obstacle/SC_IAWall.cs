@@ -8,45 +8,33 @@ namespace C_Thorn.InGame.IA
 
           #region Attributes
           [Header("Change Walls")]
-          [SerializeField] private GameObject _wall1;
-          [SerializeField] private GameObject _wall2;
-          private  bool   _isFlipFlopWalls = false;
-
+          [SerializeField] GameObject _wall1;
+          [SerializeField] GameObject _wall2;
+           bool   _isFlipFlopWalls = false;
           //Animation Blink Walls
           [Header("Blink Walls")]
-          [SerializeField] private float  _timeBlink = 0.5f;
-          private  float  _saveTimeBlink;
-          private  bool   _isBlinkWalls = false;
-
+          [SerializeField] float  _timeBlink = 0.5f;
+          float _saveTimeBlink;
+          bool   _isBlinkWalls = false;
           //corrutines
-          private  bool   _isCorrutinEnding;
-
-
+          bool   _isCorrutinEnding;
           #endregion
-          private void Awake()
-          {
-              _saveTimeBlink = _timeBlink;
-          }
+
           #region UnityCalls
-          void Start()
+           void Awake() => Init();
+          void Start() => StartUp();
+          void Update() => ToForward();
+          void OnDestroy() => _isCorrutinEnding = true;
+          #endregion
+
+          #region custom private Methods
+          void Init() => _saveTimeBlink = _timeBlink;
+          void StartUp()
           {
-              
               StartCoroutine(CorrutineDie(38));
               StartCoroutine(CorrutineFlipFlopWalls());
               StartCoroutine(CorrutineBlink());
           }
-
-          private void Update()
-          {
-              ToForward();
-          }
-          private void OnDestroy()
-          {
-              _isCorrutinEnding = true;
-          }
-          #endregion
-
-          #region Methods
           IEnumerator CorrutineFlipFlopWalls()
           {
              while(!_isCorrutinEnding)
@@ -54,9 +42,7 @@ namespace C_Thorn.InGame.IA
                   yield return new WaitForSeconds(_saveTimeBlink);
                   ToFlipFlopWalls(_isFlipFlopWalls);
                   _isFlipFlopWalls = !_isFlipFlopWalls;
-
              }
-             
           }   
           IEnumerator CorrutineBlink()
           {
@@ -67,13 +53,13 @@ namespace C_Thorn.InGame.IA
              }
           }          
          
-          private void ToFlipFlopWalls(bool _flipFlop)
+          void ToFlipFlopWalls(bool _flipFlop)
           {
               _timeBlink = _saveTimeBlink;
               _wall1.SetActive(_flipFlop);
               _wall2.SetActive(!_flipFlop);
           }
-          private void ToDecreaseTime()
+          void ToDecreaseTime()
           {
               _isBlinkWalls = !_isBlinkWalls;
 
@@ -81,9 +67,8 @@ namespace C_Thorn.InGame.IA
               _timeBlink -= ((_timeBlink * 60)/100);
 
               ToBlinkWalls(_isFlipFlopWalls, _isBlinkWalls);
-
           }
-          private void ToBlinkWalls(bool _flipFlop, bool _blink)
+          void ToBlinkWalls(bool _flipFlop, bool _blink)
           {
                 switch (_flipFlop)
                 {
