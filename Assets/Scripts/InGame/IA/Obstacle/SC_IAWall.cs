@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 namespace C_Thorn.InGame.IA
@@ -10,76 +11,68 @@ namespace C_Thorn.InGame.IA
           [Header("Change Walls")]
           [SerializeField] GameObject _wall1;
           [SerializeField] GameObject _wall2;
-           bool   _isFlipFlopWalls = false;
           //Animation Blink Walls
           [Header("Blink Walls")]
-          [SerializeField] float  _timeBlink = 0.5f;
-          float _saveTimeBlink;
-          bool   _isBlinkWalls = false;
-          //corrutines
-          bool   _isCorrutinEnding;
+          [SerializeField] float  _timeBlink, _saveTimeBlink;
+          int  _iDWall = 1;
           #endregion
 
           #region UnityCalls
-           void Awake() => Init();
           void Start() => StartUp();
           void Update() => ToForward();
-          void OnDestroy() => _isCorrutinEnding = true;
           #endregion
 
           #region custom private Methods
-          void Init() => _saveTimeBlink = _timeBlink;
           void StartUp()
           {
-              StartCoroutine(CorrutineDie(38));
+              //StartCoroutine(CorrutineDie(38));
               StartCoroutine(CorrutineFlipFlopWalls());
-              StartCoroutine(CorrutineBlink());
           }
           IEnumerator CorrutineFlipFlopWalls()
           {
-             while(!_isCorrutinEnding)
-             {
-                  yield return new WaitForSeconds(_saveTimeBlink);
-                  ToFlipFlopWalls(_isFlipFlopWalls);
-                  _isFlipFlopWalls = !_isFlipFlopWalls;
-             }
-          }   
-          IEnumerator CorrutineBlink()
-          {
-             while(!_isCorrutinEnding)
+             while(SceneManager.GetActiveScene().isLoaded)
              {
                   yield return new WaitForSeconds(_timeBlink);
-                  ToDecreaseTime();
+                  _timeBlink = _timeBlink < 0.1f? _saveTimeBlink : _timeBlink -= ((_timeBlink * 20) / 100);
+                  if(_timeBlink == _saveTimeBlink)
+                    ToFlipFlopWalls = !ToFlipFlopWalls;
+                  else
+                    ToBlinkWalls();
+
              }
-          }          
-         
-          void ToFlipFlopWalls(bool _flipFlop)
+          }   
+          bool ToFlipFlopWalls
           {
-              _timeBlink = _saveTimeBlink;
-              _wall1.SetActive(_flipFlop);
-              _wall2.SetActive(!_flipFlop);
+              get => ToFlipFlopWalls = false;
+              set
+              {  
+                  switch (value)
+                  {
+                      case false:
+                          _wall1.SetActive(!_wall1.activeSelf);
+                          _wall2.SetActive(true);
+                          _iDWall = 1;
+                          return;
+                      case true:
+                          _wall1.SetActive(true);
+                          _wall2.SetActive(!_wall2.activeSelf);
+                          _iDWall = 2;
+                        return;
+                  }
+              }
           }
-          void ToDecreaseTime()
+          void ToBlinkWalls()
           {
-              _isBlinkWalls = !_isBlinkWalls;
-
-              if(_timeBlink > (_saveTimeBlink * 10) / 100)
-              _timeBlink -= ((_timeBlink * 60)/100);
-
-              ToBlinkWalls(_isFlipFlopWalls, _isBlinkWalls);
+              switch (_iDWall)
+              {
+                  case 1:
+                    _wall1.SetActive(!_wall1.activeSelf);
+                    return;
+                  case 2:
+                    _wall2.SetActive(!_wall2.activeSelf);
+                    return;
+              }
           }
-          void ToBlinkWalls(bool _flipFlop, bool _blink)
-          {
-                switch (_flipFlop)
-                {
-                    case false:
-                       _wall1.SetActive(!_blink);
-                       return;
-                    case true:
-                      _wall2.SetActive(_blink);
-                      return;
-                }
-          } 
           #endregion
-    }
+  }
 }

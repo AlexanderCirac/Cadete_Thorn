@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace C_Thorn.InGame.IA
 {
-    public  class SC_BasicIA : MyMonoBehaviour
+    public  class SC_BasicIA : MonoBehaviour
     {
 
         #region UnityCalls
@@ -20,7 +20,7 @@ namespace C_Thorn.InGame.IA
 
         }
         protected void ToForward() => 
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - (_inGameManager._velocityMove + 0.5f) * Time.deltaTime);
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - (0.9f + 0.5f) * Time.deltaTime);
         #endregion
     }
 }

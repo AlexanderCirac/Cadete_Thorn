@@ -38,12 +38,12 @@ namespace C_Thorn.InGame.IA
           
           void ToLoockAt()
           {   
-              if(_inGameManager._conditionVictoryEnum == ConditionVictoryEnum.win)
-              {
-                  GameObject _player = GameObject.FindGameObjectWithTag("Player");
-                  this.transform.LookAt(_player.transform);
-                  ToDetectedPlayer(_player);
-              }
+              //if(_inGameManager._conditionVictoryEnum == ConditionVictoryEnum.win)
+              //{
+              //    GameObject _player = GameObject.FindGameObjectWithTag("Player");
+              //    this.transform.LookAt(_player.transform);
+              //    ToDetectedPlayer(_player);
+              //}
           }          
           void ToDetectedPlayer(GameObject _player)
           {   

@@ -12,7 +12,7 @@ namespace C_Thorn.InGame.IA
           {
               if(_coll.CompareTag("BulletPlayer"))
               {
-                  _inGameController.ToIncresPoints();
+                 // _inGameController.ToIncresPoints();
                   Destroy(this.gameObject);
               }
           }
