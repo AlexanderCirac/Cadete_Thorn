@@ -4,8 +4,7 @@ namespace C_Thorn.InGame.IA
     public class SC_IABlades : SC_BasicIA
     {
           #region Attributes
-          [Header("Control to Rotate blades")]
-          [SerializeField] float _velocityToRotate;
+          //[Header("Control to Rotate blades")]
           [SerializeField] GameObject _blades;
           #endregion  
     
@@ -19,9 +18,9 @@ namespace C_Thorn.InGame.IA
           void UpdateUp()
           {
               ToForward();
-              ToRotateAnimation();
+              ToRotate = 50f;
           }
-          void ToRotateAnimation() => _blades.transform.RotateAround(this.transform.position, Vector3.up, _velocityToRotate * Time.deltaTime);
+           float ToRotate { set => _blades.transform.RotateAround(transform.position, Vector3.up, value * Time.deltaTime); }
           #endregion
     }
 }

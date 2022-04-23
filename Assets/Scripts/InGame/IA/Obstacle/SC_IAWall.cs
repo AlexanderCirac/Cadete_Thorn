@@ -25,7 +25,7 @@ namespace C_Thorn.InGame.IA
           #region custom private Methods
           void StartUp()
           {
-              //StartCoroutine(CorrutineDie(38));
+              StartCoroutine(CorrutineDie(38));
               StartCoroutine(CorrutineFlipFlopWalls());
           }
           IEnumerator CorrutineFlipFlopWalls()

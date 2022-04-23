@@ -6,7 +6,6 @@ namespace C_Thorn.InGame.IA
     {
           #region Attributes
           [Header("Control to Rotate blades")]
-          [SerializeField] float _velocityToRotate;
           [SerializeField] GameObject _blades;
           [Header("Control to shoot")]
           [SerializeField] GameObject _canon;
@@ -31,19 +30,17 @@ namespace C_Thorn.InGame.IA
           void UpadteUP()
           {
               ToForward();
-              ToAnimationRotate();
+              ToRotate = 50f;
               ToLoockAt();
           }
-          void ToAnimationRotate() => _blades?.transform.RotateAround(this.transform.position, Vector3.up, _velocityToRotate * Time.deltaTime);         
-          
           void ToLoockAt()
           {   
-              //if(_inGameManager._conditionVictoryEnum == ConditionVictoryEnum.win)
-              //{
-              //    GameObject _player = GameObject.FindGameObjectWithTag("Player");
-              //    this.transform.LookAt(_player.transform);
-              //    ToDetectedPlayer(_player);
-              //}
+              if(_inGameManager._conditionVictoryEnum == ConditionVictoryEnum.win)
+              {
+                  GameObject _player = GameObject.FindGameObjectWithTag("Player");
+                  this.transform.LookAt(_player.transform);
+                  ToDetectedPlayer(_player);
+              }
           }          
           void ToDetectedPlayer(GameObject _player)
           {   
@@ -51,6 +48,7 @@ namespace C_Thorn.InGame.IA
                   Invoke(nameof(ToShoot),.5f);
           }
           void ToShoot() => Instantiate(_bulletEnemy, _canon.transform.position, _canon.transform.rotation);  
+           float ToRotate { set => _blades.transform.RotateAround(transform.position, Vector3.up, value * Time.deltaTime); }
           #endregion
     }
 
