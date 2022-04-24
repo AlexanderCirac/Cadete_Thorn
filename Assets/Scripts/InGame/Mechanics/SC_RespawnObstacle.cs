@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 namespace C_Thorn.InGame 
@@ -7,55 +8,47 @@ namespace C_Thorn.InGame
     public class SC_RespawnObstacle : MyMonoBehaviour
     {
           #region Attributes
-          private bool _endCorrutineRotate;
-          [Header("Move Flip flop")]
-          [HideInInspector] public  float _lenghtPingPong;
-          [SerializeField]  private float _initialPosX;
+          float _initialPosX;
+          float _distanceScreen ;
+          [Header("To Flip Flop velocity")]
           public  float _velocity = 5;
-          private bool  _isFlipFlop = false;
-          [System.Serializable] public class ObjectToRespawnObstacles {
-              public GameObject[] _arryObjects;
-              [HideInInspector] public int _intRandom;
-          }
-
-          [Header("Object To Respawn")]
-          [SerializeField] private ObjectToRespawnObstacles _variableRespawn;
-          //Corrutines
-          private bool _isEndCorrutine;
+          [Header("Object Respawn")]
+          public GameObject[] _arryObjects;
           #endregion  
     
           #region UnityCalls
           // Start is called before the first frame update
-          void Start()
-          {
-              _initialPosX = this.transform.position.x;
-              StartCoroutine(CorrutineToInstantianteObstacle());
-          }
-          private void Update()
-          {
-              ToMoveFlipFlop(this.transform, _lenghtPingPong, _velocity);
-          }
-          private void OnDestroy()
-          {
-              _isEndCorrutine = true;
-          }
+          void Awake() => Init();
+          void Start() => StartCoroutine(CorrutineToInstantianteObstacle());
+
+          private void Update() => ToMoveFlipFlop(this.transform, _distanceScreen, _velocity);
           #endregion    
-    
-          #region Methods
    
+          #region Custom private Methods
           IEnumerator CorrutineToInstantianteObstacle()
           {
-              while (!_isEndCorrutine && _inGameManager._conditionVictoryEnum == ConditionVictoryEnum.none)
-      {
+              while (SceneManager.GetActiveScene().isLoaded && _inGameManager._conditionVictoryEnum == ConditionVictoryEnum.none)
+              {
                   yield return new WaitForSeconds(2f);
-                  _variableRespawn._intRandom = Random.Range(1, _variableRespawn._arryObjects.Length);
-                  GameObject _objectToRespawn = _variableRespawn._arryObjects[_variableRespawn._intRandom -1];
+                  GameObject _objectToRespawn = _arryObjects[GetIntRandom];
                   Instantiate(_objectToRespawn, this.transform.position, _objectToRespawn.transform.rotation);
               }
           }
-          public void ToMoveFlipFlop(Transform _originObject,float _lenght, float _velocity )
+          void ToMoveFlipFlop(Transform _originObject,float _distanceScreen, float _velocity )
           {
-                _originObject.position = new Vector3(_initialPosX - (Mathf.PingPong(Time.time * _velocity, _lenght) - 0.5f * _lenght), _originObject.position.y, _originObject.position.z); ;
+                _originObject.position = new Vector3(_initialPosX - (Mathf.PingPong(Time.time * _velocity, _distanceScreen) - 0.5f * _distanceScreen), _originObject.position.y, _originObject.position.z); ;
+          }
+          int GetIntRandom
+          {
+              get => Random.Range(1, _arryObjects.Length);
+          }          
+          void Init()
+          {   
+               Vector2 _anchorLeft = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+               Vector2 _anchorRight = Camera.main.ScreenToWorldPoint(new Vector3(-Screen.width, -Screen.height, Camera.main.transform.position.z));
+              _distanceScreen = (_anchorRight.x + (_anchorLeft.x + (_anchorLeft.x / 6))) - (_anchorLeft.x - (_anchorLeft.x / 5));
+
+              _initialPosX = this.transform.position.x;
           }
           #endregion
     }
