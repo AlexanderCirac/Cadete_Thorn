@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace C_Thorn.UI
 {
@@ -8,15 +9,15 @@ namespace C_Thorn.UI
     {
           #region Attribute
           //Main tools UI
-          public SC_SettingsUIController _settingsUI;
-          public SC_DatosJugador _datosJugador;
-          public SC_InGameUiController _inGameUIController;
-          public SC_InGameManager _gameManager;
-          public SC_InGameController _gameController;
+          [HideInInspector] public SC_SettingsUIController _settingsUI;
+          [HideInInspector] public SC_DatosJugador _datosJugador;
+          [HideInInspector] public SC_InGameUiController _inGameUIController;
+          [HideInInspector] public SC_InGameManager _gameManager;
+          [HideInInspector] public SC_InGameController _gameController;
           //events
           public event Action OnSettings;
           //singlenton
-          public static SC_GameController _instance;
+          [HideInInspector] public static SC_GameController _instance;
           #endregion
 
           #region Unity Call
@@ -29,6 +30,10 @@ namespace C_Thorn.UI
           {
              _instance = this;
              _datosJugador = !_datosJugador ? FindObjectOfType<SC_DatosJugador>() : null;
+             _settingsUI = !_settingsUI ? FindObjectOfType<SC_SettingsUIController>() : null;
+             _inGameUIController = !_inGameUIController ? FindObjectOfType<SC_InGameUiController>() : null;
+             _gameManager = !_gameManager ? FindObjectOfType<SC_InGameManager>() : null;
+             _gameController = !_gameController ? FindObjectOfType<SC_InGameController>() : null;
           }
           #endregion
     }

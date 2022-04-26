@@ -17,32 +17,26 @@ namespace C_Thorn.UI
           #endregion
 
           #region UnityCalls
-          void Start()
-          {     
+          void Start() => StartUp();
+
+          private void OnDestroy() => _gameMenus.OnSettings -= ToControlSettings;
+          #endregion
+
+          #region custom private Methods
+          void StartUp()
+          {
                 //events
                 _gameMenus.OnSettings += ToControlSettings;
+
+                //buttons OnClick
+                _textUIPanel.GetComponent<Button>().onClick.AddListener( () => SceneManager.LoadScene(1));
 
                 //Initialize
                 Invoke(nameof(ToShowTextUI), 0.5f);
 
-                //buttons OnClick
-                _loadingButton.onClick.AddListener( () => SceneManager.LoadScene(1));
-                
           }
-
-          private void OnDestroy()
-          {
-                _gameMenus.OnSettings -= ToControlSettings;
-          }
-          #endregion
-
-          #region Methods
-          private  void ToShowTextUI()
-          {
-                _textUIPanel?.SetActive(true);
-          }
-      
-          private void ToControlSettings()
+          void ToShowTextUI() =>_textUIPanel?.SetActive(true);
+          void ToControlSettings()
           {
               _brightnessImage.color = new Color(_brightnessImage.color.r, _brightnessImage.color.g, _brightnessImage.color.b, _datos.m_Numero_Brillo - 0.1f);
               _musicAudioSource.volume = _datos.m_volumenMusica;
