@@ -9,15 +9,15 @@ namespace C_Thorn.UI
     {
           #region Attribute
           //Main tools UI
-          [HideInInspector] public SC_SettingsUIController _settingsUI;
-          [HideInInspector] public SC_DatosJugador _datosJugador;
-          [HideInInspector] public SC_InGameUiController _inGameUIController;
-          [HideInInspector] public SC_InGameManager _gameManager;
-          [HideInInspector] public SC_InGameController _gameController;
+          internal SC_SettingsUIController _settingsUI;
+          internal SC_DatosJugador _datosJugador;
+          internal SC_InGameUiController _inGameUIController;
+          internal SC_InGameManager _gameManager;
+          internal SC_InGameController _gameController;
           //events
-          public event Action OnSettings;
+          internal event Action OnSettings;
           //singlenton
-          [HideInInspector] public static SC_GameController _instance;
+          internal static SC_GameController _instance;
           #endregion
 
           #region Unity Call

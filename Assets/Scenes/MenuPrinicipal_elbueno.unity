@@ -608,7 +608,6 @@ GameObject:
   - component: {fileID: 115637487}
   - component: {fileID: 115637486}
   - component: {fileID: 115637485}
-  - component: {fileID: 115637484}
   m_Layer: 5
   m_Name: pagina web
   m_TagString: Untagged
@@ -636,19 +635,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.5, y: -0.5999985}
   m_SizeDelta: {x: -0.6000061, y: 1.9000244}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &115637484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 115637482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02404efcac8617d4b938cb793aa52fa3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _url: https://patrickdearteaga.com/
 --- !u!114 &115637485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -661,6 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611b943590661854c94baa54daf21559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _randomLength: 0
   _speedAnimation: 0.5
 --- !u!114 &115637486
 MonoBehaviour:
@@ -705,19 +692,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 115637487}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 115637484}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Pagina_Web
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: https://patrickdearteaga.com/
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &115637487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1045,7 +1020,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.36100003, y: 0.15125117}
   m_AnchorMax: {x: 0.75500005, y: 0.6937418}
-  m_AnchoredPosition: {x: -6.5, y: -4.9999847}
+  m_AnchoredPosition: {x: -6.5, y: -5}
   m_SizeDelta: {x: -9.600006, y: -7.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &185423937
@@ -1230,7 +1205,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &226447267
 GameObject:
@@ -1887,6 +1862,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 539762533}
   m_CullTransparentMesh: 0
+--- !u!1 &543954416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 543954417}
+  m_Layer: 0
+  m_Name: MainMenuController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &543954417
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543954416}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 661.6938, y: 2227.353, z: 1154.0754}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2131927112}
+  - {fileID: 2032780900}
+  - {fileID: 1480410590}
+  - {fileID: 548654092}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &548654091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 548654092}
+  - component: {fileID: 548654093}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &548654092
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548654091}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 543954417}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &548654093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548654091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c434c3127be9d14b9394aff8b83ada2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &563464851
 GameObject:
   m_ObjectHideFlags: 0
@@ -2204,6 +2256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611b943590661854c94baa54daf21559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _randomLength: 0
   _speedAnimation: 0.38
 --- !u!114 &583617422
 MonoBehaviour:
@@ -2761,7 +2814,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.170683, y: 0.109000005}
   m_AnchorMax: {x: 0.8934117, y: 0.44417942}
-  m_AnchoredPosition: {x: -1.272995, y: -1.0000038}
+  m_AnchoredPosition: {x: -1.272995, y: -1}
   m_SizeDelta: {x: 4.300003, y: -3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &746404040
@@ -2941,6 +2994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611b943590661854c94baa54daf21559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _randomLength: 0
   _speedAnimation: 0.3
 --- !u!114 &793941219
 MonoBehaviour:
@@ -3340,6 +3394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611b943590661854c94baa54daf21559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _randomLength: 0
   _speedAnimation: 0.5
 --- !u!114 &838757413
 MonoBehaviour:
@@ -3702,6 +3757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611b943590661854c94baa54daf21559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _randomLength: 0
   _speedAnimation: 0
 --- !u!114 &844763441
 MonoBehaviour:
@@ -3870,6 +3926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611b943590661854c94baa54daf21559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _randomLength: 0
   _speedAnimation: 0.3
 --- !u!114 &864396117
 MonoBehaviour:
@@ -4411,7 +4468,6 @@ GameObject:
   - component: {fileID: 989960559}
   - component: {fileID: 989960558}
   - component: {fileID: 989960557}
-  - component: {fileID: 989960556}
   m_Layer: 5
   m_Name: pagina web
   m_TagString: Untagged
@@ -4439,19 +4495,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.5, y: -0.1000061}
   m_SizeDelta: {x: -0.6000061, y: 0.9000244}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &989960556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 989960554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02404efcac8617d4b938cb793aa52fa3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _url: 
 --- !u!114 &989960557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4464,6 +4507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611b943590661854c94baa54daf21559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _randomLength: 0
   _speedAnimation: 0
 --- !u!114 &989960558
 MonoBehaviour:
@@ -4508,19 +4552,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 989960559}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 989960554}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &989960559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4593,7 +4625,7 @@ RectTransform:
   - {fileID: 841745264}
   - {fileID: 58895658}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5670,7 +5702,6 @@ GameObject:
   - component: {fileID: 1316363585}
   - component: {fileID: 1316363584}
   - component: {fileID: 1316363583}
-  - component: {fileID: 1316363582}
   m_Layer: 5
   m_Name: pagina web
   m_TagString: Untagged
@@ -5698,19 +5729,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.5, y: -0.1000061}
   m_SizeDelta: {x: 1.3999939, y: 0.9000244}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1316363582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1316363580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02404efcac8617d4b938cb793aa52fa3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _url: https://alexandercirac.itch.io/web-alexander
 --- !u!114 &1316363583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5723,6 +5741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611b943590661854c94baa54daf21559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _randomLength: 0
   _speedAnimation: 0.2
 --- !u!114 &1316363584
 MonoBehaviour:
@@ -5767,19 +5786,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1316363585}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1316363582}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Pagina_Web
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: https://alexander-cirac.000webhostapp.com/
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1316363585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5831,7 +5838,6 @@ GameObject:
   - component: {fileID: 1336858358}
   - component: {fileID: 1336858357}
   - component: {fileID: 1336858356}
-  - component: {fileID: 1336858355}
   m_Layer: 5
   m_Name: Borrar
   m_TagString: Untagged
@@ -5859,18 +5865,6 @@ RectTransform:
   m_AnchoredPosition: {x: 145.3831, y: -106.71863}
   m_SizeDelta: {x: 290.7662, y: 213.43726}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1336858355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1336858353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e17e34e5acab5164bacb70bc88bd6628, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1336858356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5883,6 +5877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611b943590661854c94baa54daf21559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _randomLength: 0
   _speedAnimation: 0
 --- !u!114 &1336858357
 MonoBehaviour:
@@ -6271,12 +6266,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480410587}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -661.6938, y: -2227.353, z: -1154.0754}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 543954417}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1499092941
 GameObject:
@@ -6588,19 +6583,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1540028218}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Salir
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1540028218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7083,6 +7066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611b943590661854c94baa54daf21559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _randomLength: 0
   _speedAnimation: 0.4
 --- !u!114 &1645683005
 MonoBehaviour:
@@ -8470,7 +8454,6 @@ GameObject:
   - component: {fileID: 2000034583}
   - component: {fileID: 2000034582}
   - component: {fileID: 2000034581}
-  - component: {fileID: 2000034580}
   - component: {fileID: 2000034579}
   m_Layer: 5
   m_Name: pagina web
@@ -8511,20 +8494,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611b943590661854c94baa54daf21559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _randomLength: 0
   _speedAnimation: 0.4
---- !u!114 &2000034580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000034577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02404efcac8617d4b938cb793aa52fa3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _url: https://www.artstation.com/remusveres
 --- !u!114 &2000034581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8568,19 +8539,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2000034582}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2000034580}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Pagina_Web
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: https://www.artstation.com/remusveres
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2000034582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8730,6 +8689,8 @@ MonoBehaviour:
   _sliderBrightness: {fileID: 5089250}
   _optionToggle: {fileID: 1981532514}
   _sliderMusic: {fileID: 888385486}
+  _panelLeftHand: {fileID: 0}
+  _panelRightHand: {fileID: 0}
 --- !u!4 &2032780900
 Transform:
   m_ObjectHideFlags: 0
@@ -8737,12 +8698,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2032780898}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.760986, y: -3.2746053, z: 13.314355}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -624.9328, y: -2230.6277, z: -1140.7611}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Father: {fileID: 543954417}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2032780905
 MonoBehaviour:
@@ -8944,8 +8905,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdad3f862b9d1ea448fdb9f3f8b3ef53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonQuit: {fileID: 1540028217}
-  _buttonPlay: {fileID: 1645683005}
+  _quitButton: {fileID: 1540028217}
+  _playButton: {fileID: 1645683005}
+  _arryURLButton: []
 --- !u!4 &2131927112
 Transform:
   m_ObjectHideFlags: 0
@@ -8953,12 +8915,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131927110}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 400.5571, y: 443.17657, z: 27.154114}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -261.1367, y: -1784.1765, z: -1126.9214}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 543954417}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2141274949
 GameObject:

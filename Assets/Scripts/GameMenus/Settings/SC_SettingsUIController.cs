@@ -57,10 +57,10 @@ namespace C_Thorn.UI.Settings
             else
                 _datos.m_volumenMusica = _sliderMusic.value;
 
-            if (!_panelLeftHand)
+            if (_panelLeftHand)
             {
-                _panelLeftHand.SetActive(_optionToggle.isOn);
-                _panelRightHand.SetActive(!_optionToggle.isOn);                     
+                _panelLeftHand?.SetActive(_optionToggle.isOn);
+                _panelRightHand?.SetActive(!_optionToggle.isOn);                     
             }
         }
         AudioSource Music 
