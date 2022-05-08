@@ -4572,7 +4572,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.09200001, y: 0.35700002}
   m_AnchorMax: {x: 0.9071685, y: 0.90200007}
-  m_AnchoredPosition: {x: 0.47000122, y: -2.87}
+  m_AnchoredPosition: {x: 0.47000122, y: -2.8700027}
   m_SizeDelta: {x: 0.32999992, y: 4.2799997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &611062244
@@ -8115,10 +8115,10 @@ RectTransform:
   m_Father: {fileID: 349357483}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 440.9078, y: -174.14455}
+  m_SizeDelta: {x: 881.8156, y: 348.2891}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1060058362
 MonoBehaviour:
@@ -9477,7 +9477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1251732441
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11989,10 +11989,10 @@ RectTransform:
   m_Father: {fileID: 349357483}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 440.9078, y: -522.43365}
+  m_SizeDelta: {x: 881.8156, y: 348.2891}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1611327495
 MonoBehaviour:
@@ -14996,12 +14996,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7fb8965f5773a44a453cff65716edd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _brightness: {fileID: 0}
-  _sliderBrightness: {fileID: 0}
-  _optionToggle: {fileID: 0}
-  _sliderMusic: {fileID: 0}
-  _panelLeftHand: {fileID: 0}
-  _panelRightHand: {fileID: 0}
+  _brightness: {fileID: 1785146294}
+  _sliderBrightness: {fileID: 61822487}
+  _optionToggle: {fileID: 38609761}
+  _sliderMusic: {fileID: 477094878}
+  _panelLeftHand: {fileID: 1907872790}
+  _panelRightHand: {fileID: 1678124795}
 --- !u!4 &2032780900
 Transform:
   m_ObjectHideFlags: 0
