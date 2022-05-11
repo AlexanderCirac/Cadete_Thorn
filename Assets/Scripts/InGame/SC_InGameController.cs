@@ -27,7 +27,7 @@ namespace C_Thorn.InGame
         #region Custom private Methods
         void Init()
         {
-              ToRecalculatePos();
+              ToRecalculatePos(); 
               SC_PlayerController.OnReloadPoints += ToIncresPoints;
               SC_PlayerController.OnIncresTime += ToIncresTime;
         }          

@@ -10761,20 +10761,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _arrayQuitButton: []
   _arrayLoadButton: []
-  _enterPauseButton: {fileID: 0}
-  _exitPauseButton: {fileID: 0}
-  _victoryButton: {fileID: 0}
-  _pointsText: {fileID: 0}
-  _taimerText: {fileID: 0}
-  _victoryPanel: {fileID: 0}
-  _defeatPanel: {fileID: 0}
+  _enterPauseButton: {fileID: 766504529}
+  _exitPauseButton: {fileID: 2135228203}
+  _victoryButton: {fileID: 568855903}
+  _pointsText: {fileID: 2064187758}
+  _taimerText: {fileID: 706898209}
+  _victoryPanel: {fileID: 2119603635}
+  _defeatPanel: {fileID: 2121352893}
   _variableTuto:
-    _tutoButton: {fileID: 0}
-    _tutoPanel: {fileID: 0}
-    _countDownPanel: {fileID: 0}
+    _tutoButton: {fileID: 291876088}
+    _tutoPanel: {fileID: 1251732440}
+    _countDownPanel: {fileID: 547216676}
   _variableCount:
-    _arrayNumerPanel: []
-    _countPanel: {fileID: 0}
+    _arrayNumerPanel:
+    - {fileID: 1717342447}
+    - {fileID: 787332438}
+    - {fileID: 1067874703}
+    _countPanel: {fileID: 547216676}
     _endCount: 0
     _Count: 1
 --- !u!4 &1485221619
@@ -11233,8 +11236,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 2041780119}
-  _respawnLeft: {fileID: 0}
-  _respawnRight: {fileID: 0}
+  _respawnLeft: {fileID: 2026255865}
+  _respawnRight: {fileID: 1373862040}
 --- !u!4 &1564514696
 Transform:
   m_ObjectHideFlags: 0
