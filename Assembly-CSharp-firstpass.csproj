@@ -688,6 +688,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="CT_ssembly.csproj">
+      <Project>{24BE517A-7EEA-90A9-A696-826BF32F3B40}</Project>
+      <Name>CT_ssembly</Name>
+    </ProjectReference>
     <ProjectReference Include="GoogleMobileAds.csproj">
       <Project>{56BE4683-76EF-ACFA-D029-E8FC7F8A3C97}</Project>
       <Name>GoogleMobileAds</Name>
@@ -695,10 +699,6 @@
     <ProjectReference Include="GoogleMobileAds.Editor.csproj">
       <Project>{5DB466F9-1FF2-6C21-0F89-4D3823550B66}</Project>
       <Name>GoogleMobileAds.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="CT_ssembly.csproj">
-      <Project>{24BE517A-7EEA-90A9-A696-826BF32F3B40}</Project>
-      <Name>CT_ssembly</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
