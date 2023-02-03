@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace C_Thorn.Character
+namespace C_Thorn.Game.Templates
 {
-    using C_Thorn.Game.Templates;
     using C_Thorn.Tools.Interfaces;
     using C_Thorn.Tools.Enums;
     public abstract class CharacterTemplate : MonoBehaviour, IChangeLife
@@ -33,10 +32,6 @@ namespace C_Thorn.Character
         {
             TryGetComponent(out _inputs);
             _posInit = transform.position.y;
-        }
-        protected virtual void Update()
-        {
-            ToMovementController();
         }
         #endregion
 

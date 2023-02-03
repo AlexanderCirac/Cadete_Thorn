@@ -14,26 +14,8 @@ namespace C_Thorn.Game.Templates
 
 
         #region private custom method
-        public abstract float GetHorizontal(bool _isTouchGraund);
-        public abstract int GetJump(bool _isTouchGraund , bool _isDontLimit);
-        public abstract bool GetFlip(SpriteRenderer _sprite);
-
-        public virtual Enums_Inputs GetInputs()
-        {
-
-            Enums_Inputs _getInputs = Enums_Inputs.none;
-
-            if ( Input.GetKey(KeyCode.Space) )
-                _getInputs = Enums_Inputs.press;
-
-            if ( Input.GetKeyDown(KeyCode.Space) )
-                _getInputs = Enums_Inputs.down;
-
-            if ( Input.GetKeyUp(KeyCode.Space) )
-                _getInputs = Enums_Inputs.up;
-
-            return _getInputs;
-        }
+        public abstract Vector3 GetMove();
+        public abstract bool GetAttack();
         #endregion
     }
 }
