@@ -32,6 +32,7 @@ namespace C_Thorn.Game.Templates
         {
             TryGetComponent(out _inputs);
             _posInit = transform.position.y;
+            Time.timeScale = 1;
         }
         #endregion
 

@@ -10,21 +10,16 @@ namespace C_Thorn.Game.Characters
     public class PlayerInputs : InputTemplate
     {
         #region Attributes
-        [SerializeField] private Button _moveButton;
         [SerializeField] private Camera _camera;
         #endregion
-        #region UnityCalls
-        private void Awake()
-        {
-            _moveButton.onClick.AddListener(() => GetMove());
-        }
-        #endregion
+
         #region Override Methods
         public override Vector3 GetMove()
         {
-            Vector3 _currentPosition = Vector3.zero;
+            Vector3 _currentPosition = new Vector3(transform.position.x , transform.position.y , transform.position.z);
 
-            _currentPosition = _isInScreenX && !_isInScreenY ? new Vector3(GetMousePosition().x , transform.position.y , transform.position.z) : new Vector3(transform.position.x , GetMousePosition().y , GetMousePosition().z);
+            if ( _isInScreenX && _isInScreenY )
+                _currentPosition = new Vector3(GetMousePosition().x , GetMousePosition().y , GetMousePosition().z);
 
             return _currentPosition;
         }
@@ -40,8 +35,14 @@ namespace C_Thorn.Game.Characters
 
         Vector3 GetMousePosition()
         {
+            #if UNITY_IOS || UNITY_IPHONE || UNITY_ANDROID
             Touch touch = Input.GetTouch(0);
             Vector3 mousePosition = new Vector3(touch.position.x, touch.position.y, 65);
+            #endif
+
+            #if !UNITY_ANDROID && UNITY_EDITOR || UNITY_EDITOR_LINUX
+            Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 65);
+            #endif
             Vector3 objPosition = _camera.ScreenToWorldPoint(mousePosition);
 
             return objPosition;

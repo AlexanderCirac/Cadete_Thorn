@@ -306,6 +306,7 @@
 -r:"Library/Bee/artifacts/1300b0aE.dag/CT_ssembly.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/GoogleMobileAds.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/GoogleMobileAds.ref.dll"
+-r:"Library/Bee/artifacts/1300b0aE.dag/UniRx.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/Unity.Rider.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/Unity.TextMeshPro.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/Unity.TextMeshPro.ref.dll"

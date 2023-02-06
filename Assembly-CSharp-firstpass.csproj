@@ -62,6 +62,7 @@
     <Compile Include="Assets\Plugins\ScriptData\SC_BotonCargar.cs" />
   </ItemGroup>
   <ItemGroup>
+     <None Include="Assets\Plugins\UniRx\ReadMe.txt" />
      <None Include="Assets\Plugins\Notes\Notas_SC_Player.txt" />
      <None Include="Assets\Plugins\Android\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml" />
      <None Include="Assets\Plugins\Notes\Nota_VidaSprite.txt" />
@@ -699,6 +700,10 @@
     <ProjectReference Include="GoogleMobileAds.Editor.csproj">
       <Project>{5DB466F9-1FF2-6C21-0F89-4D3823550B66}</Project>
       <Name>GoogleMobileAds.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniRx.csproj">
+      <Project>{58AC89D2-6F9E-29F7-ECF3-3F518A72964C}</Project>
+      <Name>UniRx</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
