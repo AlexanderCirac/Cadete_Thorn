@@ -4,7 +4,8 @@ using UnityEngine;
 
 namespace C_Thorn.Game.Characters
 {
-    using C_Thorn.Game.Templates;
+    using C_Thorn.Tools.Templates;
+    using C_Thorn.Tools.Enums;
     public class PlayerController : CharacterTemplate
     {
 
@@ -27,13 +28,20 @@ namespace C_Thorn.Game.Characters
             throw new System.NotImplementedException();
         }
 
-        protected override void ToMovementController()
+        public override void ToMovementController()
         {
-            Debug.Log("1");
-            transform.position = _inputs.GetMove();
+            base.ToMovementController();
+
+            if ( _inputs.GetMove().x > _posInit.x )
+                _inputs._myDelegateAnimations(Enums_AnimationPlayer.MoveLeft , true);
+            if ( _inputs.GetMove().x < _posInit.x )
+                _inputs._myDelegateAnimations(Enums_AnimationPlayer.MoveRigh , true);
+            if ( _inputs.GetMove().x == _posInit.x )
+                _inputs._myDelegateAnimations(Enums_AnimationPlayer.Idle , true);
         }
-        #endregion
-
-
     }
+    #endregion
+
+
 }
+

@@ -1,0 +1,16 @@
+{
+    "name": "CT_InGame_Assembly",
+    "rootNamespace": "",
+    "references": [
+        "GUID:09fdf50b9b3d252479dfda096a6d1c26"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -689,9 +689,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="CT_ssembly.csproj">
-      <Project>{24BE517A-7EEA-90A9-A696-826BF32F3B40}</Project>
-      <Name>CT_ssembly</Name>
+    <ProjectReference Include="UniRx.csproj">
+      <Project>{58AC89D2-6F9E-29F7-ECF3-3F518A72964C}</Project>
+      <Name>UniRx</Name>
+    </ProjectReference>
+    <ProjectReference Include="CT_Assembly.csproj">
+      <Project>{46E3F886-10CD-C811-80AE-837FF7C3558B}</Project>
+      <Name>CT_Assembly</Name>
     </ProjectReference>
     <ProjectReference Include="GoogleMobileAds.csproj">
       <Project>{56BE4683-76EF-ACFA-D029-E8FC7F8A3C97}</Project>
@@ -701,9 +705,9 @@
       <Project>{5DB466F9-1FF2-6C21-0F89-4D3823550B66}</Project>
       <Name>GoogleMobileAds.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="UniRx.csproj">
-      <Project>{58AC89D2-6F9E-29F7-ECF3-3F518A72964C}</Project>
-      <Name>UniRx</Name>
+    <ProjectReference Include="CT_InGame_Assembly.csproj">
+      <Project>{2EF761CB-8578-E3A3-801E-C81C8E33AF65}</Project>
+      <Name>CT_InGame_Assembly</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -119,3 +119,16 @@ Library/SceneVisibilityState.asset
 Library/Search/transactions.db
 Library/SourceAssetDB
 UserSettings/EditorUserSettings.asset
+Library/ArtifactDB
+Library/Bee/1300b0aE-inputdata.json
+Library/Bee/1300b0aE.dag
+Library/Bee/1300b0aE.dag.json
+Library/Bee/1300b0aE.dag.outputdata
+Library/Bee/1300b0aE.dag_derived
+Library/Bee/1300b0aE.dag_fsmtime
+Library/Bee/artifacts/1300b0aE.dag/Assembly-CSharp-firstpass.rsp
+Library/Bee/profiler.json
+Library/Bee/tundra.digestcache
+Library/Bee/tundra.log.json
+Library/Bee/TundraBuildState.state
+Library/Bee/TundraBuildState.state.map

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 namespace C_Thorn.Game.Characters
 {
 
-    using C_Thorn.Game.Templates;
+    using C_Thorn.Tools.Templates;
     public class PlayerInputs : InputTemplate
     {
         #region Attributes
@@ -35,14 +35,15 @@ namespace C_Thorn.Game.Characters
 
         Vector3 GetMousePosition()
         {
-            #if UNITY_IOS || UNITY_IPHONE || UNITY_ANDROID
-            Touch touch = Input.GetTouch(0);
-            Vector3 mousePosition = new Vector3(touch.position.x, touch.position.y, 65);
-            #endif
+            //#if UNITY_IOS || UNITY_IPHONE || UNITY_ANDROID
+            //Touch touch = Input.GetTouch(0);
+            //Vector3 mousePosition = new Vector3(touch.position.x, touch.position.y, 65);
+            //#endif
 
             #if !UNITY_ANDROID && UNITY_EDITOR || UNITY_EDITOR_LINUX
             Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 65);
             #endif
+            Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 65);
             Vector3 objPosition = _camera.ScreenToWorldPoint(mousePosition);
 
             return objPosition;
