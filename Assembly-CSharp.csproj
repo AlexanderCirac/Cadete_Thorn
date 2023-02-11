@@ -56,14 +56,58 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\SC_GameController.cs" />
-    <Compile Include="Assets\Scripts\MyMonoBehaviour.cs" />
-    <Compile Include="Assets\Scripts\Enums.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\PrM_PanelsButton.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\PrM_VideoController.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Scitps Tools\PrM_Behaviour.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script Options\PrM_CameraContrAndBright.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script Explication\PrM_Explication.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\PrM_UIManager.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script Options\Options_Info\PrM_ContrastInfo.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script Options\Options_Info\PrM_ZurdoInfo.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\PrM_MenuController.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\UI_Info\PrM_LoadGameInfo.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script Options\Options_Info\PrM_SoundInfo.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script Options\Options_Info\PrM_MultiOptionsInfo.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script Options\Options_Info\PrM_BrightnessInfo.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Scitps Tools\PrM_BoxInspector.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script Options\Options_Info\PrM_GeneralBrightnessInfo.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script Options\PrM_DataPersistent.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script Options\PrM_GeneralBrightnessCroller.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script Options\PrM_BrightnessController.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script Options\PrM_AudioController.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Scitps Tools\PrM_Enums.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script LoadScene\PrM_LoadGameController.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\PrM_QuitButton.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\PrM_LoadGameButton.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\UI_Info\PrM_MouseIconInfo.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\PrM_QuitController.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script Explication\ExplicationInfo\PrM_ExplicationInfo.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script LoadScene\PrM_LoadGameManger.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\UI_Info\PrM_PauseGameInfo.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script Options\Options_Info\PrM_OptionsInfo.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script Options\PrM_OptionsDropdown.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script LoadScene\LoadBarInfo\PrM_LoadGameInfo.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\UI_Info\PrM_VideoInfo.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\PrM_VideoTrigger.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script Options\PrM_MultiOptionsController.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\PrM_Core.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\PrM_PauseController.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\UI_Info\PrM_UInfo.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script Options\PrM_OptGameManager.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\UI_Info\PrM_URLInfo.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\PrM_CustomButton.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\UI_Info\PrM_PanelInfo.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\UI_Info\PrM_QuitInfo.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\PrM_PauseButton.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\UI_Info\PrM_CustomButtonsInfo.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script Options\PrM_ZurdoController.cs" />
+    <Compile Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\PrM_MouseIcon.cs" />
   </ItemGroup>
   <ItemGroup>
-     <None Include="Assets\Scripts\Documentation\ReadMe.txt" />
      <None Include="Assets\Shaders\LowPolyUnlitShader.shader" />
+     <None Include="Assets\AlexanderCiracAntio\ProMenuSystem\Documentation\Read_me.txt" />
      <None Include="Assets\Shaders\LowPolyPBRShader.shader" />
+     <None Include="Assets\AlexanderCiracAntio\ProMenuSystem\Script\Scitps Tools\MenuProShader.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.1.4f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -690,6 +734,18 @@
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{A20E2071-37BC-75BC-9815-178CB042315B}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniRx.csproj">
+      <Project>{58AC89D2-6F9E-29F7-ECF3-3F518A72964C}</Project>
+      <Name>UniRx</Name>
+    </ProjectReference>
+    <ProjectReference Include="CT_InGame_Assembly.csproj">
+      <Project>{2EF761CB-8578-E3A3-801E-C81C8E33AF65}</Project>
+      <Name>CT_InGame_Assembly</Name>
+    </ProjectReference>
+    <ProjectReference Include="CT_Assembly.csproj">
+      <Project>{46E3F886-10CD-C811-80AE-837FF7C3558B}</Project>
+      <Name>CT_Assembly</Name>
     </ProjectReference>
     <ProjectReference Include="GoogleMobileAds.csproj">
       <Project>{56BE4683-76EF-ACFA-D029-E8FC7F8A3C97}</Project>
