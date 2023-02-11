@@ -40,9 +40,18 @@ namespace C_Thorn.Game.Characters
                     if ( _animator.GetParameter(i).name != _namePlay.ToString() )
                     {
                         _animator.SetBool(_animator.GetParameter(i).name , false);
-                    }
-                }
-                Debug.Log(_namePlay.ToString());
+                    }                    
+                }               
+            }
+
+            ToRandomDead(_namePlay);
+        }
+
+        void ToRandomDead(Enums_AnimationPlayer _namePlay)
+        {
+            if( _namePlay  == Enums_AnimationPlayer.Dead )
+            {
+                _animator.SetInteger("Random_Dead" , Random.Range(0 , 3));
             }
         }
         #endregion

@@ -37,14 +37,13 @@ namespace C_Thorn.Tools.Templates
         {
             TryGetComponent(out _inputs);
             _posInit = transform.position;
-            Time.timeScale = 1;
         }
         #endregion
 
         #region abstart custom methods
         protected virtual void ToDeadController()
         {
-            _inputs._myDelegateAnimations(Enums_AnimationPlayer.Dead , true);
+            _inputs._myDelegateAnimations?.Invoke(Enums_AnimationPlayer.Dead , true);
         }
         public virtual void ToMovementController() {
 

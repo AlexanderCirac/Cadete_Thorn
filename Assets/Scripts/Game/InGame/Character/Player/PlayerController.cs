@@ -23,6 +23,11 @@ namespace C_Thorn.Game.Characters
         #region  Abstarct
 
 
+        protected override void ToDeadController()
+        {
+            base.ToDeadController();
+            Time.timeScale = 0;
+        }
         protected override void ToAttackController()
         {
             throw new System.NotImplementedException();
