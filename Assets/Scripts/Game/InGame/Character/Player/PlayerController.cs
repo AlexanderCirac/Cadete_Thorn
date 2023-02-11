@@ -33,11 +33,12 @@ namespace C_Thorn.Game.Characters
             base.ToMovementController();
 
             if ( _inputs.GetMove().x > _posInit.x )
-                _inputs._myDelegateAnimations(Enums_AnimationPlayer.MoveLeft , true);
+                _inputs._myDelegateAnimations?.Invoke(Enums_AnimationPlayer.MoveLeft , true);         
             if ( _inputs.GetMove().x < _posInit.x )
-                _inputs._myDelegateAnimations(Enums_AnimationPlayer.MoveRigh , true);
+                _inputs._myDelegateAnimations?.Invoke(Enums_AnimationPlayer.MoveRigh , true);
             if ( _inputs.GetMove().x == _posInit.x )
-                _inputs._myDelegateAnimations(Enums_AnimationPlayer.Idle , true);
+                _inputs._myDelegateAnimations?.Invoke(Enums_AnimationPlayer.Idle , true);
+ 
         }
     }
     #endregion

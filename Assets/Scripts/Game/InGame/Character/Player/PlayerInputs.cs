@@ -17,6 +17,8 @@ namespace C_Thorn.Game.Characters
         public override Vector3 GetMove()
         {
             Vector3 _currentPosition = new Vector3(transform.position.x , transform.position.y , transform.position.z);
+            bool _isInScreenX = Input.mousePosition.x < ( Screen.width - ( Screen.width / 10 ) ) && ( Input.mousePosition.x > ( ( Screen.width - System.Math.Abs(Input.mousePosition.x) ) - ( ( Screen.width ) - ( Screen.width / 6 ) ) ) ) ; 
+            bool _isInScreenY = Input.mousePosition.y < ( Screen.height - ( Screen.height / 5 ) ) && ( Input.mousePosition.y > ( ( Screen.height - System.Math.Abs(Input.mousePosition.y) ) - ( ( Screen.height ) - ( Screen.height / 3 ) - 50 ) ) ) ; 
 
             if ( _isInScreenX && _isInScreenY )
                 _currentPosition = new Vector3(GetMousePosition().x , GetMousePosition().y , GetMousePosition().z);
@@ -30,8 +32,6 @@ namespace C_Thorn.Game.Characters
         }
 
 
-        bool _isInScreenX { get => ( Input.mousePosition.x < ( Screen.width - ( Screen.width / 10 ) ) && ( Input.mousePosition.x > ( ( Screen.width - System.Math.Abs(Input.mousePosition.x) ) - ( ( Screen.width ) - ( Screen.width / 6 ) ) ) ) ); }
-        bool _isInScreenY { get => ( Input.mousePosition.y < ( Screen.height - ( Screen.height / 5 ) ) && ( Input.mousePosition.y > ( ( Screen.height - System.Math.Abs(Input.mousePosition.y) ) - ( ( Screen.height ) - ( Screen.height / 3 ) - 50 ) ) ) ); }
 
         Vector3 GetMousePosition()
         {
