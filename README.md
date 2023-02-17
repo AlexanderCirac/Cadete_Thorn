@@ -2,6 +2,10 @@
 
 Link: https://play.google.com/store/apps/details?id=alexander.cadetethorn
 
+Vs_01: Initial proyect 
+Vs_02: Refactor 01
+Vs_03: Current Refactor 02
+
 ESP: 
 
 Hola a todos, soy el creador de un juego en Unity para la plataforma Android que seguramente os encantará. Se trata de un juego de naves espaciales que combina la emoción de un shooter con la habilidad de esquivar obstáculos. La historia detrás del juego es que eres Thorn, un aprendiz de piloto espacial con el rango de cadete en una base militar. Tu misión es recuperar suministros y eliminar la amenaza alienígena que se interpone en tu camino.
