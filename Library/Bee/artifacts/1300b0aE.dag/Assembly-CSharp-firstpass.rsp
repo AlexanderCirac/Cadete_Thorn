@@ -368,6 +368,7 @@
 "Assets/Plugins/AlexanderCiracAntio/ProMenuSystem/Script/Script UI/UI_Info/PrM_PauseGameInfo.cs"
 "Assets/Plugins/AlexanderCiracAntio/ProMenuSystem/Script/Script UI/UI_Info/PrM_QuitInfo.cs"
 "Assets/Plugins/AlexanderCiracAntio/ProMenuSystem/Script/Script UI/UI_Info/PrM_UInfo.cs"
+"Assets/Plugins/AlexanderCiracAntio/ProMenuSystem/Script/Script UI/UI_Info/PrM_UnlockElementUIInfo.cs"
 "Assets/Plugins/AlexanderCiracAntio/ProMenuSystem/Script/Script UI/UI_Info/PrM_URLInfo.cs"
 "Assets/Plugins/AlexanderCiracAntio/ProMenuSystem/Script/Script UI/UI_Info/PrM_VideoInfo.cs"
 "Assets/Plugins/ScriptData/SC_BotonCargar.cs"
