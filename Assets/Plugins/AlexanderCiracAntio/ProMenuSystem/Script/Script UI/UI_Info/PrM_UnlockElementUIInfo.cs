@@ -6,14 +6,10 @@ using UnityEngine.UI;
 namespace AlexanderCA.ProMenu.UI
 {
     using AlexanderCA.ProMenu.ToolsInspector;
-    public static class PrM_UnlockUI
-    {
-        public delegate void OnUnlock(int _id, bool _isUnlock);
-        public static event  OnUnlock _OnUnlock;
-    }
+
 
     [System.Serializable]
-    public class PrM_UnlockElementUIInfo : MonoBehaviour
+    public class PrM_UnlockElementUIInfo
     {
         #region URL Explanation
 
@@ -112,11 +108,6 @@ namespace AlexanderCA.ProMenu.UI
         [System.Serializable]
         public class StateSpriteUnlock
         {
-            [Header("Español:¿Qué SpriteRender se aplicará a las imágenes de estado?", order = 0)]
-            [Space(-10, order = 1)]
-            [Header("English:What SpriteRender will be applied to the state images?", order = 2)]
-            [Space(5, order = 3)]
-            public SpriteRenderer _unlockUIElements;
             [Header("Español:¿Cuál será la imagen para Desbloqueado?", order = 0)]
             [Space(-10, order = 1)]
             [Header("English:What will be the image for Unlocked?", order = 2)]

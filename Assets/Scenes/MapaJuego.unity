@@ -7238,6 +7238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b3e31f6ba0f3864199a44945ec3e13f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _listUnlockUI: 
   _explication:
     _language:
       "Espa\xF1ol":
@@ -7456,6 +7457,7 @@ MonoBehaviour:
         m_posIcono: {x: 0, y: 0}
         _isOnYoistick: 0
         _yoistickBotton: 0
+    m_Opcion8: {fileID: 0}
 --- !u!1 &1827549982
 GameObject:
   m_ObjectHideFlags: 0
