@@ -2,20 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using AlexanderCA.ProMenu.UI;
+using System.Linq;
 public static class PrM_Unlock
 {
 
     public static void UnLockID(int _iD)
     {
-        PrM_UIManager._instanceUIManager._ListUnlockUI.Add(_iD);
+        if ( !PrM_UIManager._instanceUIManager._listUnlockUI.Contains(_iD) )
+            PrM_UIManager._instanceUIManager.ListUnlockUI(_iD);
     }
     public static void LockID(int _iD)
     {
-        if ( PrM_UIManager._instanceUIManager._ListUnlockUI.Contains(_iD) )
-        {
-            PrM_UIManager._instanceUIManager._ListUnlockUI.Remove(_iD);
-            PrM_UnlockController._instanceUnlock._OnUnlock?.Invoke(_iD , false);
-        }
+        PrM_UIManager._instanceUIManager.ListUnlockUI(_iD);
+        PrM_UnlockController._instanceUnlock._OnUnlockController?.Invoke(_iD , false);
+    }
+    public static void NewLeastUnLockID(List<int> _iD)
+    {
+            PrM_UIManager._instanceUIManager._listUnlockUI = _iD;
+            PrM_UIManager._instanceUIManager._OnListUnlock?.Invoke();      
     }
 }
 namespace AlexanderCA.ProMenu.UI
@@ -24,8 +28,8 @@ namespace AlexanderCA.ProMenu.UI
     {
 
         #region Attributes
-        public delegate void OnUnlock(int _id , bool _isUnlock);
-        public OnUnlock _OnUnlock;
+        public delegate void OnUnlockController(int _id , bool _isUnlock);
+        public OnUnlockController _OnUnlockController;
         public static PrM_UnlockController _instanceUnlock;
         #endregion
 
@@ -38,12 +42,12 @@ namespace AlexanderCA.ProMenu.UI
         void OnDestroy()
         {
 
-            PrM_UIManager._instanceUIManager._OnUnlock -= StateUnlock;
+            PrM_UIManager._instanceUIManager._OnListUnlock -= StateUnlock;
         }
         void Start()
         {
             Invoke(nameof(Initi) , 0.0001f);
-            PrM_UIManager._instanceUIManager._OnUnlock += StateUnlock;
+            PrM_UIManager._instanceUIManager._OnListUnlock += StateUnlock;
         }
 
         #endregion
@@ -54,8 +58,7 @@ namespace AlexanderCA.ProMenu.UI
             PrM_UnlockElementUIInfo.ContentUnlockUI _opt8 = PrM_UIManager._instanceUIManager._contenido._Option8._content;
             for ( int i = 0 ; i < _opt8._unlockUIElements.Length ; i++ )
             {
-                _OnUnlock?.Invoke(_opt8._unlockUIElements[i]._iDElement , false);
-                Debug.Log(i);
+                _OnUnlockController?.Invoke(_opt8._unlockUIElements[i]._iDElement , false);
             }
             if ( PrM_UIManager._instanceUIManager._listUnlockUI != null )
             {
@@ -65,9 +68,10 @@ namespace AlexanderCA.ProMenu.UI
         }
         void StateUnlock()
         {
+            Debug.Log("A");
             for ( int i = 0 ; i < PrM_UIManager._instanceUIManager._listUnlockUI.Count ; i++ )
             {
-                _OnUnlock?.Invoke(PrM_UIManager._instanceUIManager._listUnlockUI[i] , true);
+                _OnUnlockController?.Invoke(PrM_UIManager._instanceUIManager._listUnlockUI[i] , true);
             }
         }
         void StateLock()
@@ -75,7 +79,7 @@ namespace AlexanderCA.ProMenu.UI
             PrM_UnlockElementUIInfo.ContentUnlockUI _opt8 = PrM_UIManager._instanceUIManager._contenido._Option8._content;
             for ( int i = 0 ; i < _opt8._unlockUIElements.Length ; i++ )
             {
-                _OnUnlock?.Invoke(_opt8._unlockUIElements[i]._iDElement , false);
+                _OnUnlockController?.Invoke(_opt8._unlockUIElements[i]._iDElement , false);
             }
 
             Invoke(nameof(StateUnlock) , 0.001f);

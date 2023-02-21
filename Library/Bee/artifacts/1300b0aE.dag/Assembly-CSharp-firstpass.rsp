@@ -359,7 +359,7 @@
 "Assets/Plugins/AlexanderCiracAntio/ProMenuSystem/Script/Script UI/PrM_QuitButton.cs"
 "Assets/Plugins/AlexanderCiracAntio/ProMenuSystem/Script/Script UI/PrM_QuitController.cs"
 "Assets/Plugins/AlexanderCiracAntio/ProMenuSystem/Script/Script UI/PrM_UIManager.cs"
-"Assets/Plugins/AlexanderCiracAntio/ProMenuSystem/Script/Script UI/PrM_Unlock.cs"
+"Assets/Plugins/AlexanderCiracAntio/ProMenuSystem/Script/Script UI/PrM_UnlockButton.cs"
 "Assets/Plugins/AlexanderCiracAntio/ProMenuSystem/Script/Script UI/PrM_UnlockController.cs"
 "Assets/Plugins/AlexanderCiracAntio/ProMenuSystem/Script/Script UI/PrM_VideoController.cs"
 "Assets/Plugins/AlexanderCiracAntio/ProMenuSystem/Script/Script UI/PrM_VideoTrigger.cs"

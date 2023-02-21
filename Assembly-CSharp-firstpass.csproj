@@ -91,7 +91,7 @@
     <Compile Include="Assets\Plugins\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\PrM_MenuController.cs" />
     <Compile Include="Assets\Plugins\AlexanderCiracAntio\ProMenuSystem\Script\Script Options\Options_Info\PrM_SoundInfo.cs" />
     <Compile Include="Assets\Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
-    <Compile Include="Assets\Plugins\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\PrM_Unlock.cs" />
+    <Compile Include="Assets\Plugins\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\PrM_UnlockButton.cs" />
     <Compile Include="Assets\Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\Plugins\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\PrM_UnlockController.cs" />
     <Compile Include="Assets\Plugins\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\UI_Info\PrM_PanelInfo.cs" />

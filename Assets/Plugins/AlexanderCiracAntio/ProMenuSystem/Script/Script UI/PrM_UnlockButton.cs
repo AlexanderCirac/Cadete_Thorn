@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace AlexanderCA.ProMenu.UI
 {
-    public class PrM_Unlock : MonoBehaviour
+    public class PrM_UnlockButton : MonoBehaviour
     {
 
         #region Attributes
@@ -17,8 +17,8 @@ namespace AlexanderCA.ProMenu.UI
         #endregion
 
         #region UnityCalls
-        void Start() => _unlockController._OnUnlock += ToStateUnlockUI;
-        private void OnDestroy() => _unlockController._OnUnlock -= ToStateUnlockUI;
+        void Start() => _unlockController._OnUnlockController += ToStateUnlockUI;
+        private void OnDestroy() => _unlockController._OnUnlockController -= ToStateUnlockUI;
         #endregion
 
         #region Costum private Methods     
@@ -27,7 +27,6 @@ namespace AlexanderCA.ProMenu.UI
         {
             if ( _id == _idElement )
             {
-                Debug.Log(_isUnlock);
                 GetComponent<Button>().interactable = _isUnlock;
                 if ( _unlockSprite != null && _lockSprite != null )
                 {
