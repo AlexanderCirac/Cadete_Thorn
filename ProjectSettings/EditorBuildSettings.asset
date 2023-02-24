@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nivel_3.unity
     guid: c16529a1767493c4ea7a5de129878395
+  - enabled: 1
+    path: Assets/Scenes/Prueaba_Unlock.unity
+    guid: 1a53e4ce73008a34f8d8e02f88ed0aca
   m_configObjects: {}
