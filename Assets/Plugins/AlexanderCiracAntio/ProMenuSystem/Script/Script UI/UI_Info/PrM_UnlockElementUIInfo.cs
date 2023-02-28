@@ -104,6 +104,11 @@ namespace AlexanderCA.ProMenu.UI
             [Header("English:Does this item have lock and unlock images?", order = 2)]
             [Space(5, order = 3)]
             public StateSpriteUnlock _stateUnlock;
+            [Header("Español:¿Este elemento tiene imágenes de bloqueo y desbloqueo?", order = 0)]
+            [Space(-10, order = 1)]
+            [Header("English:Does this item have lock and unlock images?", order = 2)]
+            [Space(5, order = 3)]
+            public TriggerToOpt8 _enableUnlock;
         }
         [System.Serializable]
         public class StateSpriteUnlock
@@ -118,6 +123,30 @@ namespace AlexanderCA.ProMenu.UI
             [Header("English:What will be the image for Blocked?", order = 2)]
             [Space(5, order = 3)]
             public Sprite _imageLock;
+        }
+        [System.Serializable]
+        public class TriggerToOpt8
+        {
+            [Header("Español:¿Cuál será la imagen para Desbloqueado?", order = 0)]
+            [Space(-10, order = 1)]
+            [Header("English:What will be the image for Unlocked?", order = 2)]
+            [Space(5, order = 3)]
+            public Button _buttonUnlock;
+            [Header("Español:¿Cuál será la imagen para Bloqueado?", order = 0)]
+            [Space(-10, order = 1)]
+            [Header("English:What will be the image for Blocked?", order = 2)]
+            [Space(5, order = 3)]
+            public GameObject _triggerUnlock3D;            
+            [Header("Español:¿Cuál será la imagen para Bloqueado?", order = 0)]
+            [Space(-10, order = 1)]
+            [Header("English:What will be the image for Blocked?", order = 2)]
+            [Space(5, order = 3)]
+            public GameObject _triggerUnlock2D;
+            [Header("Español:¿Cuál será la imagen para Bloqueado?", order = 0)]
+            [Space(-10, order = 1)]
+            [Header("English:What will be the image for Blocked?", order = 2)]
+            [Space(5, order = 3)]
+            public bool _endSceneUnlock;
         }
         #endregion
 

@@ -77,6 +77,7 @@
     <Compile Include="Assets\Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Plugins\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\UI_Info\PrM_QuitInfo.cs" />
+    <Compile Include="Assets\Plugins\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\Opt8\PrM_DataOpt8.cs" />
     <Compile Include="Assets\Plugins\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\Opt2\PrM_PauseController.cs" />
     <Compile Include="Assets\Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Assets\Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\Plugins\AlexanderCiracAntio\ProMenuSystem\Script\Script Explication\PrM_Explication.cs" />
+    <Compile Include="Assets\Plugins\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\Opt8\PrM_TriggerUnlock2D.cs" />
     <Compile Include="Assets\Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Plugins\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\UI_Info\PrM_URLInfo.cs" />
     <Compile Include="Assets\Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
@@ -141,9 +143,9 @@
     <Compile Include="Assets\Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\Plugins\ScriptData\SC_BotonCargar.cs" />
     <Compile Include="Assets\Plugins\AlexanderCiracAntio\ProMenuSystem\Script\Script Options\Options_Info\PrM_ContrastInfo.cs" />
+    <Compile Include="Assets\Plugins\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\Opt8\PrM_TriggerUnlock3D.cs" />
     <Compile Include="Assets\Plugins\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\Opt4\PrM_VideoController.cs" />
     <Compile Include="Assets\Plugins\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-    <Compile Include="Assets\Plugins\AlexanderCiracAntio\ProMenuSystem\Script\Script UI\Opt8\PrM_DataOpt8.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMPro.cginc" />

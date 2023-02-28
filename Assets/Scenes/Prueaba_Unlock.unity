@@ -1644,16 +1644,31 @@ MonoBehaviour:
           _stateUnlock:
             _imageUnlock: {fileID: 0}
             _imageLock: {fileID: 0}
+          _enableUnlock:
+            _buttonUnlock: {fileID: 0}
+            _triggerUnlock3D: {fileID: 0}
+            _triggerUnlock2D: {fileID: 0}
+            _endSceneUnlock: 1
         - _unlockUIElements: {fileID: 1839417516}
           _iDElement: 2
           _stateUnlock:
             _imageUnlock: {fileID: 0}
             _imageLock: {fileID: 0}
+          _enableUnlock:
+            _buttonUnlock: {fileID: 0}
+            _triggerUnlock3D: {fileID: 0}
+            _triggerUnlock2D: {fileID: 0}
+            _endSceneUnlock: 1
         - _unlockUIElements: {fileID: 751014081}
           _iDElement: 3
           _stateUnlock:
             _imageUnlock: {fileID: 21300000, guid: e608b023376650d42ac82bef014cff18, type: 3}
             _imageLock: {fileID: 21300000, guid: 644a1df153b020446970eafba2360518, type: 3}
+          _enableUnlock:
+            _buttonUnlock: {fileID: 0}
+            _triggerUnlock3D: {fileID: 0}
+            _triggerUnlock2D: {fileID: 0}
+            _endSceneUnlock: 0
 --- !u!4 &1896890190
 Transform:
   m_ObjectHideFlags: 0

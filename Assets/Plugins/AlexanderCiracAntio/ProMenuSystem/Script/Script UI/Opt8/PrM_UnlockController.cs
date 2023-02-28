@@ -16,10 +16,23 @@ public static class PrM_Unlock
         PrM_UIManager._instanceUIManager.ListUnlockUI(_iD);
         PrM_UnlockController._instanceUnlock._OnUnlockController?.Invoke(_iD , false);
     }
+
+    public static List<int>  GetListUnlock()
+    {
+       return PrM_UIManager._instanceUIManager._listUnlockUI;
+        
+    }
     public static void NewLeastUnLockID(List<int> _iD)
     {
-            PrM_UIManager._instanceUIManager._listUnlockUI = _iD;
-            PrM_UIManager._instanceUIManager._OnListUnlock?.Invoke();      
+        if ( PrM_UIManager._instanceUIManager._listUnlockUI.Count > 0 || PrM_UIManager._instanceUIManager._listUnlockUI != null )
+        {
+            for ( int i = 0 ; i < PrM_UIManager._instanceUIManager._listUnlockUI.Count ; i++ )
+            {
+                LockID(PrM_UIManager._instanceUIManager._listUnlockUI[i]);
+            }
+        }
+        PrM_UIManager._instanceUIManager._listUnlockUI = _iD;
+        PrM_UIManager._instanceUIManager._OnListUnlock?.Invoke();
     }
 }
 namespace AlexanderCA.ProMenu.UI
@@ -31,6 +44,7 @@ namespace AlexanderCA.ProMenu.UI
         public delegate void OnUnlockController(int _id , bool _isUnlock);
         public OnUnlockController _OnUnlockController;
         public static PrM_UnlockController _instanceUnlock;
+        public List<int> _unlockFinishLevel;
         #endregion
 
 
@@ -38,6 +52,7 @@ namespace AlexanderCA.ProMenu.UI
         void Awake()
         {
             _instanceUnlock = this;
+            _unlockFinishLevel = new List<int>();
         }
         void OnDestroy()
         {
@@ -49,7 +64,17 @@ namespace AlexanderCA.ProMenu.UI
             Invoke(nameof(Initi) , 0.0001f);
             PrM_UIManager._instanceUIManager._OnListUnlock += StateUnlock;
         }
-
+        private void OnDisable()
+        {
+            //when level is finish
+            if ( _unlockFinishLevel != null || _unlockFinishLevel.Count < 0)
+            {
+                for ( int i = 0 ; i < _unlockFinishLevel.Count ; i++ )
+                {
+                    PrM_Unlock.UnLockID(_unlockFinishLevel[i]);
+                }
+            }
+        }
         #endregion
 
         #region Costum private Methods
