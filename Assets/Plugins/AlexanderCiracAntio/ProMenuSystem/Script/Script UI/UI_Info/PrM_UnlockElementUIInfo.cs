@@ -6,7 +6,7 @@ using UnityEngine.UI;
 namespace AlexanderCA.ProMenu.UI
 {
     using AlexanderCA.ProMenu.ToolsInspector;
-
+    using UnityEngine.SceneManagement;
 
     [System.Serializable]
     public class PrM_UnlockElementUIInfo
@@ -97,7 +97,7 @@ namespace AlexanderCA.ProMenu.UI
             [Header("Español:¿Cuál será el ID de este elemento?", order = 0)]
             [Space(-10, order = 1)]
             [Header("English:What will be the ID of this element?", order = 2)]
-            [Space(5, order = 3)]
+            [Space(5, order = 3)][Min(1)]
             public int _iDElement;            
             [Header("Español:¿Este elemento tiene imágenes de bloqueo y desbloqueo?", order = 0)]
             [Space(-10, order = 1)]
@@ -154,8 +154,13 @@ namespace AlexanderCA.ProMenu.UI
         /// <summary>
         /// This is to said when there will be an error
         /// </summary>        
-        public void GetUnlockUIError(int _i)
+        public void GetUnlockUIError(int iD)
         {
+           if( _content._unlockUIElements[iD]._iDElement == 0)
+            Debug.LogWarning(SceneManager.GetActiveScene().name + " (SC_MenuProPanelesUI)-----> Option 8: Español: Te falta añadir la ID del elemento a desbloquear" + "\n" + "English:You need to add the ID of the item to unlock");
+
+           if( _content._unlockUIElements[iD]._enableUnlock._triggerUnlock2D != null && _content._unlockUIElements[iD]._enableUnlock._triggerUnlock3D != null )
+                Debug.LogWarning(SceneManager.GetActiveScene().name + " (SC_MenuProPanelesUI)-----> Option 8: Español: No pueden estar los dos elementos activado a la vez" + "\n" + "English:Both elements cannot be activated at the same time");
 
         }
         #endregion

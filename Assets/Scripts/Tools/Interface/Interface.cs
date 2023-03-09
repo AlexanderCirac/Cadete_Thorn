@@ -12,7 +12,7 @@ namespace C_Thorn.Tools.Interfaces
     public interface IChangeLife
     {
         void ToChangeLife(float _damage);
-    }    
+    }
     public interface IButtonAction
     {
         void ToButtonAction();

@@ -17,7 +17,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - BulletPref
   - Water
   - UI
   - PowerUPTime
