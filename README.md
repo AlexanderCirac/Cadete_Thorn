@@ -12,6 +12,8 @@ Hola a todos, soy el creador de un juego en Unity para la plataforma Android que
 
 He pasado innumerables horas desarrollando este juego en Unity, asegurándome de que cada detalle esté cuidado al máximo para ofrecer una experiencia de juego excepcional. 
 
+ADVERTENCIA: AUN LO ESTOY REFACTORIZANDO
+
 /////////// Mi metodos de trabajo ///////////////
 
 Como dijo Steve Jobs: "La innovación distingue entre un líder y un seguidor". Aunque este sea mi segundo proyecto en Unity para Android, he decidido salir de mi zona de confort y crear un juego shooter tipo arcade. Quería hacer algo sencillo, pero también quería desafiarme y hacer cosas más complejas. A medida que aprendía, seguí mejorando y refactorizando el juego para que fuera más profesional, eficiente, reutilizable y mantenible siguiendo las Reglas S.O.L.I.D
@@ -25,6 +27,8 @@ ENG:
 Hello everyone, I am the creator of a Unity game for the Android platform that you will surely love. This is a spaceship game that combines the excitement of a shooter with the ability to avoid obstacles. The story behind the game is that you are Thorn, a space pilot trainee with the rank of cadet at a military base. Your mission is to retrieve supplies and eliminate the alien threat that stands in your way.
 
 I've spent countless hours developing this game in Unity, making sure every detail is taken care of to deliver an exceptional gaming experience.
+
+WARNING: I AM STILL REFACTORING IT
 
 /////////// My work methods ///////////////
 
