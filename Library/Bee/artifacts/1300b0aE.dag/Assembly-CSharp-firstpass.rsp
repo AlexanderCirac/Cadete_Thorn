@@ -304,6 +304,7 @@
 -r:"C:/Users/Alex/Documents/Cadete_Thorn/Library/PackageCache/com.unity.visualscripting@1.5.2/Runtime/VisualScripting.Core/Dependencies/MiscUtil/MiscUtil.dll"
 -r:"C:/Users/Alex/Documents/Cadete_Thorn/Library/PackageCache/com.unity.visualscripting@1.5.2/Runtime/VisualScripting.Flow/Dependencies/NCalc/Antlr3.Runtime.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/CT_Assembly.ref.dll"
+-r:"Library/Bee/artifacts/1300b0aE.dag/CT_GUI_Assembly.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/CT_InGame_Assembly.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/GoogleMobileAds.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/GoogleMobileAds.ref.dll"

@@ -808,6 +808,10 @@
       <Project>{2EF761CB-8578-E3A3-801E-C81C8E33AF65}</Project>
       <Name>CT_InGame_Assembly</Name>
     </ProjectReference>
+    <ProjectReference Include="CT_GUI_Assembly.csproj">
+      <Project>{9979132D-9641-4C7A-2E00-47A0B022747D}</Project>
+      <Name>CT_GUI_Assembly</Name>
+    </ProjectReference>
     <ProjectReference Include="CT_Assembly.csproj">
       <Project>{46E3F886-10CD-C811-80AE-837FF7C3558B}</Project>
       <Name>CT_Assembly</Name>

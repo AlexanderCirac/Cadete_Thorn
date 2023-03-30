@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace C_Thorn.Tools.Interfaces
 {
+         using AlexanderCA.Tools.Generics;
     public interface IEnterCollider
     {
         void ToEnterCollider(GameObject _player);
@@ -16,5 +17,17 @@ namespace C_Thorn.Tools.Interfaces
     public interface IButtonAction
     {
         void ToButtonAction();
+    }
+
+    public interface IMonoPool
+    {
+        public ToolsAlex.PoolMonoObjectGeneric<Transform> poolMono { get; set; }
+        public void Init();
+        
+    }
+    public interface IPluriPool
+    {
+        public ToolsAlex.PoolMultiGeneric<Transform> poolPluri { get; set; }
+        public void Init();
     }
 }

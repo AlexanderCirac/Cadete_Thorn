@@ -42,6 +42,8 @@ GameObject:
   - component: {fileID: 6364572506926843984}
   - component: {fileID: 5290102634662905563}
   - component: {fileID: 2945591531808432032}
+  - component: {fileID: 1432833355604339270}
+  - component: {fileID: 8134584633434763469}
   m_Layer: 0
   m_Name: RespawnPrefab
   m_TagString: Untagged
@@ -127,3 +129,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1432833355604339270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6677870601061388642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b0525769ac1cb4a930ad973486584f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _velocity: 5
+--- !u!114 &8134584633434763469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6677870601061388642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c0aa32a80a8b74458f40883c7cb698c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -10,7 +10,7 @@ namespace C_Thorn.Game.Characters
     {
 
         #region 
-
+        public int countPoint;
         #endregion
 
         #region  UnityCalls

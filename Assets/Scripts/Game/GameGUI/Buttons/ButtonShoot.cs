@@ -18,7 +18,7 @@ namespace C_Thorn.UI
 
         [Header("object Pool")]
         public bool _isUsePool = false;
-        private ObjectPool<Transform> pool;
+        private ToolsAlex.PoolMonoObjectGeneric<Transform> pool;
         public int _maxCapacity = 100;
         #endregion
 
@@ -27,38 +27,13 @@ namespace C_Thorn.UI
         {
             if ( _isUsePool )
             {
-                pool = new ObjectPool<Transform>(_bulletPref.GetComponent<Transform>() , _maxCapacity);
-             //   bulletPool.Init();
-
-                // pool = new ObjectPool<BulletPref>(CreatePoolItem , OnTakeFromPool , OnReturnToPool , OnDestoiPoolObject , _collectionCheck , _defoultCapcity , _maxCapacity);
+                pool = new ToolsAlex.PoolMonoObjectGeneric<Transform>(_bulletPref.GetComponent<Transform>() , _maxCapacity);
             }
         }
         #endregion
 
         #region private custom methods 
-        //private BulletPref CreatePoolItem()
-        //{
-        //    return Instantiate(_bulletPref, _puntero.transform.position, _puntero.transform.rotation);
-        //}        
-        //private void OnReturnToPool(BulletPref _obj)
-        //{
-        //    _obj.gameObject.SetActive(false);
-        //}            
-        //private void OnTakeFromPool(BulletPref _obj)
-        //{
-        //    _obj.gameObject.SetActive(true);
-        //}        
-        //private void OnDestoiPoolObject(BulletPref _obj)
-        //{
-        //    Destroy(_obj.gameObject);
-        //}
-        //private void Kill(BulletPref _obj)
-        //{
-        //    if( _isUsePool )
-        //    {
-        //        pool.Release(_obj);
-        //    }
-        //}
+       
         #endregion
 
         #region public custom methods 
@@ -72,7 +47,8 @@ namespace C_Thorn.UI
                 bullet.transform.position = _puntero.transform.position;
                 bullet.transform.rotation = _puntero.transform.rotation;
                 bullet.gameObject.SetActive(true);
-                bullet.GetComponent<BulletPref>().Init(pool);
+                bullet.GetComponent<IMonoPool>().poolMono = pool;
+                bullet.GetComponent<IMonoPool>().Init();
             }
         }
     }
