@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4798515368153621038}
   - component: {fileID: 7678948841637052790}
   - component: {fileID: 5894891748026702700}
+  - component: {fileID: -7592467608883627315}
   m_Layer: 0
   m_Name: PowerUp_Point
   m_TagString: Untagged
@@ -113,3 +114,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1105.6436, y: 38.018085, z: 1105.6438}
   m_Center: {x: 0, y: 0, z: -0.000030517578}
+--- !u!114 &-7592467608883627315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4798515368155823342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8819714ce998234a9523daba38eb01f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soEnemy: {fileID: 11400000, guid: 1d7123c81736b564e9d7a1597b48de58, type: 2}
+  _point: 0

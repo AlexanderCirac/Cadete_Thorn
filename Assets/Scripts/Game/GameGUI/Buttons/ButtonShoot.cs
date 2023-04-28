@@ -7,7 +7,7 @@ namespace C_Thorn.UI
 {
     using C_Thorn.Tools.Interfaces;
     using AlexanderCA.Tools.Generics;
-    using C_Thorn.Tools.Templates;
+    using C_Thorn.Tools.Enums;
     public class ButtonShoot : MonoBehaviour, IButtonAction
     {
         #region Attributes
@@ -48,6 +48,7 @@ namespace C_Thorn.UI
                 bullet.transform.rotation = _puntero.transform.rotation;
                 bullet.gameObject.SetActive(true);
                 bullet.GetComponent<IMonoPool>().poolMono = pool;
+                bullet.GetComponent<ITypeDamage>()._typeBullet = TypeBullet.bulletPlayer;
                 bullet.GetComponent<IMonoPool>().Init();
             }
         }

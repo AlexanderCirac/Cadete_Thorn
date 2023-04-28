@@ -5,12 +5,17 @@ using UnityEngine;
 
 using AlexanderCA.Tools.Generics;
 using C_Thorn.Tools.Interfaces;
+using C_Thorn.Tools.Enums;
 
 public class BulletPref : MonoBehaviour, IMonoPool
 {
+    #region Attributes
     private ToolsAlex.PoolMonoObjectGeneric<Transform> onKill;
     public ToolsAlex.PoolMonoObjectGeneric<Transform> poolMono { get => onKill; set => onKill = value; }
 
+    #endregion
+
+    #region custom Method
     public void Init()
     {
         Invoke(nameof(_ToDestroy) , 0.3f);
@@ -25,5 +30,5 @@ public class BulletPref : MonoBehaviour, IMonoPool
             onKill.ReleaseObject(obj);
         }
     }
-
+    #endregion
 }

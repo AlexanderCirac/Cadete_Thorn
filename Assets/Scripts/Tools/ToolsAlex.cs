@@ -9,6 +9,13 @@ namespace AlexanderCA.Tools.Generics
 
     public static class ToolsAlex
     {
+        public enum TypeOverlap
+        {
+            none,
+            box,
+            sphere
+        }
+
         #region Pool design pattern
         public class PoolMonoObjectGeneric<T> where T : Component
         {
@@ -65,11 +72,11 @@ namespace AlexanderCA.Tools.Generics
         {
             private List<T> availableObjects = new List<T>();
             private List<T> inUseObjects = new List<T>();
-            public T[] prefabs; 
+            public T[] prefabs;
 
-            public PoolMultiGeneric(T[] prefabs , int initialSize) 
+            public PoolMultiGeneric(T[] prefabs , int initialSize)
             {
-                this.prefabs = prefabs; 
+                this.prefabs = prefabs;
 
                 for ( int i = 0 ; i < initialSize ; i++ )
                 {
@@ -79,7 +86,7 @@ namespace AlexanderCA.Tools.Generics
 
             private void AddObjectToPool()
             {
-                T newObject = GameObject.Instantiate(prefabs[UnityEngine.Random.Range(0, prefabs.Length)]); 
+                T newObject = GameObject.Instantiate(prefabs[UnityEngine.Random.Range(0, prefabs.Length)]);
                 newObject.gameObject.SetActive(false);
                 availableObjects.Add(newObject);
             }
@@ -177,11 +184,35 @@ namespace AlexanderCA.Tools.Generics
             return t as RectTransform;
         }
 
-        public static bool GetBoolOverlapBox(LayerMask _mask , GameObject _whoCheckObject)
+        public static bool IsOverlap3D(LayerMask _mask , GameObject _whoCheckObject , TypeOverlap _typeOverlap)
         {
             bool  _checkGround = false;
 
-            _checkGround = ( Physics.OverlapBox(_whoCheckObject.transform.position , _whoCheckObject.transform.localScale , Quaternion.identity , _mask) ) != null;
+            switch ( _typeOverlap )
+            {
+                case TypeOverlap.none:
+                    _checkGround = false;
+                    break;
+                case TypeOverlap.box:
+                    _checkGround = ( Physics.OverlapBox(_whoCheckObject.transform.position , _whoCheckObject.transform.localScale , Quaternion.identity , _mask) ) != null;
+                    break;
+                case TypeOverlap.sphere:
+                    Collider[] hitColliders = Physics.OverlapSphere(_whoCheckObject.transform.position, 20f, LayerMask.NameToLayer("Player")); foreach ( Collider collider in hitColliders )
+                    {
+                        if ( collider.gameObject.layer == LayerMask.NameToLayer("Player") )
+                        {
+
+                            _checkGround = true;
+                            break;
+                        }
+                    }
+                    break;
+
+                default:
+                    _checkGround = false;
+                    break;
+            }
+
 
             return _checkGround;
         }
@@ -221,8 +252,8 @@ namespace AlexanderCA.Tools.Generics
             result.rightLimit = bottomRight.x - Offset;
             //resluts para el Vertical
             result.isVertical = objectTransform.z > bottomRight.z + Offset && objectTransform.z < topLeft.z - Offset;
-            result.isBottom = objectTransform.z > bottomRight.z + Offset; 
-            result.isTop = objectTransform.z < topLeft.z - Offset;  
+            result.isBottom = objectTransform.z > bottomRight.z + Offset;
+            result.isTop = objectTransform.z < topLeft.z - Offset;
             result.bottomLimit = bottomRight.z + Offset;
             result.topLimit = topLeft.z - Offset;
 

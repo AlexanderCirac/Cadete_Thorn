@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace C_Thorn.Game.Characters
 {
@@ -10,6 +7,7 @@ namespace C_Thorn.Game.Characters
     public class PlayerInputs : InputTemplate
     {
         #region Attributes
+        [Header("Camara controller")]
         [SerializeField] private Camera _camera;
         #endregion
 

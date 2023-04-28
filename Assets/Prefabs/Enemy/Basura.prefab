@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6229595651324332056}
   - component: {fileID: 3364828476964862279}
   - component: {fileID: 1198008997575908948}
+  - component: {fileID: 8725424754969925578}
+  - component: {fileID: 5650120904127615421}
   m_Layer: 0
   m_Name: Basura
   m_TagString: Untagged
@@ -64,6 +66,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8725424754969925578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8227137885940416821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d53faa311475fcc478a71633abd01c20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soEnemy: {fileID: 11400000, guid: 1d7123c81736b564e9d7a1597b48de58, type: 2}
+  _point: 0
+--- !u!114 &5650120904127615421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8227137885940416821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b45463f4452747d46bc61039b7d902a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: -1000
+  TypeBullet: 2
 --- !u!1001 &2876402271872655744
 PrefabInstance:
   m_ObjectHideFlags: 0

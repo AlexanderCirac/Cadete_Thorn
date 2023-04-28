@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace C_Thorn.InGame.IA
 {
-
     using C_Thorn.Tools.Templates;
     using C_Thorn.Tools.Interfaces;
     using AlexanderCA.Tools.Generics;
@@ -13,6 +10,7 @@ namespace C_Thorn.InGame.IA
     {
 
         #region Attributes
+        [Header("Points")]
         [SerializeField] int _point;
         #endregion
 
@@ -20,6 +18,7 @@ namespace C_Thorn.InGame.IA
         public void ToEnterCollider(GameObject _player)
         {
             ToolsAlex.GetClampValue(_player.GetComponent<PlayerController>().countPoint , 1 , 100 , _point);
+            _ToDestroy();
         }
 
         #endregion

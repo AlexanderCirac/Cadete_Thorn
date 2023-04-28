@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace C_Thorn.Game.Characters
@@ -10,12 +8,15 @@ namespace C_Thorn.Game.Characters
     {
 
         #region 
+        [Header("Variables controllers")]
         public int countPoint;
+        public bool _isDead;
         #endregion
 
         #region  UnityCalls
         private void OnMouseDrag()
         {
+            if( !_isDead )
             ToMovementController();
         }
         #endregion

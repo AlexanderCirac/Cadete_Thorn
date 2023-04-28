@@ -25,6 +25,9 @@ namespace C_Thorn.Tools.Templates
                     ToDeadController();
             }
         }
+
+        private TypePlayer _typePlayer = TypePlayer.Player;
+        public TypePlayer _TypePlayer { get => _typePlayer; set => _typePlayer = value; }
         #endregion
 
         #region UnityCalls

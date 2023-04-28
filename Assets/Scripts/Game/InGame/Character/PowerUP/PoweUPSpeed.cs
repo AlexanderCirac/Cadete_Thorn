@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace C_Thorn.InGame.IA
@@ -7,19 +5,15 @@ namespace C_Thorn.InGame.IA
 
     using C_Thorn.Tools.Templates;
     using C_Thorn.Tools.Interfaces;
-    using AlexanderCA.Tools.Generics;
-    using C_Thorn.Game.Characters;
+    using C_Thorn.InGame.Controller;
     public class PoweUPSpeed : BaseAI, IEnterCollider
     {
-        #region Attributes
-        [SerializeField] int _point;
-        #endregion
-
         #region private custom method
         public void ToEnterCollider(GameObject _player)
         {
-        }
-
+            GameController.Instance._stateGame = Tools.Enums.Enums_StateGame.FastSpeed;
+            _ToDestroy();
+        }        
         #endregion
     }
 
