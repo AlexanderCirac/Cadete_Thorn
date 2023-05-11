@@ -8,20 +8,17 @@ namespace C_Thorn.InGame.IA
     using C_Thorn.Game.Characters;
     public class PowerUPPoint : BaseAI, IEnterCollider
     {
-
         #region Attributes
         [Header("Points")]
-        [SerializeField] int _point;
+        [SerializeField] int _pointsReward;
         #endregion
 
         #region private custom method
-        public void ToEnterCollider(GameObject _player)
+        public void IToEnterCollider(GameObject _player)
         {
-            ToolsAlex.GetClampValue(_player.GetComponent<PlayerController>().countPoint , 1 , 100 , _point);
+            ToolsAlex.GetClampValue(_player.GetComponent<PlayerController>()._countPoint , 1 , 100 , _pointsReward);
             _ToDestroy();
         }
-
         #endregion
     }
-
 }

@@ -1,27 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 namespace C_Thorn.UI.Controller
 {
-
-using C_Thorn.Tools.Interfaces;
+    using C_Thorn.Tools.Interfaces;
     public class ButtonsController : MonoBehaviour
     {
         #region Attributes
         [Header("Set alls buttons to acction")]
-        [SerializeField] private Button[]  _buttons;
+        [SerializeField] private Button[]  _buttonArray;
         #endregion
 
         #region UnityCalls
         private void Start()
         {
-            if ( _buttons.Length == 0 ) return;
-            for ( int _raidButtons = 0 ; _raidButtons < _buttons.Length ; _raidButtons++ )
+            if ( _buttonArray.Length != 0 )
+                ToAddActionButton();
+        }
+        #endregion
+
+        #region private custom methods 
+        void ToAddActionButton()
+        {
+            for ( int i = 0 ; i < _buttonArray.Length ; i++ )
             {
-                if ( _buttons[_raidButtons].TryGetComponent(out IButtonAction _iActionButton) )
+                if ( _buttonArray[i].TryGetComponent(out IButtonAction _iActionButton) )
                 {
-                    _buttons[_raidButtons].onClick.AddListener(() => _iActionButton.ToButtonAction());
+                    _buttonArray[i].onClick.AddListener(() => _iActionButton.IToButtonAction());
                 }
             }
         }

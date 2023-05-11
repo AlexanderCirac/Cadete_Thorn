@@ -4,43 +4,21 @@ using System.Collections;
 
 namespace C_Thorn.InGame.IA
 {
-
     using C_Thorn.Tools.Templates;
     public class WallChaleng : BaseAI
     {
 
         #region Attributes
         [Header("Change Walls")]
-        [SerializeField] GameObject _wall1;
-        [SerializeField] GameObject _wall2;
+        [SerializeField]    GameObject  _wall1;
+        [SerializeField]    GameObject  _wall2;
+
         //Animation Blink Walls
         [Header("Blink Walls")]
-        [SerializeField] float  _timeBlink, _saveTimeBlink;
-        int  _iDWall = 1;
-        #endregion
+        [SerializeField]    float       _timeBlink, _saveTimeBlink;
+        private             int         _iDWall = 1;
 
-        #region UnityCalls
-        void Start() => StartUp();
-        #endregion
-
-        #region custom private Methods
-        void StartUp()
-        {         
-            StartCoroutine(CorrutineFlipFlopWalls());
-        }
-        IEnumerator CorrutineFlipFlopWalls()
-        {
-            while ( SceneManager.GetActiveScene().isLoaded )
-            {
-                yield return new WaitForSeconds(_timeBlink);
-                _timeBlink = _timeBlink < 0.1f ? _saveTimeBlink : _timeBlink -= ( ( _timeBlink * 20 ) / 100 );
-                if ( _timeBlink == _saveTimeBlink )
-                    ToFlipFlopWalls = !ToFlipFlopWalls;
-                else
-                    ToBlinkWalls();
-
-            }
-        }
+        //Patron Observer
         bool ToFlipFlopWalls
         {
             get => ToFlipFlopWalls = false;
@@ -61,6 +39,33 @@ namespace C_Thorn.InGame.IA
                 }
             }
         }
+        #endregion
+
+        #region UnityCalls
+        void Start() => StartUp();
+        #endregion
+
+        #region custom private Methods
+        void StartUp()
+        {         
+            StartCoroutine(CorrutineFlipFlopWalls());
+        }
+        IEnumerator CorrutineFlipFlopWalls()
+        {
+            while ( SceneManager.GetActiveScene().isLoaded )
+            {
+                yield return new WaitForSeconds(_timeBlink);
+                _timeBlink = _timeBlink < 0.1f ? _saveTimeBlink : _timeBlink -= ( ( _timeBlink * 20 ) / 100 );
+                if ( _timeBlink == _saveTimeBlink )
+                {
+                    ToFlipFlopWalls = !ToFlipFlopWalls;
+                }
+                else
+                {
+                    ToBlinkWalls();
+                }
+            }
+        }      
         void ToBlinkWalls()
         {
             switch ( _iDWall )

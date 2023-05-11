@@ -1,34 +1,31 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-using AlexanderCA.Tools.Generics;
-using C_Thorn.Tools.Interfaces;
-using C_Thorn.Tools.Enums;
-
-public class BulletPref : MonoBehaviour, IMonoPool
+namespace C_Thorn.ScritpPref
 {
-    #region Attributes
-    private ToolsAlex.PoolMonoObjectGeneric<Transform> onKill;
-    public ToolsAlex.PoolMonoObjectGeneric<Transform> poolMono { get => onKill; set => onKill = value; }
-
-    #endregion
-
-    #region custom Method
-    public void Init()
+    using AlexanderCA.Tools.Generics;
+    using C_Thorn.Tools.Interfaces;
+    public class BulletPref : MonoBehaviour, IMonoPool
     {
-        Invoke(nameof(_ToDestroy) , 0.3f);
-        Rigidbody _rg =GetComponent<Rigidbody>();
-        _rg.velocity = transform.right * 30;
-    }
-    void _ToDestroy()
-    {
-        Transform[] inUseObjects = onKill.GetInUseObjects();
-        foreach ( Transform obj in inUseObjects )
+        #region Attributes
+        private ToolsAlex.SingularPoolGeneric<Transform>  onKill;
+        public ToolsAlex.SingularPoolGeneric<Transform>   poolMono { get => onKill; set => onKill = value; }
+        #endregion
+
+        #region custom Method
+        public void Init()
         {
-            onKill.ReleaseObject(obj);
+            Invoke(nameof(_ToDestroy) , 0.3f);
+            Rigidbody _rg =GetComponent<Rigidbody>();
+            _rg.velocity = transform.right * 30;
         }
+        void _ToDestroy()
+        {
+            Transform[] inUseObjects = onKill.GetInUseObjects();
+            foreach ( Transform obj in inUseObjects )
+            {
+                onKill.ReleaseObject(obj);
+            }
+        }
+        #endregion
     }
-    #endregion
 }

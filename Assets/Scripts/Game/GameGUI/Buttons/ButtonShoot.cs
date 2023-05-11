@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.Pool;
 
 namespace C_Thorn.UI
 {
@@ -13,13 +10,12 @@ namespace C_Thorn.UI
         #region Attributes
         [Header("Element Instantiate")]
         [SerializeField] GameObject _bulletPref;
-        [SerializeField] GameObject _puntero;
-        //[SerializeField] BulletPref _bulletPref;
+        [SerializeField] GameObject _shootingPeephole;
 
         [Header("object Pool")]
-        public bool _isUsePool = false;
-        private ToolsAlex.PoolMonoObjectGeneric<Transform> pool;
-        public int _maxCapacity = 100;
+        public  bool    _isUsePool = false;
+        public  int     _maxCapacityPool = 100;
+        private ToolsAlex.SingularPoolGeneric<Transform> _poolSystem;
         #endregion
 
         #region UnityCalls 
@@ -27,31 +23,25 @@ namespace C_Thorn.UI
         {
             if ( _isUsePool )
             {
-                pool = new ToolsAlex.PoolMonoObjectGeneric<Transform>(_bulletPref.GetComponent<Transform>() , _maxCapacity);
+                _poolSystem = new ToolsAlex.SingularPoolGeneric<Transform>(_bulletPref.GetComponent<Transform>() , _maxCapacityPool);
             }
         }
         #endregion
 
-        #region private custom methods 
-       
-        #endregion
-
         #region public custom methods 
-
-        #endregion
-        public void ToButtonAction()
+        public void IToButtonAction()
         {
             if ( _isUsePool )
             {
-                Transform bullet = pool.GetObject();
-                bullet.transform.position = _puntero.transform.position;
-                bullet.transform.rotation = _puntero.transform.rotation;
+                Transform bullet = _poolSystem.GetObject();
+                bullet.transform.position = _shootingPeephole.transform.position;
+                bullet.transform.rotation = _shootingPeephole.transform.rotation;
                 bullet.gameObject.SetActive(true);
-                bullet.GetComponent<IMonoPool>().poolMono = pool;
+                bullet.GetComponent<IMonoPool>().poolMono = _poolSystem;
                 bullet.GetComponent<ITypeDamage>()._typeBullet = TypeBullet.bulletPlayer;
                 bullet.GetComponent<IMonoPool>().Init();
             }
         }
+        #endregion
     }
-
 }

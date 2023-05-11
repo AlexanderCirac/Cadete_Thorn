@@ -1,17 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace C_Thorn.Tools.Enums
 {
-    public enum Enums_Inputs
-    {
-        none,
-        down,
-        up,
-        press
-    }
-
     public enum Enums_AnimationPlayer
     {
         none,
@@ -22,7 +10,6 @@ namespace C_Thorn.Tools.Enums
         Attack,
         Dead
     }
-
     public enum Enums_StateGame
     {
         none,
@@ -31,14 +18,12 @@ namespace C_Thorn.Tools.Enums
         Victory,
         Deffet
     }
-
     public enum TypeBullet
     {
         none,
         bulletPlayer,
         bulletEnemy
     }
-
     public enum TypePlayer
     {
         Player,

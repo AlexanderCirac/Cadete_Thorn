@@ -1,12 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace AlexanderCA.Tools.Generics
 {
-
     public static class ToolsAlex
     {
         public enum TypeOverlap
@@ -17,13 +15,13 @@ namespace AlexanderCA.Tools.Generics
         }
 
         #region Pool design pattern
-        public class PoolMonoObjectGeneric<T> where T : Component
+        public class SingularPoolGeneric<T> where T : Component
         {
             private List<T> availableObjects = new List<T>();
             private List<T> inUseObjects = new List<T>();
             public T prefab;
 
-            public PoolMonoObjectGeneric(T prefab , int initialSize)
+            public SingularPoolGeneric(T prefab , int initialSize)
             {
                 this.prefab = prefab;
 
@@ -68,13 +66,13 @@ namespace AlexanderCA.Tools.Generics
             }
         }
 
-        public class PoolMultiGeneric<T> where T : Component
+        public class PluralPoolGeneric<T> where T : Component
         {
             private List<T> availableObjects = new List<T>();
             private List<T> inUseObjects = new List<T>();
             public T[] prefabs;
 
-            public PoolMultiGeneric(T[] prefabs , int initialSize)
+            public PluralPoolGeneric(T[] prefabs , int initialSize)
             {
                 this.prefabs = prefabs;
 
@@ -147,7 +145,6 @@ namespace AlexanderCA.Tools.Generics
                     return _instance;
                 }
             }
-
             public virtual void DontDestroy()
             {
                 if ( _instance == null )
@@ -161,13 +158,11 @@ namespace AlexanderCA.Tools.Generics
                 }
             }
         }
-
         #endregion
         public static int GetChangeValue(int value , int decrementAmount , int minLimit)
         {
             return Mathf.Max(minLimit , value - decrementAmount);
         }
-
         public static int GetClampValue(int value , int minValue , int maxValue , int operation , UnityAction OnClampExceded = null)
         {
             int result = value + operation;
@@ -178,16 +173,13 @@ namespace AlexanderCA.Tools.Generics
                 OnClampExceded?.Invoke();
             return result;
         }
-
         public static RectTransform GetRectTransform(this Transform t)
         {
             return t as RectTransform;
         }
-
         public static bool IsOverlap3D(LayerMask _mask , GameObject _whoCheckObject , TypeOverlap _typeOverlap)
         {
             bool  _checkGround = false;
-
             switch ( _typeOverlap )
             {
                 case TypeOverlap.none:
@@ -212,11 +204,8 @@ namespace AlexanderCA.Tools.Generics
                     _checkGround = false;
                     break;
             }
-
-
             return _checkGround;
         }
-
         #region GetObjectScreenLimits
         public class ParametresScreen
         {
@@ -261,7 +250,6 @@ namespace AlexanderCA.Tools.Generics
 
         }
         #endregion
-
         public static void SetNewAnimation<TEnum>(TEnum _nameAnimationPlay , Animator _animator) where TEnum : Enum
         {
             if ( !_animator.GetBool(_nameAnimationPlay.ToString()) )
@@ -276,6 +264,5 @@ namespace AlexanderCA.Tools.Generics
                 }
             }
         }
-
     }
 }

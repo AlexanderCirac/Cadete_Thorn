@@ -9,21 +9,21 @@ namespace C_Thorn.Game.Characters
 
         #region 
         [Header("Variables controllers")]
-        public int countPoint;
-        public bool _isDead;
+        public  int     _countPoint;
+        public  bool    _isDead;
         #endregion
 
         #region  UnityCalls
         private void OnMouseDrag()
         {
-            if( !_isDead )
-            ToMovementController();
+            if ( !_isDead )
+            {
+                ToMovementController();
+            }
         }
         #endregion
 
         #region  Abstarct
-
-
         protected override void ToDeadController()
         {
             base.ToDeadController();
@@ -33,22 +33,24 @@ namespace C_Thorn.Game.Characters
         {
             throw new System.NotImplementedException();
         }
-
         public override void ToMovementController()
         {
             base.ToMovementController();
-
+                //Controll animations
             if ( _inputs.GetMove().x > _posInit.x )
-                _inputs._myDelegateAnimations?.Invoke(Enums_AnimationPlayer.MoveLeft , true);         
+            {
+                _inputs._myDelegateAnimations?.Invoke(Enums_AnimationPlayer.MoveLeft , true);
+            }
             if ( _inputs.GetMove().x < _posInit.x )
+            {
                 _inputs._myDelegateAnimations?.Invoke(Enums_AnimationPlayer.MoveRigh , true);
+            }
             if ( _inputs.GetMove().x == _posInit.x )
+            {
                 _inputs._myDelegateAnimations?.Invoke(Enums_AnimationPlayer.Idle , true);
- 
+            }
         }
+         #endregion
     }
-    #endregion
-
-
 }
 

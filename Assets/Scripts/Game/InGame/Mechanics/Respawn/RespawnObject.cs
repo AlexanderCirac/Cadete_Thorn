@@ -8,21 +8,21 @@ namespace C_Thorn.InGame.Mechanicals
     {
         #region Attributes
         [Header("Objects to spawn")]
-        [SerializeField] Transform[] _prefabs; 
-        private ToolsAlex.PoolMultiGeneric<Transform> pool; 
-        [SerializeField] GameObject _point; 
+        [SerializeField] private    Transform[]     _prefabs; 
+        [SerializeField] private    GameObject      _point; 
+                         private    ToolsAlex.PluralPoolGeneric<Transform> pool; 
         #endregion
 
         #region UnityCalls
         void Start() => Init();
         #endregion
+
         #region privat custom methods
         void Init()
         {
-            pool = new ToolsAlex.PoolMultiGeneric<Transform>(_prefabs , 10);
+            pool = new ToolsAlex.PluralPoolGeneric<Transform>(_prefabs , 10);
             InvokeRepeating(nameof(InstancePrefab) , .5f , 3f);
         }
-
         void InstancePrefab()
         {
             Transform bullet = pool.GetObject();
@@ -31,9 +31,7 @@ namespace C_Thorn.InGame.Mechanicals
             bullet.gameObject.SetActive(true);
             bullet.GetComponent<IPluriPool>().poolPluri = pool;
             bullet.GetComponent<IPluriPool>().Init();
-
-        }
-        
+        }        
         #endregion
     }
 }

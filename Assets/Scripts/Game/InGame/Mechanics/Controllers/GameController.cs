@@ -10,16 +10,16 @@ namespace C_Thorn.InGame.Controller
     {
         #region Attributes
         [Header("Variables Victory")]
-        private Enums_StateGame _state;
-        private int _puntos;
-        public int _puntosMax;
+        private     Enums_StateGame _state;
+        private     int             _currentPoints;
+        public      int             _maxPoints;
         public int Puntos
         {
-            get { return _puntos; }
+            get { return _currentPoints; }
             set
             {
-                _puntos = value;
-                if ( _puntos > _puntosMax )
+                _currentPoints = value;
+                if ( _currentPoints > _maxPoints )
                     EndingGame();
             }
         }
@@ -51,7 +51,6 @@ namespace C_Thorn.InGame.Controller
                     default:
                         break;
                 }
-
             }
         }
         public static GameController Instance
@@ -62,8 +61,8 @@ namespace C_Thorn.InGame.Controller
             }
         }
         [Header("Variables endings")]
-        [SerializeField] Button _victoryButton;
-        [SerializeField] Button _defeatButton;
+        [SerializeField]    Button  _victoryButton;
+        [SerializeField]    Button  _defeatButton;
         #endregion
 
         #region private custom method
@@ -75,12 +74,10 @@ namespace C_Thorn.InGame.Controller
             Time.timeScale = 1;
             _state = Enums_StateGame.NormalSpeed;
         }
-
         void NormalSpeed()
         {
-            return;
+            Time.timeScale = 1;
         }
-
         void EndingGame()
         {
             _panelVictory.SetActive(true);

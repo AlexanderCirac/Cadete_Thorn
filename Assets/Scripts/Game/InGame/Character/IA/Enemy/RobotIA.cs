@@ -5,60 +5,55 @@ namespace C_Thorn.InGame.IA
     using C_Thorn.Tools.Templates;
     using C_Thorn.Tools.Interfaces;
     using AlexanderCA.Tools.Generics;
-    using C_Thorn.Game.Characters;
-    using C_Thorn.InGame.Controller;
     public class RobotIA : BaseAI
     {
         #region Attributes
         [Header("Element Instantiate")]
-        [SerializeField] GameObject _bulletPref;
-        [SerializeField] GameObject _puntero;
+        [SerializeField]    GameObject  _bulletPref;
+        [SerializeField]    GameObject  _shootingPeephole;
 
         [Header("object Pool")]
-        private ToolsAlex.PoolMonoObjectGeneric<Transform> pool;
-        public int _maxCapacity = 100;
+        public  int _maxCapacityPool = 100;
+        private ToolsAlex.SingularPoolGeneric<Transform> _singularPool;
         #endregion
 
         #region UnityCall
         private void OnBecameVisible()
         {
-            if ( ToolsAlex.IsOverlap3D(LayerMask.NameToLayer("Player"), this.gameObject , ToolsAlex.TypeOverlap.sphere) )
-                ToAction();
-
-            GameObject _player = GameObject.FindWithTag("Player");
-            _puntero.transform.LookAt(_player.transform);
-
+            DetectedPlayer();
+            LookAtPlayer();
         }
         #endregion
 
         #region private custom method
-        public void ToEnterCollider(GameObject _player)
+        void DetectedPlayer()
         {
-            GameController.Instance._stateGame = Tools.Enums.Enums_StateGame.Deffet;
-            if ( _player.GetComponent<PlayerController>() != null )
-                _player.GetComponent<PlayerController>()._isDead = true;
-            _ToDestroy();
+            if ( ToolsAlex.IsOverlap3D(LayerMask.NameToLayer("Player") , this.gameObject , ToolsAlex.TypeOverlap.sphere) )
+            {
+                ToActionBaseIA();
+            }
         }
-
-        public void IEnterBullet()
-        {         
-            _ToDestroy();
-        }
-
-        public override void ToAction()
+        void LookAtPlayer()
         {
-            InvokeRepeating(nameof(ToShoot) , 0.5f , 1f);
+            GameObject _player = GameObject.FindWithTag("Player");
+            _shootingPeephole.transform.LookAt(_player.transform);
         }
-
         void ToShoot()
         {
-            Transform bullet = pool.GetObject();
-            bullet.transform.position = _puntero.transform.position;
-            bullet.transform.rotation = _puntero.transform.rotation;
-            bullet.gameObject.SetActive(true); 
-            bullet.GetComponent<IMonoPool>().poolMono = pool;
+            Transform bullet = _singularPool.GetObject();
+            bullet.transform.position = _shootingPeephole.transform.position;
+            bullet.transform.rotation = _shootingPeephole.transform.rotation;
+            bullet.gameObject.SetActive(true);
+            bullet.GetComponent<IMonoPool>().poolMono = _singularPool;
             bullet.GetComponent<ITypeDamage>()._typeBullet = Tools.Enums.TypeBullet.bulletEnemy;
             bullet.GetComponent<IMonoPool>().Init();
+        }
+        #endregion
+
+        #region public custom method
+        public override void ToActionBaseIA()
+        {
+            InvokeRepeating(nameof(ToShoot) , 0.5f , 1f);
         }
         #endregion
     }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace C_Thorn.Tools.Templates
@@ -9,8 +7,8 @@ namespace C_Thorn.Tools.Templates
     public abstract class CharacterTemplate : MonoBehaviour, IChangeLife
     {
         #region Attributes
-        protected  InputTemplate  _inputs;
-        private    float          _health = 100;
+        protected  InputTemplate    _inputs;
+        private    float            _health = 100;
         protected  Vector3          _posInit;
         public float Health
         {
@@ -25,20 +23,18 @@ namespace C_Thorn.Tools.Templates
                     ToDeadController();
             }
         }
-
         private TypePlayer _typePlayer = TypePlayer.Player;
-        public TypePlayer _TypePlayer { get => _typePlayer; set => _typePlayer = value; }
+        public  TypePlayer _TypePlayer { get => _typePlayer; set => _typePlayer = value; }
         #endregion
 
         #region UnityCalls
-        protected virtual void LateUpdate()
-        {
-            _posInit = transform.position;
-
-        }
         protected virtual void Awake()
         {
             TryGetComponent(out _inputs);
+            _posInit = transform.position;
+        }
+        protected virtual void LateUpdate()
+        {
             _posInit = transform.position;
         }
         #endregion
@@ -60,7 +56,6 @@ namespace C_Thorn.Tools.Templates
         {
             Health -= _damage;
         }
-
         #endregion
     }
 }

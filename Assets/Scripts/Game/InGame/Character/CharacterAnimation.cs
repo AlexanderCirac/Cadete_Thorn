@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace C_Thorn.Game.Characters
@@ -9,23 +7,23 @@ namespace C_Thorn.Game.Characters
     public class CharacterAnimation : MonoBehaviour
     {
         #region Attributes
-        private Animator _animator => GetComponent<Animator>();
-        private Enums_AnimationPlayer _currentState;
-        public Enums_AnimationPlayer _animationPlay
+        private     Animator                _animatorController  => GetComponent<Animator>();
+        private     Enums_AnimationPlayer   _currentStateAnimation;
+        public      Enums_AnimationPlayer   CurrentStateAnimation
         {
             get
             {
-                return _currentState;
+                return _currentStateAnimation;
             }
             set
             {
-                _currentState = value;
-                if ( value != _currentState )
-                    ToolsAlex.SetNewAnimation(value , _animator);
+                if ( value != _currentStateAnimation )
+                {
+                    ToolsAlex.SetNewAnimation(value , _animatorController);
+                    _currentStateAnimation = value;
+                }
             }
         }
         #endregion
-
-
     }
 }
