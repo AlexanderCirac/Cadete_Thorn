@@ -2,9 +2,9 @@
 
 Link: https://play.google.com/store/apps/details?id=alexander.cadetethorn
 
-Vs_01: Initial proyect 
-Vs_02: Refactor 01
-Vs_03: Current Refactor 02
+Vs_01: Initial proyect - amateur programmer
+Vs_02: Refactor 01 - Enums, Refactor name variables and methods, #regions, namespace, corrutina, restruct scritps and reorganize(Headers, space, correct lineation... ), Unity Events, Inheritance, Array, Plataform dependent compilation
+Vs_03: Refactor 02 - SOLID, disign Patrons ( Observer, singleton, Templates), scriptable Object, begining to Zenject and UniRX, Generics, Refactor unity Events, Assemblys, Dinamic list, Interface, Class Helper
 
 ESP: 
 
@@ -12,7 +12,6 @@ Hola a todos, soy el creador de un juego en Unity para la plataforma Android que
 
 He pasado innumerables horas desarrollando este juego en Unity, asegurándome de que cada detalle esté cuidado al máximo para ofrecer una experiencia de juego excepcional. 
 
-ADVERTENCIA: AUN LO ESTOY REFACTORIZANDO
 
 /////////// Mi metodos de trabajo ///////////////
 
@@ -20,7 +19,7 @@ Como dijo Steve Jobs: "La innovación distingue entre un líder y un seguidor". 
 
 Mi metodología de trabajo se enfoca en utilizar herramientas que me permitan mantener el código limpio y ordenado, como UniRX y Znject, herramientas que estoy continuamente aprendiendo. Siempre trato de mantener mis carpetas y contenido de escenas organizados, estructurando mi código a través de conceptos como "Assemblys", "Namespace" y "Regions". Además, para optimizar el código, implemento patrones de diseño como "En cascada", "Observer" y "Template".
 
-En resumen, como desarrollador, mi objetivo es mejorar continuamente mis habilidades y utilizar herramientas y patrones de diseño que me permitan crear juegos innovadores y profesionales. Como dijo Steve Jobs, "la innovación es lo que nos distingue como líderes".
+En resumen, como desarrollador, mi objetivo es mejorar continuamente mis habilidades y utilizar herramientas y patrones de diseño que me permitan crear juegos innovadores y profesionales.
 
 ENG:
 
@@ -28,7 +27,6 @@ Hello everyone, I am the creator of a Unity game for the Android platform that y
 
 I've spent countless hours developing this game in Unity, making sure every detail is taken care of to deliver an exceptional gaming experience.
 
-WARNING: I AM STILL REFACTORING IT
 
 /////////// My work methods ///////////////
 
@@ -36,4 +34,4 @@ As Steve Jobs said: "Innovation distinguishes between a leader and a follower." 
 
 My work methodology focuses on using tools that allow me to keep the code clean and tidy, such as UniRX and Znject, tools that I am constantly learning. I always try to keep my folders and scene content organized, structuring my code through concepts like "Assemblies", "Namespace" and "Regions". Also, to optimize the code, I implement design patterns like "Cascading", "Observer", "Template".
 
-In short, as a developer my goal is to continually improve my skills and use tools and design patterns that allow me to create innovative and professional games. As Steve Jobs said, "innovation is what sets us apart as leaders."
+In short, as a developer my goal is to continually improve my skills and use tools and design patterns that allow me to create innovative and professional games.
